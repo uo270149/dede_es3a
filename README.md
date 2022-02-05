@@ -15,6 +15,7 @@ Este proyecto es un ejemplo basico de un sitio web utilizando **React** con **Ty
 >* Andrés Ángel González Granda - uo68216@uniovi.es
 >* Andrea Auñón Antúnez - uo277876@uniovi.es
 >* Javier Lopez de Juan - uo271447@uniovi.es
+>* Alejandro Del Gallego Moro - uo271411@uniovi.es
 ## Guia de inicio rápido
 
 <mark>Si tienes instalados node.js y npm, asegurate de actualizarlos antes de intentar construir las imagenes</mark>
