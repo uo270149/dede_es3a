@@ -1,0 +1,14 @@
+[[section-architecture-constraints]]
+== Architecture Constraints
+
+Las restricciones o límites del proyecto pueden:
+	-Trabajar con personas que no son "amigos" nuestros 
+	haciendo que la organización sea un poco más costosa.
+	-Estamos limitados a usar TypeScript en el proyecto en vez de 
+	otros lenguajes con los que tendríamos mayor soltura.
+	-Facilitar documentación clara del proyecto,incluyendo los 
+	requisitos necesarios.
+[role="arc42help"]
+****
+
+****
