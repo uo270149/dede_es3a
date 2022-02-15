@@ -539,57 +539,31 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
-<p>Describes the relevant requirements and the driving forces that software architects and development team must consider. These include</p>
+<p>El proyecto trata de una aplicación de compra y venta de objetos cuyo codigo fuente sera realizado con "TypeScript"</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>underlying business goals, essential features and functional requirements for the system</p>
-</li>
-<li>
-<p>quality goals for the architecture</p>
-</li>
-<li>
-<p>relevant stakeholders and their expectations</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Objetivos de Negocio:
+	-A corto plazo: Realizar una documentación adecuada de manera que se cumplan las
+	expectativas y necesidades del proyecto.
+	-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos
+	de usabilidad para poder realizar compra/venta de <strong>ropa/objetos&#8230;&#8203;</strong> de una manera mas
+	cómoda,sencilla y accesible.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_requirements_overview">1.1. Requirements Overview</h3>
-<div class="paragraph">
-<p>PRUEBA
-	PRUEBA
-		PRUEBA</p>
-</div>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
-<div class="title">Contents</div>
-<p>Short description of the functional requirements, driving forces, extract (or abstract)
-of requirements. Link to (hopefully existing) requirements documents
-(with version number and information where to find it).</p>
+<p>Se necesitara una pequeña base de Typescript para la implementación de código de la aplicación y el uso de
+react para la implementación de cara al usuario.</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>From the point of view of the end users a system is created or modified to
-improve support of a business activity and/or improve the quality.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Short textual description, probably in tabular use-case format.
-If requirements documents exist this overview should refer to these documents.</p>
-</div>
-<div class="paragraph">
-<p>Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.</p>
+<p>Para realizar el control de versiones es necesario el uso de git, herramienta muy util para trabajos de
+gran tamaño permitiendo el uso de varias ramas para no alterar los prototipos del proyecto.</p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>PRUEBA
-	PRUEBA
-		PRUEBA</p>
 </div>
 </div>
 <div class="sect2">
@@ -597,17 +571,13 @@ If requirements documents exist this overview should refer to these documents.</
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
-<div class="title">Contents</div>
-<p>The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders. We really mean quality goals for the architecture. Don&#8217;t confuse them with project goals. They are not necessarily identical.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions. Make sure to be very concrete about these qualities, avoid buzzwords.
-If you as an architect do not know how the quality of your work will be judged …</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>A table with quality goals and concrete scenarios, ordered by priorities</p>
+<p>Objetivos de Calidad:
+	-Trabajo entregado por parte de todos los participantes de una manera constante, puntual y correcta
+	facilitando la evolución de la aplicación.
+	-Implicación individual de cumplir las tareas asignadas.
+	-Asegurar la limpieza y pulcritud del código.
+	-Realizar reuniones para realizar actas o análisis dentro de los intervalos de tiempo comprometidos.
+	-Que sea una aplicación vistosa/sencilla de usar.</p>
 </div>
 </div>
 </div>
@@ -618,36 +588,14 @@ If you as an architect do not know how the quality of your work will be judged �
 <div class="content">
 <div class="paragraph">
 <div class="title">Contents</div>
-<p>Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>should know the architecture</p>
-</li>
-<li>
-<p>have to be convinced of the architecture</p>
-</li>
-<li>
-<p>have to work with the architecture or with code</p>
-</li>
-<li>
-<p>need the documentation of the architecture for their work</p>
-</li>
-<li>
-<p>have to come up with decisions about the system or its development</p>
-</li>
-</ul>
+<p>Administradores:
+Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
+todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para
+plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>You should know all parties involved in development of the system or affected by the system.
-Otherwise, you may get nasty surprises later in the development process.
-These stakeholders determine the extent and the level of detail of your work and its results.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Table with role names, person names, and their expectations with respect to the architecture and its documentation.</p>
+<p>Cliente: Quien interactuaría con la version final de la aplicacíon para la realización de compra
+de Objetos.</p>
 </div>
 </div>
 </div>
@@ -660,20 +608,15 @@ These stakeholders determine the extent and the level of detail of your work and
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Role/Name</th>
-<th class="tableblock halign-left valign-top">Contact</th>
 <th class="tableblock halign-left valign-top">Expectations</th>
+<th class="tableblock halign-left valign-top">Administradores</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-1&gt;</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Esperan poder obtener una aplicacíon correcta y usable.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equipo de desarrollo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Esperan poder obtener una aplicacíon correcta y usable.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1750,7 +1693,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-14 00:05:00 +0100
+Last updated 2022-02-15 17:36:16 +0100
 </div>
 </div>
 </body>
