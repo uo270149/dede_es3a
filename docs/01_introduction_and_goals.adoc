@@ -1,5 +1,5 @@
 [[section-introduction-and-goals]]
-== Introduction and Goals
+
 
 [role="arc42help"]
 ****
@@ -12,8 +12,8 @@ Objetivos de Negocio:
 	de usabilidad para poder realizar compra/venta de *ropa/objetos...* de una manera mas 
 	cómoda,sencilla y accesible.		
 ****
+== Introduction and Goals
 
-=== Requirements Overview
 
 [role="arc42help"]
 ****
@@ -23,8 +23,8 @@ react para la implementación de cara al usuario.
 Para realizar el control de versiones es necesario el uso de git, herramienta muy util para trabajos de 
 gran tamaño permitiendo el uso de varias ramas para no alterar los prototipos del proyecto.
 ****
+=== Requirements Overview
 
-=== Quality Goals
 
 [role="arc42help"]
 ****
@@ -37,12 +37,9 @@ Objetivos de Calidad:
 	-Que sea una aplicación vistosa/sencilla de usar.
 
 ****
-
-=== Stakeholders
-
+=== Quality Goals
 [role="arc42help"]
 ****
-.Contents
 Administradores: 
 Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
 todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para 
@@ -52,11 +49,14 @@ Cliente: Quien interactuaría con la version final de la aplicacíon para la rea
 de Objetos.
 
 ****
+=== Stakeholders
 
-[options="header",cols="1,2,2"]
+
+
+[options="header",cols="1,2"]
 |===
-|Role/Name|Expectations
-| Administradores |Esperan poder obtener una aplicacíon correcta y usable.
+|Role/Name|Expectations| 
+Administradores |Realizar una administración cómoda y sin inconvenientes.
 | Equipo de desarrollo|Esperan poder obtener una aplicacíon correcta y usable.
 | Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
 |===
