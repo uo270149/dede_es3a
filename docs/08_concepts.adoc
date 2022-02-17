@@ -1,67 +1,42 @@
 [[section-concepts]]
 == Cross-cutting Concepts
 
-
-[role="arc42help"]
-****
-.Content
-This section describes overall, principal regulations and solution ideas that are
-relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks.
-They can include many different topics, such as
-
-* domain models
-* architecture patterns or design patterns
-* rules for using specific technology
-* principal, often technical decisions of overall decisions
-* implementation rules
-
-.Motivation
-Concepts form the basis for _conceptual integrity_ (consistency, homogeneity)
-of the architecture. Thus, they are an important contribution to achieve inner qualities of your system.
-
-Some of these concepts cannot be assigned to individual building blocks
-(e.g. security or safety). This is the place in the template that we provided for a
-cohesive specification of such concepts.
-
-.Form
-The form can be varied:
-
-* concept papers with any kind of structure
-* cross-cutting model excerpts or scenarios using notations of the architecture views
-* sample implementations, especially for technical concepts
-* reference to typical usage of standard frameworks (e.g. using Hibernate for object/relational mapping)
-
-.Structure
-A potential (but not mandatory) structure for this section could be:
-
-* Domain concepts
-* User Experience concepts (UX)
-* Safety and security concepts
-* Architecture and design patterns
-* "Under-the-hood"
-* development concepts
-* operational concepts
-
-Note: it might be difficult to assign individual concepts to one specific topic
-on this list.
-
-image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-****
-
-
 === Domain model
 
-image:UmlDiagram.png["Example UML Diagram"]
+Dede es una aplicación de compra de calzado, todo está enlazado con un diagrama
+de Entidad-Relación(ER-Diagram):
 
+image:DiagramaER.png["ER Diagram"]
 
+.Table
+[options="header",cols="1,2"]
+|===
+|Name|Descripción
+| Shoes | Almacena los zapatos registrados en la tienda
+| User| Cliente el cuál accede a la aplicación y se registra para realizar compras.
+| Delivery| Recoge la información del pedido para realizar el reparto.
+| Shopping cart| Almacena todo los objetos que el cliente desea comprar.
+|===
 
-=== _<Concept 2>_
+=== User Interface
 
-_<explanation>_
+Para realizar la Interfaz de usuario de nuestra aplicación usaremos React.
+React es una biblioteca de Javascript de código abierto con la que se pueden crear 
+numerosas interfaces de usuario facilitando el desarrollo de aplicaciones en una sóla página.
+React es mantenido por Facebook y la comunidad de software libre.
 
-...
+=== TypeScript and CSS optimization
 
-=== _<Concept n>_
+La opción más sencilla: estilos en línea. No aporta toda la flexibilidad de CSS, 
+pero si aporta un estilo básico con una especificidad de nivel superior. 
+Cada elemento React HTML tiene una propiedad de estilo que permite un objeto con todo 
+el estilo que hayas planteado con anterioridad.Los objetos pueden tener este aspecto:
 
-_<explanation>_
+image:cssOptimization.png["Example css"]
+
+=== DataBase
+
+Hemos decidido usar como base de datos "MongoDB" la cual es una base de datos que usamos en
+otras asignaturas y podremos manejarnos de una manera más fluida que con otras bases de datos.
+MongoDB ofrece una gran escalabilidad y flexibilidad, así como un modelo de consultas e indexación 
+avanzado.
