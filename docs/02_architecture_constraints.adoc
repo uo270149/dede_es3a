@@ -32,7 +32,7 @@ Tabla con todas las restricciones técnicas junto con una breve descripción .
 .Contents
 Son las restricciones de negocio para el desarrollo del sistema.
 
-.Form
+.Form 
 Tabla con todas las restricciones de negocio junto con una breve descripción .
 ****
 
@@ -42,4 +42,3 @@ Tabla con todas las restricciones de negocio junto con una breve descripción .
 |Equipo| El equipo esta formado por 4 personas con las que apenas hemos interactuado con anterioridad.
 |Horarios_Estudiantes| Todos somos estudiantes con más asignaturas o incluso que trabaja mientras cursa esta asignatura.
 |===
-

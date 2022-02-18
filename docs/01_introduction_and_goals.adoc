@@ -6,6 +6,7 @@
 El proyecto trata de una aplicación de compra y venta de objetos cuyo codigo fuente sera realizado con "TypeScript"
 
 Objetivos de Negocio: 
+
 	-A corto plazo: Realizar una documentación adecuada de manera que se cumplan las 
 	expectativas y necesidades del proyecto.
 	-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos 
