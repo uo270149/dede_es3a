@@ -48,39 +48,25 @@ Describe (usually in a combination of diagrams, tables, and text):
 For multiple environments or alternative deployments please copy that section of arc42 for all relevant environments.
 ****
 
-_**<Overview Diagram>**_
+image:DiagramaDespliegue.png["DiagramaDespliegue"]
 
 Motivation::
 
-_<explanation in text form>_
+Sin un buen hardware sobre el que correr y ejecutar la aplicación nada podría llevarse a cabo, por lo que se ha intentado
+proporcionar un buen sistema relatado visualmente en el diagrama.
 
 Quality and/or Performance Features::
 
-_<explanation in text form>_
+Como nuestro objetivo es tener un sistema óptimo tanto en cuanto a rendimiento como seguridad y otras características, se ha 
+intentado buscar y comenzar a usar la mejor infraestructura posible.
 
 Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
-
-
-=== Infrastructure Level 2
-
-[role="arc42help"]
-****
-Here you can include the internal structure of (some) infrastructure elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-****
-
-==== _<Infrastructure Element 1>_
-
-_<diagram + explanation>_
-
-==== _<Infrastructure Element 2>_
-
-_<diagram + explanation>_
-
-...
-
-==== _<Infrastructure Element n>_
-
-_<diagram + explanation>_
+[options="header",cols="1,2"]
+|===
+|Building Block|Mapping
+| MongoDB | La base de datos elegida que estará dentro de un servidor y será usada por la aplicación.
+| RestAPI| Interfaz entre sistemas para el intercambio de peticiones.
+| WebApp| La parte donde el usuario podrá interactuar, el cual ejecuta el navegador web.
+| Web browser| Depende de la elección del usuario, y única forma de acceder a la aplicación.
+| POD| "Almacenes" para guardar los datos de los usuarios de forma segura.
+|===
