@@ -1,26 +1,33 @@
 [[section-design-decisions]]
 == Design Decisions
 
+=== Using MongoDb
+MongoDB es un sistema de base de datos NoSQL, orientado a documentos y 
+de código abierto.En lugar de guardar los datos en tablas, tal y como se hace en las bases 
+de datos relacionales,MongoDB guarda estructuras de datos BSON (una especificación 
+similar a JSON)con un esquema dinámico, haciendo que la integración de los datos en 
+ciertas aplicaciones sea más fácil y rápida. MongoDB es una base de datos adecuada para 
+su uso en producción y con múltiples funcionalidades.
 
-[role="arc42help"]
-****
-.Contents
-Important, expensive, large scale or risky architecture decisions including rationals.
-With "decisions" we mean selecting one alternative based on given criteria.
 
-Please use your judgement to decide whether an architectural decision should be documented
-here in this central section or whether you better document it locally
-(e.g. within the white box template of one building block).
+=== Using Git for VersionsControll
 
-Avoid redundancy. Refer to section 4, where you already captured the most important decisions of your architecture.
+Usaremos git para realizar el control de versiones. Con git, trabajaremos cada uno de los
+miembros del equipo sobre la rama "develop",rama que creamos con anterioridad.
+Sobre esa rama iremos creando diferentes subramas con nombres como "uoXXXX-<cambio a realizar>".
+Una vez terminada esa subrama realizaremos un merge sobre develop, para finalmente realizar un
+merge sobre la rama master.
 
-.Motivation
-Stakeholders of your system should be able to comprehend and retrace your decisions.
+Git es una herramienta que nos sirve de mucha utilidad para no pisar el trabajo de los demás
+miembros del equipo.
 
-.Form
-Various options:
+image:git.png["Git"]
 
-* List or table, ordered by importance and consequences or:
-* more detailed in form of separate sections per decision
-* ADR (architecture decision record) for every important decision
-****
+=== Using React for FrontEnd
+
+Para crear la parte de "User Interface" usaremos React, una herramienta que nos ayudará a crear
+interfaces de usuario interactivas de forma sencilla diseñando vistas simples para cada estado
+en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
+que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.
+
+image:react.png["React"]
