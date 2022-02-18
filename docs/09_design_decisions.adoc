@@ -1,6 +1,6 @@
 [[section-design-decisions]]
 == Design Decisions
-
+ 
 === Using MongoDb
 MongoDB es un sistema de base de datos NoSQL, orientado a documentos y 
 de código abierto.En lugar de guardar los datos en tablas, tal y como se hace en las bases 
@@ -21,7 +21,7 @@ merge sobre la rama master.
 Git es una herramienta que nos sirve de mucha utilidad para no pisar el trabajo de los demás
 miembros del equipo.
 
-image:git.png["Git"]
+image:git.png["GIT"]
 
 === Using React for FrontEnd
 
@@ -30,4 +30,4 @@ interfaces de usuario interactivas de forma sencilla diseñando vistas simples p
 en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
 que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.
 
-image:react.png["React"]
+image:react.png["REACT"]
