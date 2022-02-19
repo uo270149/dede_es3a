@@ -1,7 +1,7 @@
 [[section-design-decisions]]
-== Design Decisions
+== Decisiones de Diseño
  
-=== Using MongoDb
+=== Utilizar MongoDb
 MongoDB es un sistema de base de datos NoSQL, orientado a documentos y 
 de código abierto.En lugar de guardar los datos en tablas, tal y como se hace en las bases 
 de datos relacionales,MongoDB guarda estructuras de datos BSON (una especificación 
@@ -10,7 +10,7 @@ ciertas aplicaciones sea más fácil y rápida. MongoDB es una base de datos ade
 su uso en producción y con múltiples funcionalidades.
 
 
-=== Using Git for VersionsControll
+=== Utilizar Git para el control de versiones
 
 Usaremos git para realizar el control de versiones. Con git, trabajaremos cada uno de los
 miembros del equipo sobre la rama "develop",rama que creamos con anterioridad.
@@ -23,7 +23,7 @@ miembros del equipo.
 
 image:git.png["GIT"]
 
-=== Using React for FrontEnd
+=== Utilizar React para el FrontEnd
 
 Para crear la parte de "User Interface" usaremos React, una herramienta que nos ayudará a crear
 interfaces de usuario interactivas de forma sencilla diseñando vistas simples para cada estado
