@@ -37,3 +37,12 @@ el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente 
 
 image:DiagramaCompra.png["DiagramaCompra"]
 
+=== <Proceso de Login>
+El segundo escenario muestra el proceso de "Login". Para ello, 
+el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
+volverá a la pantalla de inicio con la sesión iniciada.
+
+image:DiagramaLogin.png["LogIn"]
+
+
+
