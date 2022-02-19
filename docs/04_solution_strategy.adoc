@@ -1,6 +1,5 @@
 [[section-solution-strategy]]
-== Solution Strategy
-
+== Estrategia de la solución
 
 [role="arc42help"]
 ****

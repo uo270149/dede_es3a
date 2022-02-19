@@ -1,7 +1,7 @@
 [[section-concepts]]
-== Cross-cutting Concepts
+== Conceptos Transversales (Cross-cutting)
 
-=== Domain model
+=== Modelo del dominio
 
 Dede es una aplicación de compra de calzado, todo está enlazado con un diagrama
 de Entidad-Relación(ER-Diagram):
@@ -18,14 +18,14 @@ image:DiagramaER.png["ER Diagram"]
 | Shopping cart| Almacena todo los objetos que el cliente desea comprar.
 |===
 
-=== User Interface
+=== Interfaz de usuario
 
 Para realizar la Interfaz de usuario de nuestra aplicación usaremos React.
 React es una biblioteca de Javascript de código abierto con la que se pueden crear 
 numerosas interfaces de usuario facilitando el desarrollo de aplicaciones en una sóla página.
 React es mantenido por Facebook y la comunidad de software libre.
 
-=== TypeScript and CSS optimization
+=== Optimización de TypeScript y CSS 
 
 La opción más sencilla: estilos en línea. No aporta toda la flexibilidad de CSS, 
 pero si aporta un estilo básico con una especificidad de nivel superior. 
@@ -34,7 +34,7 @@ el estilo que hayas planteado con anterioridad.Los objetos pueden tener este asp
 
 image:cssOptimization.png["Example css"]
 
-=== DataBase
+=== Base de datos
 
 Hemos decidido usar como base de datos "MongoDB" la cual es una base de datos que usamos en
 otras asignaturas y podremos manejarnos de una manera más fluida que con otras bases de datos.

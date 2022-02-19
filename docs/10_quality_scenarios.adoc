@@ -1,5 +1,5 @@
 [[section-quality-scenarios]]
-== Quality Requirements
+== Requerimientos de Calidad
 
 
 [role="arc42help"]
@@ -17,7 +17,7 @@ decisions you should know for every stakeholder what is really important to them
 concrete and measurable.
 ****
 
-=== Quality Tree
+=== Árbol de calidad
 
 [role="arc42help"]
 ****
@@ -36,7 +36,7 @@ The quality tree is a high-level overview of the quality goals and requirements:
 In any case the tree should include links to the scenarios of the following section.
 ****
 
-=== Quality Scenarios
+=== Escenarios de calidad
 
 [role="arc42help"]
 ****
