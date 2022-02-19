@@ -1,5 +1,5 @@
 [[section-architecture-constraints]]
-== Architecture Constraints
+== Restricciones de la Arquitectura
 [role="arc42help"]
 ****
 .Contents
@@ -8,7 +8,7 @@ en su libertad de diseño, toma de decisiones sobre la implementación o sobre
 el proceso del desarrollo.
 ****
 
-=== Technical constraints
+=== Restricciones técnicas
 [role="arc42help"]
 ****
 .Contents
@@ -26,7 +26,7 @@ Tabla con todas las restricciones técnicas junto con una breve descripción .
 |GitHub|El código ha de ser subido a un repositorio remoto en GitHub.
 |===
 
-=== Business constraints
+=== Restricciones de negocio
 [role="arc42help"]
 ****
 .Contents

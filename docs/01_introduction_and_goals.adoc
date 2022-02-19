@@ -3,6 +3,9 @@
 
 [role="arc42help"]
 ****
+		
+****
+== Introducción y Metas
 El proyecto trata de una aplicación de compra y venta de objetos cuyo codigo fuente sera realizado con "TypeScript"
 
 Objetivos de Negocio: 
@@ -11,25 +14,23 @@ Objetivos de Negocio:
 	expectativas y necesidades del proyecto.
 	-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos 
 	de usabilidad para poder realizar compra/venta de *ropa/objetos...* de una manera mas 
-	cómoda,sencilla y accesible.		
-****
-== Introduction and Goals
-
+	cómoda,sencilla y accesible.
 
 [role="arc42help"]
 ****
+****
+
+=== Vista de Requerimientos
 Se necesitara una pequeña base de Typescript para la implementación de código de la aplicación y el uso de 
 react para la implementación de cara al usuario.
 
 Para realizar el control de versiones es necesario el uso de git, herramienta muy util para trabajos de 
 gran tamaño permitiendo el uso de varias ramas para no alterar los prototipos del proyecto.
-****
-=== Requirements Overview
-
 
 [role="arc42help"]
 ****
-Objetivos de Calidad:
+****
+=== Metas de calidad
 	-Trabajo entregado por parte de todos los participantes de una manera constante, puntual y correcta
 	facilitando la evolución de la aplicación.
 	-Implicación individual de cumplir las tareas asignadas.
@@ -37,22 +38,11 @@ Objetivos de Calidad:
 	-Realizar reuniones para realizar actas o análisis dentro de los intervalos de tiempo comprometidos.
 	-Que sea una aplicación vistosa/sencilla de usar.
 
-****
-=== Quality Goals
 [role="arc42help"]
 ****
-Administradores: 
-Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
-todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para 
-plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.
-
-Cliente: Quien interactuaría con la version final de la aplicacíon para la realización de compra
-de Objetos.
 
 ****
-=== Stakeholders
-
-
+=== Partes interesadas (Stakeholders)
 
 [options="header",cols="1,2"]
 |===
@@ -61,3 +51,11 @@ Administradores |Realizar una administración cómoda y sin inconvenientes.
 | Equipo de desarrollo|Esperan poder obtener una aplicacíon correcta y usable.
 | Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
 |===
+
+Administradores: 
+Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
+todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para 
+plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.
+
+Cliente: Quien interactuaría con la version final de la aplicacíon para la realización de compra
+de Objetos.

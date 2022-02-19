@@ -1,7 +1,7 @@
 [[section-building-block-view]]
 
 
-== Building Block View
+== Vista de bloques
 
 [role="arc42help"]
 ****
@@ -34,7 +34,7 @@ Thus it contains the white box description of selected building blocks of level 
 *Level 3* zooms into selected building blocks of level 2, and so on.
 ****
 
-=== Whitebox Overall System
+=== Sistema general (caja blanca)
 
 [role="arc42help"]
 ****
@@ -57,18 +57,18 @@ In the best case you will get away with examples or simple signatures.
 
 ****
 
-_**<Overview Diagram>**_
+_**<Diagrama general>**_
 
-Motivation::
+Motivacion::
 
-_<text explanation>_
+_<explicación textual>_
 
 
-Contained Building Blocks::
-_<Description of contained building block (black boxes)>_
+Bloques de construcción contenidos::
+_<Descripcion de los bloques de construcción contenidos (cajas negras)>_
 
-Important Interfaces::
-_<Description of important interfaces>_
+Interfaces importantes::
+_<Description de las interfaces importantes>_
 
 [role="arc42help"]
 ****
@@ -91,14 +91,14 @@ Its headline is the name of the black box.
 ****
 
 
-==== <Name black box 1>
+==== <Nombre de la caja negra 1>
 
 [role="arc42help"]
 ****
 Here you describe <black box 1>
 according the the following black box template:
 
-* Purpose/Responsibility
+* Propósito/Responsabilidades
 * Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.
 * (Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, ....
 * (Optional) directory/file location
@@ -139,7 +139,7 @@ _<black box template>_
 
 
 
-=== Level 2
+=== Nivel 2
 
 [role="arc42help"]
 ****
@@ -173,7 +173,7 @@ _<white box template>_
 
 
 
-=== Level 3
+=== Nivel 3
 
 [role="arc42help"]
 ****
