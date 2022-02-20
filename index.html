@@ -471,10 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
-<li><a href="#_proceso_de_compra">6.1. &lt;Proceso de compra&gt;</a></li>
-<li><a href="#_runtime_scenario_2">&lt;Runtime Scenario 2&gt;</a></li>
-<li><a href="#">6.2. &#8230;&#8203;</a></li>
-<li><a href="#_runtime_scenario_n">6.3. &lt;Runtime Scenario n&gt;</a></li>
+<li><a href="#_proceso_de_login">6.1. &lt;Proceso de Login&gt;</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Deployment View</a>
@@ -491,7 +488,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_database">8.4. DataBase</a></li>
 </ul>
 </li>
-<li><a href="#section-design-decisions">9. Design Decisions</a></li>
+<li><a href="#section-design-decisions">9. Design Decisions</a>
+<ul class="sectlevel2">
+<li><a href="#_using_mongodb">9.1. Using MongoDb</a></li>
+<li><a href="#_using_git_for_versionscontroll">9.2. Using Git for VersionsControll</a></li>
+<li><a href="#_using_react_for_frontend">9.3. Using React for FrontEnd</a></li>
+</ul>
+</li>
 <li><a href="#section-quality-scenarios">10. Quality Requirements</a>
 <ul class="sectlevel2">
 <li><a href="#_quality_tree">10.1. Quality Tree</a></li>
@@ -543,12 +546,16 @@ For documentation of your own system you use better the <em>plain</em> version.<
 <p>El proyecto trata de una aplicación de compra y venta de objetos cuyo codigo fuente sera realizado con "TypeScript"</p>
 </div>
 <div class="paragraph">
-<p>Objetivos de Negocio:
-	-A corto plazo: Realizar una documentación adecuada de manera que se cumplan las
-	expectativas y necesidades del proyecto.
-	-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos
-	de usabilidad para poder realizar compra/venta de <strong>ropa/objetos&#8230;&#8203;</strong> de una manera mas
-	cómoda,sencilla y accesible.</p>
+<p>Objetivos de Negocio:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>-A corto plazo: Realizar una documentación adecuada de manera que se cumplan las
+expectativas y necesidades del proyecto.
+-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos
+de usabilidad para poder realizar compra/venta de *ropa/objetos...* de una manera mas
+cómoda,sencilla y accesible.</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1231,26 +1238,15 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_proceso_de_compra">6.1. &lt;Proceso de compra&gt;</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><em>El primer escenario muestra el proceso de compra de un producto. Para ello,
-el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para poder llevar a acabo el proceso de compra.</em></p>
-</li>
-</ul>
+<h3 id="_proceso_de_login">6.1. &lt;Proceso de Login&gt;</h3>
+<div class="paragraph">
+<p>El segundo escenario muestra el proceso de "Login". Para ello,
+el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
+volverá a la pantalla de inicio con la sesión iniciada.</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/DiagramaLogin.png" alt="LogIn"></span></p>
 </div>
-<div class="sect2">
-<h3 id="_runtime_scenario_2">&lt;Runtime Scenario 2&gt;</h3>
-
-</div>
-<div class="sect2">
-<h3 id="">6.2. &#8230;&#8203;</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_runtime_scenario_n">6.3. &lt;Runtime Scenario n&gt;</h3>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1473,45 +1469,47 @@ avanzado.</p>
 <div class="sect1">
 <h2 id="section-design-decisions">9. Design Decisions</h2>
 <div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
+<div class="sect2">
+<h3 id="_using_mongodb">9.1. Using MongoDb</h3>
 <div class="paragraph">
-<div class="title">Contents</div>
-<p>Important, expensive, large scale or risky architecture decisions including rationals.
-With "decisions" we mean selecting one alternative based on given criteria.</p>
+<p>MongoDB es un sistema de base de datos NoSQL, orientado a documentos y
+de código abierto.En lugar de guardar los datos en tablas, tal y como se hace en las bases
+de datos relacionales,MongoDB guarda estructuras de datos BSON (una especificación
+similar a JSON)con un esquema dinámico, haciendo que la integración de los datos en
+ciertas aplicaciones sea más fácil y rápida. MongoDB es una base de datos adecuada para
+su uso en producción y con múltiples funcionalidades.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_git_for_versionscontroll">9.2. Using Git for VersionsControll</h3>
+<div class="paragraph">
+<p>Usaremos git para realizar el control de versiones. Con git, trabajaremos cada uno de los
+miembros del equipo sobre la rama "develop",rama que creamos con anterioridad.
+Sobre esa rama iremos creando diferentes subramas con nombres como "uoXXXX-&lt;cambio a realizar&gt;".
+Una vez terminada esa subrama realizaremos un merge sobre develop, para finalmente realizar un
+merge sobre la rama master.</p>
 </div>
 <div class="paragraph">
-<p>Please use your judgement to decide whether an architectural decision should be documented
-here in this central section or whether you better document it locally
-(e.g. within the white box template of one building block).</p>
+<p>Git es una herramienta que nos sirve de mucha utilidad para no pisar el trabajo de los demás
+miembros del equipo.</p>
 </div>
 <div class="paragraph">
-<p>Avoid redundancy. Refer to section 4, where you already captured the most important decisions of your architecture.</p>
+<p><span class="image"><img src="./images/git.png" alt="GIT"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_react_for_frontend">9.3. Using React for FrontEnd</h3>
+<div class="paragraph">
+<p>Para crear la parte de "User Interface" usaremos React, una herramienta que nos ayudará a crear
+interfaces de usuario interactivas de forma sencilla diseñando vistas simples para cada estado
+en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
+que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>Stakeholders of your system should be able to comprehend and retrace your decisions.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Various options:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>List or table, ordered by importance and consequences or:</p>
-</li>
-<li>
-<p>more detailed in form of separate sections per decision</p>
-</li>
-<li>
-<p>ADR (architecture decision record) for every important decision</p>
-</li>
-</ul>
-</div>
-</div>
+<p><span class="image"><img src="./images/react.png" alt="REACT"></span></p>
 </div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1718,7 +1716,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-15 19:07:27 +0100
+Last updated 2022-02-16 18:31:37 +0100
 </div>
 </div>
 </body>
