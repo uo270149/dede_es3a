@@ -30,19 +30,23 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
-=== <Proceso de compra>
+=== Proceso de compra
 
 El primer escenario muestra el proceso de compra de un producto. Para ello, 
 el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para que se añada al carrito de la compra.
 
 image:DiagramaCompra.png["DiagramaCompra"]
 
-=== <Proceso de Login>
+=== Proceso de Login
 El segundo escenario muestra el proceso de "Login". Para ello, 
 el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
 volverá a la pantalla de inicio con la sesión iniciada.
 
-image:DiagramaLogin.png["LogIn"]
+image:DiagramaLogin.JPG["LogIn"]
 
+=== Cálculo de los gastos de envío
+El tercer escenario nos muestra el proceso de cálculo de los costes de envío de un pedido. Tras finalizar el usuario el pedido, DeDe solicita al POD del usuario la dirección de envío del usuario. Con esta dirección solicita a la empresa de mensajería el importe de los gastos de envío. Una vez obtenido este importe le devuelve al usuario el importe total del pedido, con los gastos de envío incluidos. Si el usuario confirma el pedido DeDe procede a almacenarlo en la base de datos y muestra al usuario la confirmación del envío.
+
+image:06_diagramaSecuenciaEnvio.png["Cálculo de los gastos de envío"]
 
 
