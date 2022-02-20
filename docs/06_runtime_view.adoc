@@ -1,5 +1,5 @@
 [[section-runtime-view]]
-== Runtime View
+== Vista de Ejecución
 
 
 [role="arc42help"]
@@ -30,28 +30,28 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
-=== <Runtime Scenario 1>
+=== Proceso de compra
 
+El primer escenario muestra el proceso de compra de un producto. Para ello, 
+el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para que se añada al carrito de la compra.
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
+image:DiagramaCompra.png["DiagramaCompra"]
 
-It is possible to use a sequence diagram:
+=== Proceso de Login
+El segundo escenario muestra el proceso de "Login". Para ello, 
+el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
+volverá a la pantalla de inicio con la sesión iniciada.
 
-[plantuml,"Sequence diagram",png]
-----
-actor Alice
-actor Bob
-database Pod as "Bob's Pod"
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-Alice  --> Pod: Store route
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
-----
-=== <Runtime Scenario 2>
+image:DiagramaLogin.JPG["LogIn"]
 
-=== ...
+=== Cálculo de los gastos de envío
+El tercer escenario nos muestra el proceso de cálculo de los costes de envío de un pedido. Tras finalizar el usuario el pedido, DeDe solicita al POD del usuario la dirección de envío del usuario. Con esta dirección solicita a la empresa de mensajería el importe de los gastos de envío. Una vez obtenido este importe le devuelve al usuario el importe total del pedido, con los gastos de envío incluidos. Si el usuario confirma el pedido DeDe procede a almacenarlo en la base de datos y muestra al usuario la confirmación del envío.
 
-=== <Runtime Scenario n>
+image:06_diagramaSecuenciaEnvio.png["Cálculo de los gastos de envío"]
+
+=== Proceso de envío
+El último diagrama se corresponde con el proceso de envío al usuario del pedido desde la aplicación. Para ello, debe realizar el pedido
+una vez finalizado el proceso de compra.
+
+image:DiagramaEnvio.png["Envio"]
+
