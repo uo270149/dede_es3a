@@ -52,8 +52,7 @@ image:DiagramaDespliegue.png["DiagramaDespliegue"]
 
 Motivacion::
 
-Sin un buen hardware sobre el que correr y ejecutar la aplicación nada podría llevarse a cabo, por lo que se ha intentado
-proporcionar un buen sistema relatado visualmente en el diagrama.
+
 
 Características de calidad y/o rendimiento::
 
@@ -69,4 +68,5 @@ Mapeo de Bloques de Construcción a Infraestructura::
 | WebApp| La parte donde el usuario podrá interactuar, el cual ejecuta el navegador web.
 | Web browser| Depende de la elección del usuario, y única forma de acceder a la aplicación.
 | POD| "Almacenes" para guardar los datos de los usuarios de forma segura.
+| CorreosAPI| Usada para simular el envío de un pedido a correos.
 |===
