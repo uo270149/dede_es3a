@@ -52,21 +52,22 @@ image:DiagramaDespliegue.png["DiagramaDespliegue"]
 
 Motivacion::
 
+Se ha intentado plantear el sistema de la manera más descentralizada posible y mantener la privacidad del usuario de 
+manera más optima posible.
 
+Caracteristicas de calidad y/o rendimiento::
 
-Características de calidad y/o rendimiento::
-
-Como nuestro objetivo es tener un sistema óptimo tanto en cuanto a rendimiento como seguridad y otras características, se ha 
+Como nuestro objetivo es tener un sistema optimo tanto en cuanto a rendimiento como seguridad y otras características, se ha 
 intentado buscar y comenzar a usar la mejor infraestructura posible.
 
-Mapeo de Bloques de Construcción a Infraestructura::
+Mapeo de Bloques de Construccion a Infraestructura::
 [options="header",cols="1,2"]
 |===
 |Building Block|Mapping
-| MongoDB | La base de datos elegida que estará dentro de un servidor y será usada por la aplicación.
+| MongoDB | La base de datos elegida que estara dentro de un servidor y sera usada por la aplicacion.
 | RestAPI| Interfaz entre sistemas para el intercambio de peticiones.
-| WebApp| La parte donde el usuario podrá interactuar, el cual ejecuta el navegador web.
-| Web browser| Depende de la elección del usuario, y única forma de acceder a la aplicación.
+| WebApp| La parte donde el usuario podra interactuar, el cual ejecuta el navegador web.
+| Web browser| Depende de la eleccion del usuario, y unica forma de acceder a la aplicacion.
 | POD| "Almacenes" para guardar los datos de los usuarios de forma segura.
-| CorreosAPI| Usada para simular el envío de un pedido a correos.
+| CorreosAPI| Usada para simular el envio de un pedido a correos.
 |===
