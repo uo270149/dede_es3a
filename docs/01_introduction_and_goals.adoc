@@ -31,12 +31,15 @@ gran tamaño permitiendo el uso de varias ramas para no alterar los prototipos d
 ****
 ****
 === Metas de calidad
-	-Trabajo entregado por parte de todos los participantes de una manera constante, puntual y correcta
-	facilitando la evolución de la aplicación.
-	-Implicación individual de cumplir las tareas asignadas.
-	-Asegurar la limpieza y pulcritud del código.
-	-Realizar reuniones para realizar actas o análisis dentro de los intervalos de tiempo comprometidos.
-	-Que sea una aplicación vistosa/sencilla de usar.
+[options="header",cols="1,2,1,1"]
+|===
+|Meta de Calidad|Motivación|Prioridad del ED| Prioridad del Cliente
+|Privacidad |El objetivo es el tratamiento de la información privada de una manera descentralizada asegurando la privacidad del cliente|Alta|Alta
+|Usabilidad|Todos los usuarios deben poder utilizarlo, tengan conocimientos previos sobre la aplicación o no|Alta|Alta
+|Eficiencia |Realizar una compra debe ser sencilla para un usuario, haciendo que los tiempos de respuesta y de carga sean mas reducidos|Alta|Alta
+|Testabilidad|Los componentes principales deben de poder ser testeados y arreglados con facilidad|Alta|Baja
+|Modificabilidad|La arquitectura debe ser fácil de modificar, agregando nuevas características o cambiando las existentes|Media|Media
+|===
 
 [role="arc42help"]
 ****
@@ -52,7 +55,9 @@ Administradores |Realizar una administración cómoda y sin inconvenientes.
 | Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
 |===
 
-Administradores: 
+Administradores: se encargan de modificar precios, calcular inventarios, ver todos los pedidos realizados o 
+realizar pedidos a proveedores
+
 Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
 todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para 
 plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.
