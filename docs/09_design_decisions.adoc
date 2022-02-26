@@ -21,7 +21,6 @@ merge sobre la rama master.
 Git es una herramienta que nos sirve de mucha utilidad para no pisar el trabajo de los demás
 miembros del equipo.
 
-image:git.png["GIT"]
 
 === Utilizar React para el FrontEnd
 
@@ -29,5 +28,3 @@ Para crear la parte de "User Interface" usaremos React, una herramienta que nos 
 interfaces de usuario interactivas de forma sencilla diseñando vistas simples para cada estado
 en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
 que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.
-
-image:react.png["REACT"]
