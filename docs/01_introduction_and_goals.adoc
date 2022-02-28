@@ -33,7 +33,7 @@ Objetivos de Negocio:
 	usuario.
 	-Dede_es3a dará al usuario la posibilidad de añadir elementos al carrito.
 	-Dede_es3a dará al usuario la posibilidad de borrar elementos del carrito.
-	-Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando el usuario no se existente.
+	-Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando el usuario no sea existente.
 	-Dede_es3a permitirá el registro de usuarios mediante formulario si las credenciales coinciden con la BDD.
 
 [role="arc42help"]
