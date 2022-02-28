@@ -1,0 +1,17 @@
+@startuml
+participant Shoes
+activate Shoes
+Shoes -> Deliver: order()
+activate Deliver
+
+Deliver -> User: notify()
+activate User
+
+Deliver --> User: items sent
+deactivate User
+
+Deliver --> Shoes: items sent
+deactivate Deliver
+deactivate Shoes
+
+@enduml
