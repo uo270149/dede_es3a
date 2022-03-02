@@ -26,6 +26,7 @@ Tabla con todas las restricciones técnicas junto con una breve descripción .
 |Git| El código ha de ser subido a un repositorio remoto en GitHub.
 |PlantUML| Herramienta de código abierto que permite la creación de diagramas de forma textual.
 |Draw.io| Herramienta que permite la creación de diagramas de forma gráfica.
+|quickMockup| Herramienta que permite la creación de prortipos de pantalla.
 |===
 
 === Restricciones de negocio
