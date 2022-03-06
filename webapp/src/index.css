@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:transparent;
+  background-image: url("https://thumbs.dreamstime.com/b/fondo-abstracto-lujo-gris-oscuro-y-negro-degradado-con-borde-textura-oscura-marco-174264007.jpg"
+  );
 }
 
 code {
