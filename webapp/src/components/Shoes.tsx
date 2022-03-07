@@ -16,19 +16,10 @@ const useStyles = makeStyles({
     marginTop:'100px',
     width: '70%',
     height: '78%',
-  },
-  shadow: {
-    shadowColor: "#000",
-    shadowOffset: {
-	    width: 0,
-	    height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 10.32,
-
-    elevation: 16,
-} 
-
+    "&:hover ": { transform: "scale3d(1.05, 1.05, 1)",
+      boxShadow: "-1px 1px 20px 0px rgba(0,0,0,0.9)",
+  }
+}
 
 });
 
