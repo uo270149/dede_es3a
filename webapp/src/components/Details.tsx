@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import Shoes from './Shoes';
+import TableDetails from './TableDetails';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from './Footer';
 
@@ -48,7 +49,6 @@ const Details = () => {
     return (
       <div>
         <Nav />
-        <Shoes/>
         <TableDetails/>
         <Footer/>
       </div>

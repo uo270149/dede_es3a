@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { FavoriteBorder } from "@mui/icons-material";
 
 const useStyles = makeStyles({
   sizes: {
@@ -29,20 +29,21 @@ left: {
 }
 });
 
-// Tallas
-<ButtonGroup variant="outlined" aria-label="tallas">
-  <Button>36</Button>
-  <Button>37</Button>
-  <Button>38</Button>
-  <Button>39</Button>
-  <Button>40</Button>
-</ButtonGroup>
+const TableDetails = () => {
+    return (
+      <div>
+      <ButtonGroup variant="outlined" aria-label="tallas">
+          <Button>36</Button>
+          <Button>37</Button>
+          <Button>38</Button>
+          <Button>39</Button>
+          <Button>40</Button>
+      </ButtonGroup>
 
-// Añadir a carrito y favoritos
-<Button variant="outlined" favoriteIcon={<FavoriteBorderIcon />}>
-  Favorito
-</Button>;
-
-<Button variant="contained" cartIcon={<ShoppingCartIcon />}>
-    Añadir al carrito
-</Button>
+      <Button variant="outlined" startIcon={<FavoriteBorder />}>
+        Favorito
+      </Button>
+      </div>
+    );
+  };
+export default TableDetails;
