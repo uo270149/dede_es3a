@@ -11,9 +11,9 @@ import {Grid } from "@mui/material";
 
 const useStyles = makeStyles({
   sizes: {
-    marginLeft:'200px',
-    marginRight:'200px',
-    marginTop:'100px',
+    marginLeft:'35%',
+    marginRight:'20%',
+    marginTop:'30%',
     width: '70%',
     height: '78%',
     "&:hover ": { transform: "scale3d(1.05, 1.05, 1)",
