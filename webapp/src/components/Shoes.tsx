@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   sizes: {
     marginLeft:'35%',
     marginRight:'20%',
-    marginTop:'30%',
+    marginTop:'20%',
     width: '70%',
     height: '78%',
     "&:hover ": { transform: "scale3d(1.05, 1.05, 1)",
