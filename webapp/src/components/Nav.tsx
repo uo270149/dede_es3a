@@ -121,6 +121,7 @@ export default function MenuAppBar() {
               <IconButton
                 size="large"
                 className={classes.colorButtom}
+                href="/Home"
               >
                 <HomeIcon/>
               </IconButton>
@@ -156,7 +157,7 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={handleClose}>LogIn</MenuItem>
+                <MenuItem onClick={handleClose}>LogOut</MenuItem>
               </Menu>
             </div>
           )}
