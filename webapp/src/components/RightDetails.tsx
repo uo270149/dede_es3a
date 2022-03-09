@@ -7,64 +7,70 @@ import { FavoriteBorder } from "@mui/icons-material";
 import { Box, ButtonBase, Typography } from '@mui/material';
 import TableSizes from './TableSizes';
 
-const useStyles = makeStyles({
-    favAndCart: {
-        color: 'black',
-        size: 'medium'
-    }
-});
+const tallas = [
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>36</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>37</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>38</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>39</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>40</Button>,
+]
+
+const colores = [
+  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}}>Blanco</Button>,
+  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}}>Negro</Button>,
+]
 
 const RightDetails = () => {
-  const classes = useStyles();
 
   return (
-    <Box sx={{ '& button': { m: 1 } }}>
-      <Typography gutterBottom variant="h3">
+    <Box sx={{ '& button': { m: 2 } }} >
+      <div>
+      <Typography gutterBottom variant="h3" color= "#FFFFFF">
            Titulo
       </Typography>
-      <Typography gutterBottom variant="h5">
+      <Typography gutterBottom variant="h4" color= "#FFFFFF">
            Descripcion
       </Typography>
-      <Typography gutterBottom variant="h5">
+      <Typography gutterBottom variant="h6" color= "#FFFFFF">
            Precio
       </Typography>
+      </div>
 
-      <Box sx={{ m: 1 }}>
-	      <Typography >
+      <div>
+	      <Typography color= "#FFFFFF">
            Colores
         </Typography>
         <ButtonGroup variant="outlined" aria-label="colores">
-           <Button>Blanco</Button>
-           <Button>Negro</Button>
+           {colores}
         </ButtonGroup>
-      </Box>
+      </div>
 
-      <Box sx={{ m: 1 }}>
-	      <Typography >
+      <div>
+	      <Typography color= "#FFFFFF">
            Tallas disponibles
         </Typography>
-        <ButtonGroup variant="outlined" aria-label="tallas">
-           <Button>36</Button>
-           <Button>37</Button>
-           <Button>38</Button>
-           <Button>39</Button>
-           <Button>40</Button>
+        <ButtonGroup color= "primary" variant="outlined" aria-label="tallas">
+           {tallas}
         </ButtonGroup>
-      </Box>
+      </div>
 
-      <Box sx={{ m: 1 }}>
-        <Button variant="outlined" startIcon={<FavoriteBorder />} className={classes.favAndCart}>
+      <div>
+        <Button 
+        variant="contained" 
+        startIcon={<FavoriteBorder />} 
+        size="medium"
+        sx={{ bgcolor: '#FFFFFF', color: 'black'}}>
             Favorito
          </Button>
 
-        <Button variant="contained" endIcon={<ShoppingCartIcon />}>
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }}>
            Añadir al carrito
          </Button>
-      </Box>
+      </div>
 
-      <Box sx={{ m: 1 }}>
+      <div>
         <TableSizes/>
-      </Box>
+      </div>
     </Box>
   );
 };

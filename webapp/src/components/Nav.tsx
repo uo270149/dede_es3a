@@ -121,7 +121,6 @@ export default function MenuAppBar() {
               <IconButton
                 size="large"
                 className={classes.colorButtom}
-                href="/Home"
               >
                 <HomeIcon/>
               </IconButton>

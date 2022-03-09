@@ -38,9 +38,9 @@ const Details = () => {
         divider={<Divider orientation="vertical" flexItem />}
         spacing={2}
         >
-        <LeftDetails/>
-        <RightDetails/>
-      </Stack>
+          <LeftDetails/>
+          <RightDetails/>
+        </Stack>
         <Footer/>
       </div>
     );
