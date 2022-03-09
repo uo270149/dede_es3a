@@ -156,7 +156,7 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={handleClose}>LogIn</MenuItem>
+                <MenuItem onClick={handleClose}>LogOut</MenuItem>
               </Menu>
             </div>
           )}
