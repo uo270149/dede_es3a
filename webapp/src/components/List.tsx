@@ -63,6 +63,7 @@ const useStyles = makeStyles({
                   <IconButton
                     sx={{ color: 'white' }}
                     aria-label={`star ${item.title}`}
+                    href="/Details"
                   >
                     <StarBorderIcon />
                   </IconButton>
