@@ -1,6 +1,5 @@
 import React from 'react';
 import Nav from './Nav';
-import Shoes from './Shoes';
 import RightDetails from './RightDetails';
 import LeftDetails from './LeftDetails';
 import { makeStyles } from '@material-ui/core/styles';

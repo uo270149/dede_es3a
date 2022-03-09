@@ -18,9 +18,10 @@ const useStyles = makeStyles({
     height: '78%',
     "&:hover ": { transform: "scale3d(1.05, 1.05, 1)",
       boxShadow: "-1px 1px 20px 0px rgba(0,0,0,0.9)",
-    }
   }
+}
 
+});
 
 const shoes_images=[
     {
