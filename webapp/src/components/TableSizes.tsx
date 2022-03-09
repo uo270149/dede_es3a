@@ -30,24 +30,25 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
   
 function createData(
+    sizeCm: number,
     size1: number,
     size2: number,
     size3: number,
     size4: number,
     size5: number,
 ) {
-  return { size1, size2, size3, size4, size5};
+  return { sizeCm, size1, size2, size3, size4, size5};
 }
 
 const rows = [
-  createData(4, 5.5, 3.5, 23, 36),
-  createData(5 , 6, 4, 23.5, 37),
-  createData(5.5, 7, 5, 24, 38),
-  createData(6.5, 8, 6, 24.5, 39),
-  createData(7, 8.5, 6, 25, 40),
+  createData(22.1, 4, 5.5, 3.5, 23, 36),
+  createData(22.9, 5, 6, 4, 23.5, 37),
+  createData(23.3, 5.5, 7, 5, 24, 38),
+  createData(24.2, 6.5, 8, 6, 24.5, 39),
+  createData(24.6, 7, 8.5, 6, 25, 40),
 ];
 
-const TableSizes() = () => {
+export default function TableSizes() {
   return (
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -64,12 +65,12 @@ const TableSizes() = () => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow 
-              key={row.name}
+              key={row.sizeCm}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <StyledTableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+                {row.sizeCm} cm
+              </StyledTableCell>
               <StyledTableCell align="right">{row.size1}</StyledTableCell>
               <StyledTableCell align="right">{row.size2}</StyledTableCell>
               <StyledTableCell align="right">{row.size3}</StyledTableCell>
@@ -82,4 +83,3 @@ const TableSizes() = () => {
     </TableContainer>
   );
 }
-export default TableSizes;
