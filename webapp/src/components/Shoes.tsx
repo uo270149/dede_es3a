@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       boxShadow: "-1px 1px 20px 0px rgba(0,0,0,0.9)",
     }
   }
-});
+
 
 const shoes_images=[
     {
