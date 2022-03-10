@@ -120,7 +120,7 @@ export default function MenuAppBar() {
           {auth && (
             <div>
               <IconButton 
-                to='/Home'
+                to='/'
                 component={Link}
                 size="large"
                 className={classes.colorButtom}

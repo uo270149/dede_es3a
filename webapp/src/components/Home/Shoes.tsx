@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   sizes: {
@@ -97,7 +98,9 @@ export default function ImgMediaCard() {
     {shoes_images.map( item =>
     <Grid item xs={4} sm={2} md={2} key={item.id}>
     <Card className={classes.sizes}>
-      <CardActionArea>
+      <CardActionArea                 
+      to='/Details'
+      component={Link}>
         <CardMedia
           component="img"
           alt={item.name}

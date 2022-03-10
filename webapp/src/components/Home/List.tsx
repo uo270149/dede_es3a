@@ -5,6 +5,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles({
     sizes: {
       marginLeft:'34%',
@@ -61,7 +63,6 @@ const useStyles = makeStyles({
                   <IconButton
                     sx={{ color: 'white' }}
                     aria-label={`star ${item.title}`}
-                    href="/Details"
                   >
                     <StarBorderIcon />
                   </IconButton>
