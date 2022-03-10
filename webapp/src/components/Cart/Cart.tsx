@@ -1,8 +1,8 @@
-import List from './List';
-import Nav from './Nav';
-import Shoes from './Shoes';
+import List from '../Home/List';
+import Nav from '../Fragments/Nav';
+import Shoes from '../Home/Shoes';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from './Footer';
+import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
 import ShoesCart from './ShoesCart';
 import CartButons from './CartButons';

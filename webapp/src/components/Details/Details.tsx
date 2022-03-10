@@ -1,10 +1,10 @@
 import React from 'react';
-import Nav from './Nav';
-import RightDetails from './RightDetails';
-import LeftDetails from './LeftDetails';
+import Nav from '../Fragments/Nav';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from './Footer';
+import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
+import LeftDetails from './LeftDetails';
+import RightDetails from './RightDetails';
 
 const useStyles = makeStyles({
   sizes: {

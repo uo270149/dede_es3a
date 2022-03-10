@@ -1,9 +1,11 @@
 
-import List from './List';
-import Nav from './Nav';
-import Shoes from './Shoes';
+import Nav from '../Fragments/Nav';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from './Footer';
+import Footer from '../Fragments/Footer';
+import List from './List';
+import Shoes from './Shoes';
+
+
 const useStyles = makeStyles({
   sizes: {
     marginLeft:'34%',

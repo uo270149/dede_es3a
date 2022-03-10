@@ -14,6 +14,7 @@ import Menu from '@mui/material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -118,13 +119,17 @@ export default function MenuAppBar() {
           </Typography>
           {auth && (
             <div>
-              <IconButton
+              <IconButton 
+                to='/Home'
+                component={Link}
                 size="large"
                 className={classes.colorButtom}
               >
                 <HomeIcon/>
               </IconButton>
               <IconButton
+                to='/Cart'
+                component={Link}
                 size="large"
                 className={classes.colorButtom}
               >
