@@ -8,12 +8,13 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { AccountCircle, ShoppingCart } from '@mui/icons-material';
+import { AccountCircle} from '@mui/icons-material';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -56,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 const useStyle = makeStyles({
   stickToBottom: {
     background: "linear-gradient(45deg, #000000 30%, #FFFFFF 70%)",
@@ -64,20 +66,14 @@ const useStyle = makeStyles({
   },
   colorButtom: {
     color:'black',
-
   },
-
 });
 
 
 export default function MenuAppBar() {
   const classes = useStyle();
-  const [auth, setAuth] = React.useState(true);
+  const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -118,13 +114,17 @@ export default function MenuAppBar() {
           </Typography>
           {auth && (
             <div>
-              <IconButton
+              <IconButton 
+                to='/'
+                component={Link}
                 size="large"
                 className={classes.colorButtom}
               >
                 <HomeIcon/>
               </IconButton>
               <IconButton
+                to='/Cart'
+                component={Link}
                 size="large"
                 className={classes.colorButtom}
               >

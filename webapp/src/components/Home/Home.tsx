@@ -1,11 +1,9 @@
-import List from './List';
-import Nav from './Nav';
-import Shoes from './Shoes';
+import Nav from '../Fragments/Nav';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from './Footer';
-import { Divider, Stack } from '@mui/material';
-import ShoesCart from './ShoesCart';
-import CartButons from './CartButons';
+import Footer from '../Fragments/Footer';
+import List from './List';
+import Shoes from './Shoes';
+
 const useStyles = makeStyles({
   sizes: {
     marginLeft:'34%',
@@ -43,29 +41,16 @@ left: {
   
 }
 
-    
-
-
 });
-const Carrito = () => {
-  const classes = useStyles();
+const Home = () => {
     
     return (
       <div>
-          <Nav/>
-          <Stack
-        direction="row"
-        divider={<Divider orientation="vertical" flexItem />}
-        spacing={2}
-        >
-            <ShoesCart/>
-            <CartButons/>
-        </Stack>
+        <Nav />
+        <Shoes/>
+        <List/>
         <Footer/>
       </div>
-         
-        
-      
     );
   };
-  export default Carrito;
+  export default Home;

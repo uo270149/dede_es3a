@@ -2,13 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {Container, CssBaseline, Grid } from "@mui/material";
-import Box from '@material-ui/core/Box';
+import {Container, Grid } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@material-ui/core';
 
@@ -60,44 +57,42 @@ const shoes_images=[
     }]
 
 
-    const ShoesCart = () => {
-        const classes = useStyles();
+const ShoesCart = () => {
+  const classes = useStyles();
           
-        return (
-            <Container maxWidth="md" className={classes.colores2}>
-                <Typography variant='h2' className={classes.colores}>
-                         ARTICULOS EN EL CARRITO
-                </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
-                {shoes_images.map( item =>
-                <Grid item  sm={2} md={2} key={item.id}>
-            <Card className={classes.sizes}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt={item.name}
-                  height="200px"
-                  width="200px"
-                  image={item.image}
-                  title={item.name}
-                />
-                <CardContent >
-                    <Typography variant='h6' >
-                        {item.name}
-                    </Typography>
-                    <Typography variant='h6' >
-                        Precio:{item.price}
-                    </Typography>
-                </CardContent>
-              </CardActionArea>
-              <IconButton aria-label="delete"><DeleteIcon /></IconButton>
-            </Card>
-            </Grid>
-            )}
-            </Grid>
-            
-            </Container>
-            
-          );
-        };
-        export default ShoesCart;
+    return (
+      <Container maxWidth="md" className={classes.colores2}>
+        <Typography variant='h3' className={classes.colores}>
+          ARTICULOS EN EL CARRITO
+        </Typography>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
+        {shoes_images.map( item =>
+          <Grid item  sm={2} md={2} key={item.id}>
+          <Card className={classes.sizes}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt={item.name}
+                height="200px"
+                width="200px"
+                image={item.image}
+                title={item.name}
+              />
+            <CardContent >
+              <Typography variant='h6' >
+                {item.name}
+              </Typography>
+              <Typography variant='h6' >
+                Precio:{item.price}
+              </Typography>
+            </CardContent>
+            </CardActionArea>
+            <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+          </Card>
+          </Grid>
+          )}
+        </Grid> 
+      </Container>  
+    );
+};
+export default ShoesCart;
