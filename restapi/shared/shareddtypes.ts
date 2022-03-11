@@ -1,11 +1,12 @@
 import { ShorthandPropertyAssignment } from "typescript";
 
-export type User = {
+export type TypeUser = {
     name:string;
     email:string;
   }
 
-export type Product = {
+export type TypeProduct = {
   nombre: string;
   precio: number;
+  imagen: string;
 }

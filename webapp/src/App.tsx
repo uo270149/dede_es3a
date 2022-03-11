@@ -3,7 +3,7 @@ import Link from '@mui/material/Link';
 import Home from './components/Home/Home';
 import Container from '@mui/material/Container';
 import Welcome from './components/Welcome';
-import  {getUsers} from './api/api';
+import  {getProducts, getUsers} from './api/api';
 import {User} from './shared/shareddtypes';
 import './App.css';
 import Details from './components/Details/Details';
@@ -15,6 +15,7 @@ function App(): JSX.Element {
   return (
     <>
       <Router>
+        <h1>Productos = {getProducts.length}</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route  path="/Cart" render={() => <Cart/>}/>
