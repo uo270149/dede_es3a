@@ -6,7 +6,7 @@
 		
 ****
 == Introducción y Metas
-El proyecto trata de una aplicación de compra y venta de objetos cuyo codigo fuente sera realizado con "TypeScript"
+El proyecto trata de una aplicación de compra y venta de objetos, llamada DeDe, cuyo codigo fuente sera realizado con "TypeScript". Estará enfocada al mercado electrónico y dará soporte a la realización de pedidos asociados a una cuenta de usuario concreta.
 
 Objetivos de Negocio: 
 
