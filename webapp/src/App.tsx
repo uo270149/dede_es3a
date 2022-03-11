@@ -15,6 +15,7 @@ function App(): JSX.Element {
   return (
     <>
       <Router>
+        <h1>Productos = {getProducts.length}</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route  path="/Cart" render={() => <Cart/>}/>

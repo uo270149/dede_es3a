@@ -23,8 +23,8 @@ app.use(bp.json());
 app.use(apiProducts);
 
 app
-  .listen(process.env.PORT, (): void => {
-    console.log("Restapi listening on " + process.env.PORT);
+  .listen(5000, (): void => {
+    console.log("Restapi listening on " + 5000);
   })
   .on("error", (error: Error) => {
     console.error("Error occured: " + error.message);
