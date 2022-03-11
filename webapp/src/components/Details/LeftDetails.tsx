@@ -9,7 +9,6 @@ const useStyles = makeStyles({
   });
 
 const LeftDetails = () => {
-    const classes = useStyles();
       
       return (
         <ImageList variant="masonry" cols={3} gap={8}>

@@ -27,7 +27,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
       border: 0,
     },
   }));
-
   
 function createData(
     sizeCm: number,
