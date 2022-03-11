@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from 'express';
-import * as ProductController from './ProductController';
+import * as ProductController from '../controllers/ProductController';
 
 const api:Router = express.Router()
 
