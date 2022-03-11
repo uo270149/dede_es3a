@@ -57,44 +57,42 @@ const shoes_images=[
     }]
 
 
-    const ShoesCart = () => {
-        const classes = useStyles();
+const ShoesCart = () => {
+  const classes = useStyles();
           
-        return (
-            <Container maxWidth="md" className={classes.colores2}>
-                <Typography variant='h2' className={classes.colores}>
-                         ARTICULOS EN EL CARRITO
-                </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
-                {shoes_images.map( item =>
-                <Grid item  sm={2} md={2} key={item.id}>
-            <Card className={classes.sizes}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt={item.name}
-                  height="200px"
-                  width="200px"
-                  image={item.image}
-                  title={item.name}
-                />
-                <CardContent >
-                    <Typography variant='h6' >
-                        {item.name}
-                    </Typography>
-                    <Typography variant='h6' >
-                        Precio:{item.price}
-                    </Typography>
-                </CardContent>
-              </CardActionArea>
-              <IconButton aria-label="delete"><DeleteIcon /></IconButton>
-            </Card>
-            </Grid>
-            )}
-            </Grid>
-            
-            </Container>
-            
-          );
-        };
-        export default ShoesCart;
+    return (
+      <Container maxWidth="md" className={classes.colores2}>
+        <Typography variant='h3' className={classes.colores}>
+          ARTICULOS EN EL CARRITO
+        </Typography>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
+        {shoes_images.map( item =>
+          <Grid item  sm={2} md={2} key={item.id}>
+          <Card className={classes.sizes}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt={item.name}
+                height="200px"
+                width="200px"
+                image={item.image}
+                title={item.name}
+              />
+            <CardContent >
+              <Typography variant='h6' >
+                {item.name}
+              </Typography>
+              <Typography variant='h6' >
+                Precio:{item.price}
+              </Typography>
+            </CardContent>
+            </CardActionArea>
+            <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+          </Card>
+          </Grid>
+          )}
+        </Grid> 
+      </Container>  
+    );
+};
+export default ShoesCart;

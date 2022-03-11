@@ -4,6 +4,7 @@ import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
 import ShoesCart from './ShoesCart';
 import CartButons from './CartButons';
+
 const useStyles = makeStyles({
   sizes: {
     marginLeft:'34%',
@@ -20,34 +21,30 @@ const useStyles = makeStyles({
                         'footer footer footer'`,
    gridTemplateRows: '1fr 3fr 1fr',
    gridTemplateColumns: '1fr 2fr 1fr',
-},
-main: {
- gridArea: 'main',
-  
-},
-footer: {
-  gridArea: 'footer'
-  
-},
-header: {
-  gridArea: 'header'
-  
-},
-left: {
-  gridArea: 'left'
-  
-},right: {
-  gridArea: 'right'
-  
-}
-
+  },
+  main: {
+    gridArea: 'main',
+  },
+  footer: {
+    gridArea: 'footer'
+  },
+  header: {
+    gridArea: 'header'
+  },
+  left: {
+    gridArea: 'left' 
+  },
+  right: {
+    gridArea: 'right'
+  }
 });
+
 const Cart = () => {
     
     return (
       <div>
-          <Nav/>
-          <Stack
+        <Nav/>
+        <Stack
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
         spacing={2}
@@ -56,10 +53,7 @@ const Cart = () => {
             <CartButons/>
         </Stack>
         <Footer/>
-      </div>
-         
-        
-      
+      </div>   
     );
   };
   export default Cart;

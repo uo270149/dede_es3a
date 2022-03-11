@@ -9,12 +9,9 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 const useStyles = makeStyles({
     sizes: {
       marginLeft:'34%',
-      marginTop:'100px',
-      
-    },
-      
+      marginTop:'100px', 
+    },  
   });
-  
   
   function srcset(image: string, width: number, height: number, rows = 1, cols = 1) {
     return {
@@ -75,38 +72,37 @@ const useStyles = makeStyles({
     );
   }
   
-  const itemData = [
-    {
-      img: 'https://i.blogs.es/67332d/screenshot_4501/original.jpeg',
-      title: 'Pokemon',
-      featured: true,
-    },
-    {
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTviEWtiJBnAfMBudW5kmrIpt9tng4cD2_F_w1HDAnVAcnqoP5LJM9vKNBOBlrvSigJEIM&usqp=CAU',
-      title: 'Zapatillas Baby Yoda',
-      author: '@rollelflex_graphy726',
-    },
-    {
-      img: 'https://images.ecestaticos.com/Xt-KJxmVpvzrqtKT8eEnRNxbcTc=/51x0:1249x899/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F9c2%2F2d6%2F83d%2F9c22d683d9536e8961c5d4fe8a2f6f4f.jpg',
-      title: 'Style',
-      author: '@helloimnik',
-    },
-    {
-      img: 'https://images-eu.ssl-images-amazon.com/images/G/30/AMAZON-FASHION/2021/FASHION/FEATURE_PAGES/SNEAKERS/MENS/04_C12x.jpg',
-      title: 'Caña Alta',
-      author: '@nolanissac',
-    },
-    {
-      img: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/B9FF/production/_117751674_satan-shoes1.jpg',
-      title: 'Lo último',
-      author: '@hjrc33',
-    },
-    {
-      img: 'https://www.clara.es/medio/2019/02/28/zapatillas-negras-vans-85%E2%82%AC_482707a2_1000x1500.jpg',
-      title: 'Casual',
-      author: '@arwinneil',
-      featured: true,
-    },
-   
-  ];
+const itemData = [
+  {
+    img: 'https://i.blogs.es/67332d/screenshot_4501/original.jpeg',
+    title: 'Pokemon',
+    featured: true,
+  },
+  {
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTviEWtiJBnAfMBudW5kmrIpt9tng4cD2_F_w1HDAnVAcnqoP5LJM9vKNBOBlrvSigJEIM&usqp=CAU',
+    title: 'Zapatillas Baby Yoda',
+    author: '@rollelflex_graphy726',
+  },
+  {
+    img: 'https://images.ecestaticos.com/Xt-KJxmVpvzrqtKT8eEnRNxbcTc=/51x0:1249x899/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F9c2%2F2d6%2F83d%2F9c22d683d9536e8961c5d4fe8a2f6f4f.jpg',
+    title: 'Style',
+    author: '@helloimnik',
+  },
+  {
+    img: 'https://images-eu.ssl-images-amazon.com/images/G/30/AMAZON-FASHION/2021/FASHION/FEATURE_PAGES/SNEAKERS/MENS/04_C12x.jpg',
+    title: 'Caña Alta',
+    author: '@nolanissac',
+  },
+  {
+    img: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/B9FF/production/_117751674_satan-shoes1.jpg',
+    title: 'Lo último',
+    author: '@hjrc33',
+  },
+  {
+    img: 'https://www.clara.es/medio/2019/02/28/zapatillas-negras-vans-85%E2%82%AC_482707a2_1000x1500.jpg',
+    title: 'Casual',
+    author: '@arwinneil',
+    featured: true,
+  },
+];
   

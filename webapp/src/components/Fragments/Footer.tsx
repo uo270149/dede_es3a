@@ -13,20 +13,17 @@ const useStyles = makeStyles({
       left: '0',
       width: '100%',
       textAlign:'center'
-      
     },
-    
+});
 
-  });
 const Footer = () => {
     const classes = useStyles();
     return (
-  <div className={classes.stickToBottom}>
-    <Typography variant='h6' >
-        @DeDe_es3A
-    </Typography>
-  </div>
+      <div className={classes.stickToBottom}>
+        <Typography variant='h6' >
+          @DeDe_es3A
+        </Typography>
+      </div>
     );
 };
-
 export default Footer;

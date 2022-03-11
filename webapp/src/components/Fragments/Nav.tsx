@@ -57,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 const useStyle = makeStyles({
   stickToBottom: {
     background: "linear-gradient(45deg, #000000 30%, #FFFFFF 70%)",
@@ -65,9 +66,7 @@ const useStyle = makeStyles({
   },
   colorButtom: {
     color:'black',
-
   },
-
 });
 
 
