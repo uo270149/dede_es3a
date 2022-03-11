@@ -5,7 +5,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     sizes: {

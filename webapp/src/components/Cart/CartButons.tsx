@@ -1,14 +1,9 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { BottomNavigationAction } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { FavoriteBorder } from "@mui/icons-material";
 
 const useStyles = makeStyles({
     sizes: {

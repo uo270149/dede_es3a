@@ -1,10 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { FavoriteBorder } from "@mui/icons-material";
-import { Box, ButtonBase, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import TableSizes from './TableSizes';
 
 const tallas = [

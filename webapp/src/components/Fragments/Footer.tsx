@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { color } from "@mui/system";
 import { Typography } from "@mui/material";
+
 const useStyles = makeStyles({
     stickToBottom: {
       backgroundColor:'#000000',

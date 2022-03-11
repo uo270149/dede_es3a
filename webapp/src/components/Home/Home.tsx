@@ -5,7 +5,6 @@ import Footer from '../Fragments/Footer';
 import List from './List';
 import Shoes from './Shoes';
 
-
 const useStyles = makeStyles({
   sizes: {
     marginLeft:'34%',
@@ -43,12 +42,8 @@ left: {
   
 }
 
-    
-
-
 });
 const Home = () => {
-  const classes = useStyles();
     
     return (
       <div>

@@ -27,7 +27,6 @@ const useStyles = makeStyles({
 });
 
 const Details = () => {
-  const classes = useStyles();
     
     return (
       <div>

@@ -1,6 +1,4 @@
-import List from '../Home/List';
 import Nav from '../Fragments/Nav';
-import Shoes from '../Home/Shoes';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
@@ -43,12 +41,8 @@ left: {
   
 }
 
-    
-
-
 });
-const Carrito = () => {
-  const classes = useStyles();
+const Cart = () => {
     
     return (
       <div>
@@ -68,4 +62,4 @@ const Carrito = () => {
       
     );
   };
-  export default Carrito;
+  export default Cart;
