@@ -1,14 +1,8 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { BottomNavigationAction } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
-import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { FavoriteBorder } from "@mui/icons-material";
 
 const useStyles = makeStyles({
     sizes: {
@@ -37,16 +31,16 @@ const useStyles = makeStyles({
     
   },
 });
+
 export default function CartButons() {
     const classes = useStyles();
   return (
-        <Container maxWidth='lg' className={classes.container}>
-        
-         <div className={classes.margen}>
+    <Container maxWidth='lg' className={classes.container}>    
+      <div className={classes.margen}>
         <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' >
-           Finalizar Compra
-         </Button>
+          Finalizar Compra
+        </Button>
       </div>        
-      </Container>
+    </Container>
   );
 }
