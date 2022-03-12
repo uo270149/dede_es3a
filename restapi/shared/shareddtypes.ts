@@ -6,6 +6,7 @@ export type TypeUser = {
   }
 
 export type TypeProduct = {
+  id: string;
   nombre: string;
   precio: number;
   imagen: string;
