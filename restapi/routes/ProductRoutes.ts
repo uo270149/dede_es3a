@@ -1,15 +1,20 @@
-import express, { Request, Response, Router } from 'express';
-import * as ProductController from '../controllers/ProductController';
-import {TypeProduct} from '../shared/shareddtypes';
-import {productSchema} from '../models/Product';
+import express, { Request, Response} from 'express';
+import { Product } from '../models/productModel'
 
-const api:Router = express.Router()
+const router = express.Router()
 
-//api.get('/products/list', ProductController.getProducts)
+router.get('/products/list', async (req: Request, res: Response) => {
+  const products = await Product.find({})
+  return res.status(200).send(products)
+})
 
-api.get(
-    "/products/list", async (req: Request, res: Response): Promise<Response>=> {
-    var productsList: Array<TypeProduct> =  await productSchema.find();
+router.post('/products/add', async (req: Request, res: Response) => {
+  const { nombre, precio, imagen } = req.body;
+
+  const product = Product.build({ nombre, precio, imagen })
+  await product.save()
+  return res.status(201).send(product)
+})
     /*
     const p1 : TypeProduct = {
       nombre: 'Nike Air Max 90',
@@ -54,7 +59,5 @@ api.get(
     
     var productsList: Array<TypeProduct> =  [ p1, p2, p3, p4, p5, p6, p7, p8 ];
     */
-    return res.status(200).send(productsList);
-  });
 
-export default api
+  export { router as productRouter }
