@@ -2,10 +2,9 @@ import express, { Application, RequestHandler } from "express";
 import cors from "cors";
 import bp from "body-parser";
 import promBundle from "express-prom-bundle";
-import apiProducts from "./routes/ProductRoutes";
+import api from "./api";
 
 const app: Application = express();
-const port: number = 5000;
 
 const mongoose = require("mongoose");
 const mongoConnection = "mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority";
@@ -20,7 +19,8 @@ app.use(metricsMiddleware);
 app.use(cors(options));
 app.use(bp.json());
 
-app.use(apiProducts);
+//Modificar con routes
+app.use(api);
 
 app
   .listen(5000, (): void => {

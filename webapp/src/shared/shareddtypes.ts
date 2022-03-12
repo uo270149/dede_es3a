@@ -9,3 +9,10 @@ export type Product = {
   nombre: string;
   precio: number;
 }
+
+export type TypeProduct = {
+  id: string;
+  nombre: string;
+  precio: number;
+  imagen: string;
+}

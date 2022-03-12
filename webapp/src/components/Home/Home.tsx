@@ -2,7 +2,10 @@ import Nav from '../Fragments/Nav';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../Fragments/Footer';
 import List from './List';
-import Shoes from './Shoes';
+import ShoesView from './Shoes';
+import {useState, useEffect} from 'react';
+import { TypeProduct } from '../../shared/shareddtypes';
+import { getProducts } from '../../api/api';
 
 const useStyles = makeStyles({
   sizes: {
@@ -43,11 +46,19 @@ left: {
 
 });
 const Home = () => {
+  // Recarga de la lista de productos para el /home
+  const [products, setProducts] = useState<TypeProduct[]>([]);
+  const reloadItems = async () => {
+    setProducts(await getProducts());
+  }
+  useEffect(()=>{
+    reloadItems();
+  },[]);
     
     return (
       <div>
         <Nav />
-        <Shoes/>
+        <ShoesView products={products}/>
         <List/>
         <Footer/>
       </div>
