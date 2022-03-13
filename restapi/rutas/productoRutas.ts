@@ -4,7 +4,6 @@ import { RequestInfo, RequestInit } from 'node-fetch';
 import { Foto } from '../modelos/fotoModelo';
 import fetch from 'node-fetch';
 
-
 const router = express.Router()
 
 router.get('/products/list', async (req: Request, res: Response) => {
@@ -34,9 +33,11 @@ router.get('/products/list', async (req: Request, res: Response) => {
       salida.precio = entrada.precio
       //Recuperamos la imagen principal asociada a este producto
       const foto = await consultarREST('http://localhost:5000/foto/' + entrada.id) as TypeFoto[];
-      salida.imagen = foto[0].ruta;
+      if (foto.length != 0)
+        salida.imagen = foto[0].ruta
+      else
+        salida.imagen = "" //buscar una imagen por defecto si no se carga la principal
       resultado.push(salida)
-      
   }
   return res.status(200).send(resultado)
 })
