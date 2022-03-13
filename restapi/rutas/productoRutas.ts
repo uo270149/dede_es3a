@@ -29,7 +29,6 @@ router.get('/products/list', async (req: Request, res: Response) => {
   let resultado = new Array<TypeProduct>();
 
   const productos = await Producto.find({})
-<<<<<<< HEAD
   
   for (var i=0; i< productos.length; i++)
   {
@@ -45,20 +44,6 @@ router.get('/products/list', async (req: Request, res: Response) => {
       else
         salida.imagen = "" //buscar una imagen por defecto si no se carga la principal
       resultado.push(salida)
-=======
-
-  for (var i = 0; i < productos.length; i++) {
-    let entrada = productos[i];
-    let salida: TypeProduct = ({ id: "", nombre: "", precio: 0, imagen: "" });
-    salida.id = entrada.referencia;
-    salida.nombre = entrada.marca + " " + entrada.modelo;
-    salida.precio = entrada.precio
-    //Recuperamos la imagen principal asociada a este producto
-    const foto = await consultarREST('http://localhost:5000/foto/' + entrada.id) as TypeFoto[];
-    salida.imagen = foto[0].ruta;
-    resultado.push(salida)
-
->>>>>>> 3043aaeed5423d4a9d3d8d02615aa95dcf27f99f
   }
   return res.status(200).send(resultado)
 })
