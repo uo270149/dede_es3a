@@ -1,27 +1,39 @@
-import express, { Application, RequestHandler } from "express";
-import cors from 'cors';
-import bp from 'body-parser';
-import promBundle from 'express-prom-bundle';
-import api from "./api"; 
+import express from 'express';
+import cors from "cors";
+import mongoose from 'mongoose';
+import { json } from 'body-parser';
+import { productoRouter } from './rutas/productoRutas';
+import { fotoRouter } from './rutas/fotoRutas';
+import "dotenv/config";
 
-const app: Application = express();
-const port: number = 5000;
+const app = express()
+app.use(json())
+app.use(cors())
 
-const options: cors.CorsOptions = {
-  origin: ['http://localhost:3000']
-};
+app.use(productoRouter)
+app.use(fotoRouter)
 
-const metricsMiddleware:RequestHandler = promBundle({includeMethod: true});
-app.use(metricsMiddleware);
+/*mongoose.connect(`${process.env.MONGODB_URI}`, () => {
+  console.log('connected to database');
+})*/
 
-app.use(cors(options));
-app.use(bp.json());
+mongoose
+  .connect(`${process.env.MONGODB_URI}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("Conectado a la base de datos MongoDB "))
+  .catch((err) => console.error("Error al conectar a MongoDB", err));
 
-app.use("/api", api)
 
-app.listen(port, ():void => {
-    console.log('Restapi listening on '+ port);
-}).on("error",(error:Error)=>{
-    console.error('Error occured: ' + error.message);
-});
+/* mongoose.connect('mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority', () => {
+  console.log('connected to database')
+}) */
 
+app
+  .listen(5000, (): void => {
+    console.log("Restapi listening on " + 5000);
+  })
+  .on("error", (error: Error) => {
+    console.error("Error occured: " + error.message);
+  });
