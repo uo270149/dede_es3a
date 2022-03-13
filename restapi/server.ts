@@ -1,16 +1,16 @@
 import express from 'express';
 import cors from "cors";
-import mongoose, { ConnectOptions } from 'mongoose';
+import mongoose from 'mongoose';
 import { json } from 'body-parser';
-import { productRouter } from './routes/ProductRoutes';
+import { productoRouter } from './rutas/productoRutas';
+import { fotoRouter } from './rutas/fotoRutas';
 
 const app = express()
 app.use(json())
-
 app.use(cors())
 
-app.use(productRouter)
-
+app.use(productoRouter)
+app.use(fotoRouter)
 
 /* app.set('db', 'mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority');
 
