@@ -1,10 +1,16 @@
-import express, { Request, Response} from 'express';
+import express, { Request, Response } from 'express';
 import { Producto } from '../modelos/productoModelo';
 import { RequestInfo, RequestInit } from 'node-fetch';
 import { Foto } from '../modelos/fotoModelo';
 import fetch from 'node-fetch';
 
 const router = express.Router()
+
+router.get('/producto/detalles/colores/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const colores = await Producto.find({ referencia: ref }, 'color');
+  return res.json(colores);
+})
 
 router.get('/products/list', async (req: Request, res: Response) => {
   type TypeProduct = {
@@ -15,14 +21,15 @@ router.get('/products/list', async (req: Request, res: Response) => {
   }
 
   type TypeFoto = {
-    ruta:String;
+    ruta: String;
     descripcion: String;
     producto: String;
   }
 
-  let resultado = new Array <TypeProduct>();
+  let resultado = new Array<TypeProduct>();
 
   const productos = await Producto.find({})
+<<<<<<< HEAD
   
   for (var i=0; i< productos.length; i++)
   {
@@ -38,6 +45,20 @@ router.get('/products/list', async (req: Request, res: Response) => {
       else
         salida.imagen = "" //buscar una imagen por defecto si no se carga la principal
       resultado.push(salida)
+=======
+
+  for (var i = 0; i < productos.length; i++) {
+    let entrada = productos[i];
+    let salida: TypeProduct = ({ id: "", nombre: "", precio: 0, imagen: "" });
+    salida.id = entrada.referencia;
+    salida.nombre = entrada.marca + " " + entrada.modelo;
+    salida.precio = entrada.precio
+    //Recuperamos la imagen principal asociada a este producto
+    const foto = await consultarREST('http://localhost:5000/foto/' + entrada.id) as TypeFoto[];
+    salida.imagen = foto[0].ruta;
+    resultado.push(salida)
+
+>>>>>>> 3043aaeed5423d4a9d3d8d02615aa95dcf27f99f
   }
   return res.status(200).send(resultado)
 })
@@ -52,27 +73,27 @@ router.post('/products/add', async (req: Request, res: Response) => {
 
 async function consultarREST(html: RequestInfo) {
   try {
-      // 👇️ const response: Response
-      const response = await fetch(html, {
-        method: 'GET',
-        headers: { Accept: 'application/json',},
-      });
+    // 👇️ const response: Response
+    const response = await fetch(html, {
+      method: 'GET',
+      headers: { Accept: 'application/json', },
+    });
 
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      }
+    if (!response.ok) {
+      throw new Error(`Error! status: ${response.status}`);
+    }
 
-      const result = (await response.json());
-      //console.log('result is: ', JSON.stringify(result, null, 4));
-      return result;
+    const result = (await response.json());
+    //console.log('result is: ', JSON.stringify(result, null, 4));
+    return result;
   } catch (error) {
-      if (error instanceof Error) {
-        console.log('error message: ', error.message);
-        return error.message;
-      } else {
-        console.log('unexpected error: ', error);
-        return 'An unexpected error occurred';
-      }
+    if (error instanceof Error) {
+      console.log('error message: ', error.message);
+      return error.message;
+    } else {
+      console.log('unexpected error: ', error);
+      return 'An unexpected error occurred';
+    }
   }
 }
 
