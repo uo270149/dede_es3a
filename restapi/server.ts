@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import { productoRouter } from './rutas/productoRutas';
 import { fotoRouter } from './rutas/fotoRutas';
+import "dotenv/config";
 
 const app = express()
 app.use(json())
@@ -12,17 +13,17 @@ app.use(cors())
 app.use(productoRouter)
 app.use(fotoRouter)
 
-/* app.set('db', 'mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority');
-
-mongoose.connect(app.get('db'), () => {
+/*mongoose.connect(`${process.env.MONGODB_URI}`, () => {
   console.log('connected to database');
-}) */
+})*/
 
-const db = process.env.DB_CONNECTION_STRING || 'mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority';
-
-mongoose.connect(db, () => {
-  console.log('connected to database');
-})
+mongoose
+  .connect(`${process.env.MONGODB_URI}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("Conectado a la base de datos MongoDB "))
+  .catch((err) => console.error("Error al conectar a MongoDB", err));
 
 
 /* mongoose.connect('mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority', () => {
