@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import { productoRouter } from './rutas/productoRutas';
 import { fotoRouter } from './rutas/fotoRutas';
+import { tallaRouter } from './rutas/tallaRutas';
 import "dotenv/config";
 
 const app = express()
@@ -12,6 +13,7 @@ app.use(cors())
 
 app.use(productoRouter)
 app.use(fotoRouter)
+app.use(tallaRouter)
 
 mongoose
   .connect(`${process.env.MONGODB_URI}`, {

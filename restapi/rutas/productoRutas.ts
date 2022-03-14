@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
-import { Producto } from '../modelos/productoModelo';
-import { Foto , FotoDoc} from '../modelos/fotoModelo';
+import { Producto , ProductoDoc} from '../modelos/productoModelo';
 import consultarREST from './consultarREST';
 import "dotenv/config";
 
@@ -10,6 +9,30 @@ router.get('/producto/detalles/colores/:referencia', async (req: Request, res: R
   const ref = req.params.referencia;
   const colores = await Producto.find({ referencia: ref }, 'color');
   return res.json(colores);
+})
+
+//Recuperamos todas las tallas asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las tallas asociadas a este producto
+    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas/' + productos[0].id)
+    return res.json(tallas);
+  }
+  return res.json();
+})
+
+//Recuperamos todas las tallas disponibles (con existencias en stock) asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/tallas_disponibles/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las tallas disponibles asociadas a este producto
+    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas_disponibles/' + productos[0].id)
+    return res.json(tallas);
+  }
+  return res.json();
 })
 
 router.get('/products/list', async (req: Request, res: Response) => {
@@ -33,7 +56,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
       salida.nombre = entrada.marca + " " +entrada.modelo;
       salida.precio = entrada.precio
       //Recuperamos la imagen principal asociada a este producto
-      const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) as FotoDoc[];
+      const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
       if (foto.length != 0)
         salida.imagen = foto[0].ruta
       else
