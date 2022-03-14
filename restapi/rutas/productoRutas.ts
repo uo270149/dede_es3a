@@ -1,29 +1,72 @@
 import express, { Request, Response } from 'express';
-import { Producto } from '../modelos/productoModelo';
-import { RequestInfo, RequestInit } from 'node-fetch';
-import { Foto } from '../modelos/fotoModelo';
-import fetch from 'node-fetch';
+import { Producto , ProductoDoc} from '../modelos/productoModelo';
+import consultarREST from './consultarREST';
+import "dotenv/config";
 
 const router = express.Router()
-
+//Recuperamos todos los colores asociados a un producto facilitando su referencia
 router.get('/producto/detalles/colores/:referencia', async (req: Request, res: Response) => {
   const ref = req.params.referencia;
   const colores = await Producto.find({ referencia: ref }, 'color');
   return res.json(colores);
 })
 
+//Recuperamos la foto etiquetada como principal asociada a un producto facilitando su referencia
+router.get('/producto/detalles/foto/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las fotos asociadas a este producto
+    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + productos[0].id)
+    return res.json(fotos);
+  }
+  return res.json();
+})
+
+//Recuperamos todas las fotos asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/fotos/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las fotos asociadas a este producto
+    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'fotos/' + productos[0].id)
+    return res.json(fotos);
+  }
+  return res.json();
+})
+
+
+//Recuperamos todas las tallas asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las tallas asociadas a este producto
+    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas/' + productos[0].id)
+    return res.json(tallas);
+  }
+  return res.json();
+})
+
+//Recuperamos todas las tallas disponibles (con existencias en stock) asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/tallas_disponibles/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las tallas disponibles asociadas a este producto
+    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas_disponibles/' + productos[0].id)
+    return res.json(tallas);
+  }
+  return res.json();
+})
+
 router.get('/products/list', async (req: Request, res: Response) => {
+  //formato de salida que espera el front-end
   type TypeProduct = {
     id: String;
     nombre: String;
     precio: Number;
     imagen: String;
-  }
-
-  type TypeFoto = {
-    ruta: String;
-    descripcion: String;
-    producto: String;
   }
 
   let resultado = new Array<TypeProduct>();
@@ -38,11 +81,11 @@ router.get('/products/list', async (req: Request, res: Response) => {
       salida.nombre = entrada.marca + " " +entrada.modelo;
       salida.precio = entrada.precio
       //Recuperamos la imagen principal asociada a este producto
-      const foto = await consultarREST('http://localhost:5000/foto/' + entrada.id) as TypeFoto[];
+      const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
       if (foto.length != 0)
         salida.imagen = foto[0].ruta
       else
-        salida.imagen = "" //buscar una imagen por defecto si no se carga la principal
+        salida.imagen = "" //buscar una imagen por defecto si no hay principal
       resultado.push(salida)
   }
   return res.status(200).send(resultado)
@@ -55,31 +98,5 @@ router.post('/products/add', async (req: Request, res: Response) => {
   await product.save()
   return res.status(201).send(product)
 })
-
-async function consultarREST(html: RequestInfo) {
-  try {
-    // 👇️ const response: Response
-    const response = await fetch(html, {
-      method: 'GET',
-      headers: { Accept: 'application/json', },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Error! status: ${response.status}`);
-    }
-
-    const result = (await response.json());
-    //console.log('result is: ', JSON.stringify(result, null, 4));
-    return result;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log('error message: ', error.message);
-      return error.message;
-    } else {
-      console.log('unexpected error: ', error);
-      return 'An unexpected error occurred';
-    }
-  }
-}
 
 export { router as productoRouter }
