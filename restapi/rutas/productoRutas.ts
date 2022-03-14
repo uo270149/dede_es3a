@@ -4,12 +4,37 @@ import consultarREST from './consultarREST';
 import "dotenv/config";
 
 const router = express.Router()
-
+//Recuperamos todos los colores asociados a un producto facilitando su referencia
 router.get('/producto/detalles/colores/:referencia', async (req: Request, res: Response) => {
   const ref = req.params.referencia;
   const colores = await Producto.find({ referencia: ref }, 'color');
   return res.json(colores);
 })
+
+//Recuperamos la foto etiquetada como principal asociada a un producto facilitando su referencia
+router.get('/producto/detalles/foto/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las fotos asociadas a este producto
+    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + productos[0].id)
+    return res.json(fotos);
+  }
+  return res.json();
+})
+
+//Recuperamos todas las fotos asociadas a un producto facilitando su referencia
+router.get('/producto/detalles/fotos/:referencia', async (req: Request, res: Response) => {
+  const ref = req.params.referencia;
+  const productos = await Producto.find({ referencia: ref });
+  if (productos.length == 1){
+    //Recuperamos todas las fotos asociadas a este producto
+    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'fotos/' + productos[0].id)
+    return res.json(fotos);
+  }
+  return res.json();
+})
+
 
 //Recuperamos todas las tallas asociadas a un producto facilitando su referencia
 router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Response) => {
@@ -60,7 +85,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
       if (foto.length != 0)
         salida.imagen = foto[0].ruta
       else
-        salida.imagen = "" //buscar una imagen por defecto si no se carga la principal
+        salida.imagen = "" //buscar una imagen por defecto si no hay principal
       resultado.push(salida)
   }
   return res.status(200).send(resultado)
