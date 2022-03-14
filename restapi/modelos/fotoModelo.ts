@@ -40,4 +40,4 @@ fotoSchema.statics.build = (attr: IFoto) => {
 
 const Foto = mongoose.model<FotoDoc,FotoModelInterface>('Foto',fotoSchema)
 
-export { Foto }
+export { Foto , FotoDoc}
