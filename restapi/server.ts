@@ -13,10 +13,6 @@ app.use(cors())
 app.use(productoRouter)
 app.use(fotoRouter)
 
-/*mongoose.connect(`${process.env.MONGODB_URI}`, () => {
-  console.log('connected to database');
-})*/
-
 mongoose
   .connect(`${process.env.MONGODB_URI}`, {
     useNewUrlParser: true,
@@ -25,15 +21,10 @@ mongoose
   .then(() => console.log("Conectado a la base de datos MongoDB "))
   .catch((err) => console.error("Error al conectar a MongoDB", err));
 
-
-/* mongoose.connect('mongodb+srv://admin:admin1234@dede-es3a.thyhc.mongodb.net/dede?retryWrites=true&w=majority', () => {
-  console.log('connected to database')
-}) */
-
 app
-  .listen(5000, (): void => {
-    console.log("Restapi listening on " + 5000);
+  .listen(parseInt(`${process.env.API_REST_PORT}`, 10), (): void => {
+    console.log("REST api escuchando en el puerto " + `${process.env.API_REST_PORT}`);
   })
   .on("error", (error: Error) => {
-    console.error("Error occured: " + error.message);
+    console.error("Error ocurrido: " + error.message);
   });

@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import { Producto } from '../modelos/productoModelo';
-
-import { Foto } from '../modelos/fotoModelo';
+import { Foto , FotoDoc} from '../modelos/fotoModelo';
 import consultarREST from './consultarREST';
+import "dotenv/config";
 
 const router = express.Router()
 
@@ -13,17 +13,12 @@ router.get('/producto/detalles/colores/:referencia', async (req: Request, res: R
 })
 
 router.get('/products/list', async (req: Request, res: Response) => {
+  //formato de salida que espera el front-end
   type TypeProduct = {
     id: String;
     nombre: String;
     precio: Number;
     imagen: String;
-  }
-
-  type TypeFoto = {
-    ruta: String;
-    descripcion: String;
-    producto: String;
   }
 
   let resultado = new Array<TypeProduct>();
@@ -38,7 +33,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
       salida.nombre = entrada.marca + " " +entrada.modelo;
       salida.precio = entrada.precio
       //Recuperamos la imagen principal asociada a este producto
-      const foto = await consultarREST('http://localhost:5000/foto/' + entrada.id) as TypeFoto[];
+      const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) as FotoDoc[];
       if (foto.length != 0)
         salida.imagen = foto[0].ruta
       else
