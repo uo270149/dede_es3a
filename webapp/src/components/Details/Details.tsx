@@ -5,6 +5,10 @@ import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
 import LeftDetails from './LeftDetails';
 import RightDetails from './RightDetails';
+import {useState, useEffect} from 'react';
+import { TypeProduct } from '../../shared/shareddtypes';
+import { getProduct } from '../../api/api';
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
   sizes: {
@@ -26,7 +30,20 @@ const useStyles = makeStyles({
 
 });
 
+type ProductDets = {
+  id: string;
+};
+
 const Details = () => {
+    //Obtenemos los detalles
+    const { id } = useParams<keyof ProductDets>() as unknown as ProductDets;
+    const [product, setProduct] = useState<TypeProduct>();
+
+    const getDetails = async (id:string ) =>{ 
+      if (product == null) setProduct(await getProduct(id) as TypeProduct);
+    };
+
+    useEffect(() => { getDetails(id + ""); }, []);
     
     return (
       <div>

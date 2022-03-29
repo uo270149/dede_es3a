@@ -24,3 +24,9 @@ export async function getProducts(): Promise<TypeProduct[]> {
   const response = await fetch("http://localhost:5000/products/list");
   return response.json();
 }
+
+export async function getProduct(productId : string): Promise<TypeProduct> {
+  const apiPetition = "http://localhost:5000/products/details/" + productId;
+  const response = await fetch(apiPetition);
+  return response.json();
+}
