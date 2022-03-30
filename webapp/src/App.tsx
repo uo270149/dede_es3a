@@ -8,6 +8,7 @@ import {User} from './shared/shareddtypes';
 import './App.css';
 import Details from './components/Details/Details';
 import Cart from './components/Cart/Cart';
+import Requests from './components/Request/Requests';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from './components/Fragments/Footer';
 import { Product } from './shared/shareddtypes';
@@ -21,6 +22,7 @@ function App(): JSX.Element {
         <Route exact path="/" component={Home} />
         <Route  path="/Cart" render={() => <Cart/>}/>
         <Route  path="/Details" render={() => <Details/>}/>
+        <Route  path="/Requests" render={() => <Requests/>}/>
       </Switch>
       </Router>
       <Footer/>

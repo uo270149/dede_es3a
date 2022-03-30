@@ -155,7 +155,7 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Perfil</MenuItem>
+                <MenuItem to='/Requests' onClick={handleClose} component={Link}>Mis Pedidos</MenuItem>
                 <MenuItem onClick={handleClose}>LogOut</MenuItem>
               </Menu>
             </div>
