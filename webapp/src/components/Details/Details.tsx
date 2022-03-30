@@ -34,17 +34,38 @@ type ProductDets = {
   id: string;
 };
 
-const Details = () => {
-    //Obtenemos los detalles
-    const { id } = useParams<keyof ProductDets>() as unknown as ProductDets;
-    const [product, setProduct] = useState<TypeProduct>();
+export default function Details():JSX.Element {
+  //Obtenemos los detalles
+  //const  id  = useParams<keyof ProductDets>();
+  const [product, setProduct] = useState<TypeProduct>();
 
-    const getDetails = async (id:string ) =>{ 
-      if (product == null) setProduct(await getProduct(id) as TypeProduct);
-    };
+  async function cargar(id:string ) { 
+    const prod = await getProduct(id);
+    var result; 
+    if(prod){
+      result = prod;
+    }
+    else{
+      result = {
+        id:id,
+        nombre:'Unknown',
+        precio:0,
+        imagen:''
+      }
+    } 
+    setProduct(result as TypeProduct);
+  };
 
-    useEffect(() => { getDetails(id + ""); }, []);
-    
+  //cargar(id);
+
+  if(typeof product === "undefined"){
+    return (
+      <div>
+        <Nav />
+        <Footer/>
+      </div>
+    );
+  } else {
     return (
       <div>
         <Nav />
@@ -54,10 +75,10 @@ const Details = () => {
         spacing={2}
         >
           <LeftDetails/>
-          <RightDetails/>
+          <RightDetails product={product}/>
         </Stack>
         <Footer/>
       </div>
     );
-  };
-  export default Details;
+  }
+}

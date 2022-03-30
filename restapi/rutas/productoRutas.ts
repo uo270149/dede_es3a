@@ -99,4 +99,38 @@ router.post('/products/add', async (req: Request, res: Response) => {
   return res.status(201).send(product)
 })
 
+router.get('/producto/detalles/:referencia', async (req: Request, res: Response) => {
+  //formato de salida que espera el front-end
+  type TypeProduct = {
+    id: String;
+    nombre: String;
+    precio: Number;
+    imagen: String;
+  }
+
+  let resultado = new Array<TypeProduct>();
+  //Parametro referencia
+  const ref = req.params.referencia;
+  //Realizamos la busqueda por referencia
+  const product = await Producto.findOne({referencia: ref})
+  if(product){
+    let entrada = product;
+    let salida: TypeProduct = ({ id: "", nombre:"",precio:0,imagen: "" });
+    salida.id = entrada.referencia;
+    salida.nombre = entrada.marca + " " +entrada.modelo;
+    salida.precio = entrada.precio
+    //Recuperamos la imagen principal asociada a este producto
+    const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
+    if (foto.length != 0)
+      salida.imagen = foto[0].ruta
+    else
+      salida.imagen = "" //buscar una imagen por defecto si no hay principal
+    resultado.push(salida)
+    return res.status(200).send(resultado)
+  } else{
+    return res.status(500).json();
+  }
+  
+})
+
 export { router as productoRouter }
