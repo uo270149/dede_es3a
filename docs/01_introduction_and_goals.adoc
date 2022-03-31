@@ -13,7 +13,7 @@ Objetivos de Negocio:
 	-A corto plazo: Realizar una documentación adecuada de manera que se cumplan las 
 	expectativas y necesidades del proyecto.
 	-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos 
-	de usabilidad para poder realizar compra/venta de *ropa/objetos...* de una manera mas 
+	de usabilidad para poder realizar compra/venta de playeros de una manera mas 
 	cómoda,sencilla y accesible.
 
 [role="arc42help"]
@@ -35,6 +35,7 @@ Objetivos de Negocio:
 	-Dede_es3a dará al usuario la posibilidad de borrar elementos del carrito.
 	-Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando el usuario no sea existente.
 	-Dede_es3a permitirá el registro de usuarios mediante formulario si las credenciales coinciden con la BDD.
+	-Dede_es3a dispondrá de uan lista de pedidos por usuario en la que se almacenará los pedidos realizados por el usuario.
 
 [role="arc42help"]
 ****
