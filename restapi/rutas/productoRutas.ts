@@ -105,6 +105,7 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
     id: String;
     nombre: String;
     precio: Number;
+    descripcion: String;
     imagen: String;
   }
 
@@ -115,10 +116,11 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
   const product = await Producto.findOne({referencia: ref})
   if(product){
     let entrada = product;
-    let salida: TypeProduct = ({ id: "", nombre:"",precio:0,imagen: "" });
+    let salida: TypeProduct = ({ id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
     salida.id = entrada.referencia;
     salida.nombre = entrada.marca + " " +entrada.modelo;
     salida.precio = entrada.precio
+    salida.descripcion = entrada.descripcion;
     //Recuperamos la imagen principal asociada a este producto
     const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
     if (foto.length != 0)

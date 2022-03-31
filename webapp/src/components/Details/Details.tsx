@@ -8,7 +8,6 @@ import RightDetails from './RightDetails';
 import {useState, useEffect} from 'react';
 import { TypeProduct } from '../../shared/shareddtypes';
 import { getProduct } from '../../api/api';
-import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
   sizes: {
@@ -30,33 +29,25 @@ const useStyles = makeStyles({
 
 });
 
-type ProductDets = {
-  id: string;
-};
-
 export default function Details():JSX.Element {
-  //Obtenemos los detalles
-  //const  id  = useParams<keyof ProductDets>();
+  //Obtenemos la parte de parametros de la url
+  const querystring = window.location.search;
+  const params = new URLSearchParams(querystring)
+  
+  //Obtenemos la id del producto
+  const id = params.get('id') as string;
+  
   const [product, setProduct] = useState<TypeProduct>();
-
-  async function cargar(id:string ) { 
-    const prod = await getProduct(id);
-    var result; 
-    if(prod){
-      result = prod;
+  const reloadDetails = async () => {
+    var prod = await getProduct(id);
+    if(prod!=undefined){
+      setProduct(prod);
     }
-    else{
-      result = {
-        id:id,
-        nombre:'Unknown',
-        precio:0,
-        imagen:''
-      }
-    } 
-    setProduct(result as TypeProduct);
-  };
-
-  //cargar(id);
+  }
+  useEffect(()=>{
+    // De esta forma evitamos que la pagina se este recargando permanentemente
+    reloadDetails();    
+  },[]);
 
   if(typeof product === "undefined"){
     return (
@@ -75,7 +66,7 @@ export default function Details():JSX.Element {
         spacing={2}
         >
           <LeftDetails/>
-          <RightDetails product={product}/>
+          <RightDetails product={product as unknown as Array<TypeProduct>}/>
         </Stack>
         <Footer/>
       </div>

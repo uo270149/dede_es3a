@@ -21,21 +21,21 @@ const colores = [
 ]
 
 type parsedProduct = {
-  product: TypeProduct;
+  product: TypeProduct[];
 };
-
+ 
 const RightDetails = (parsed:parsedProduct) => {
   return (
     <Box sx={{ '& button': { m: 2 } }} >
       <div>
       <Typography gutterBottom variant="h3" color= "#FFFFFF">
-           Titulo
+           {parsed.product[0].nombre}
       </Typography>
       <Typography gutterBottom variant="h4" color= "#FFFFFF">
-           Descripcion
+           {parsed.product[0].descripcion}
       </Typography>
       <Typography gutterBottom variant="h6" color= "#FFFFFF">
-           Precio
+           {parsed.product[0].precio}
       </Typography>
       </div>
 

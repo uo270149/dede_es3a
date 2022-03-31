@@ -26,7 +26,7 @@ export async function getProducts(): Promise<TypeProduct[]> {
 }
 
 export async function getProduct(productId : string): Promise<TypeProduct> {
-  const apiPetition = "http://localhost:5000/productos/detalles/" + productId;
+  const apiPetition = "http://localhost:5000/producto/detalles/" + productId;
   const response = await fetch(apiPetition);
   return response.json();
 }
