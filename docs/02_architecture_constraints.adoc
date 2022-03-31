@@ -41,7 +41,7 @@ Tabla con todas las restricciones de negocio junto con una breve descripción .
 [options="header",cols="1,2"]
 |===
 |Restricción|Descripción
-|Equipo| El equipo esta formado por 4 personas con las que apenas hemos interactuado con anterioridad.
+|Equipo| El equipo esta formado por 5 personas con las que apenas hemos interactuado con anterioridad.
 |Horarios| Todos somos estudiantes con más asignaturas o incluso que trabaja mientras cursa esta asignatura.
 |Límite de tiempo| Cada entrega tiene una fecha de entrega bastante cercana a la anterior.
 |===
