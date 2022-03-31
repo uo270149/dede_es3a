@@ -155,8 +155,8 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={handleClose}>LogOut</MenuItem>
+                <MenuItem onClick={handleClose} to='/Login'
+                component={Link} >Login</MenuItem>
               </Menu>
             </div>
           )}

@@ -11,6 +11,7 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from './components/Fragments/Footer';
 import { Product } from './shared/shareddtypes';
+import Login from './components/Login/Login'
 
 let productos= new Array<Product>();
 function App(): JSX.Element {
@@ -21,7 +22,9 @@ function App(): JSX.Element {
         <Route exact path="/" component={Home} />
         <Route  path="/Cart" render={() => <Cart/>}/>
         <Route  path="/Details" render={() => <Details/>}/>
-      </Switch>
+        <Route  path="/Login" render={() => <Login/>}/>
+        
+        </Switch>
       </Router>
       <Footer/>
     </>
