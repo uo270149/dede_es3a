@@ -5,6 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Box, Typography } from '@mui/material';
 import TableSizes from './TableSizes';
+import { TypeProduct } from '../../shared/shareddtypes';
 
 const tallas = [
   <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>36</Button>,
@@ -19,19 +20,22 @@ const colores = [
   <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}}>Negro</Button>,
 ]
 
-const RightDetails = () => {
-
+type parsedProduct = {
+  product: TypeProduct[];
+};
+ 
+const RightDetails = (parsed:parsedProduct) => {
   return (
     <Box sx={{ '& button': { m: 2 } }} >
       <div>
       <Typography gutterBottom variant="h3" color= "#FFFFFF">
-           Titulo
+           {parsed.product[0].nombre}
       </Typography>
       <Typography gutterBottom variant="h4" color= "#FFFFFF">
-           Descripcion
+           {parsed.product[0].descripcion}
       </Typography>
       <Typography gutterBottom variant="h6" color= "#FFFFFF">
-           Precio
+           {parsed.product[0].precio}
       </Typography>
       </div>
 
