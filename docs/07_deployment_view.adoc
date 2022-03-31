@@ -70,4 +70,5 @@ Mapeo de Bloques de Construccion a Infraestructura::
 | Web browser| Depende de la eleccion del usuario, y unica forma de acceder a la aplicacion.
 | POD| "Almacenes" para guardar los datos de los usuarios de forma segura.
 | CorreosAPI| Usada para simular el envio de un pedido a correos.
+| Github| Será usado un repositorio a parte para guardar las imágenes de los diferentes artículos de la aplicación.
 |===
