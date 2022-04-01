@@ -11,5 +11,11 @@ En esta sección se muestra un diagrama de árbol de calidad para el sistema des
 image:DiagramaCalidad.png["DiagramaArbolCalidad"]
 
 === Escenarios de calidad
-
-Pendiente
+[options="header",cols="1,2"]
+|===
+|Requerimiento|Descripción
+| Privacidad | La aplicación no accede a los datos del usuario sin permisos, solo los necesarios para algunas funciones concretas. 
+| Usabilidad| La aplicación tiene una interfaz y manejo intuitivos, de uso fácil.
+| Accesibilidad| Cualquier usuario, puede interactuar con la página sin problemas. Nuestro objetivo es seguir unas pautas de accesibilidad Web.
+| Disponibilidad| En cualquier momento que el usuario desee interactuar con la aplicación, podrá hacerlo y se ejecutará eficientemente.
+|===
