@@ -1,13 +1,12 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useState, useEffect } from "react";
-import { LoginButton } from "@inrupt/solid-ui-react";
-import { Button, TextField, FormGroup, Container } from "@material-ui/core";
-import Card from '@material-ui/core/Card';
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
+import { Autocomplete, Button, Card, CardHeader, Container, Grid, Link, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { handleIncomingRedirect,  onSessionRestore } from "@inrupt/solid-client-authn-browser";
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import CardHeader from '@material-ui/core/CardHeader';
-import { Link } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,47 +33,77 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '70%',
       height:''
     },
-    
-   
   })
 );
 
+const authOptions = {
+  clientName: "DedEx: Decentralized Delivery",
+  };
+  
+
 const Login = () => {
   const classes = useStyles();
-  const [idpr, setIdpr] = useState("https://inrupt.net");
-  const [dedeurl, setDedeUrl] = useState("http://localhost:3000/");
+  const navigate = useNavigate();
+  const [oidcIssuer, setOidcIssuer] = useState("https://broker.pod.inrupt.com/");
+  const providers = [{ displayName: "Broker Inrupt", url: "https://broker.pod.inrupt.com/" }, { displayName: "Inrupt", url: "https://inrupt.net/" }]
+  const { session } = useSession();
 
-    useEffect(() => {
-      setDedeUrl(window.location.href);
-    }, [setDedeUrl]);
-  
+  onSessionRestore((url) => {
+    if (session.info.isLoggedIn) {
+      navigate(url);
+    }
+  });
+
+  useEffect(() => {
+    handleIncomingRedirect({
+      restorePreviousSession: true
+    }).then(() => {
+      if (session.info.isLoggedIn) {
+        localStorage.setItem("sessionID", session.info.sessionId);
+        navigate("/profile");
+      }
+    })
+  });
+
   return (
     <form className={classes.container} noValidate autoComplete="on">
       <Card className={classes.card}>
         <CardHeader className={classes.header} title="Login" />
         <CardContent>
-        <FormGroup>
-        <TextField
-          label="Provider"
-          placeholder="Provider"
-          type="url"
-          value={idpr}
-          onChange={(e) => setIdpr(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <LoginButton oidcIssuer={idpr} redirectUrl={dedeurl}>
-                <Button variant="contained" color="primary" href={"http://localhost:3000/"}>
-                  Login
-                  </Button>
+        <>
+          <Typography id="solidLogin" variant="h3">
+            Login
+          </Typography>
+          <Autocomplete
+            disablePortal
+            id="combo-box-providers"
+            options={providers}
+            renderInput={(params) => <TextField {...params} label="Provider:" />}
+            getOptionLabel={(option) => option.displayName}
+            onChange={(e, value) => {
+              if (value != null)
+                setOidcIssuer(value.url)
+            }}
+          />
+          <Grid id="solidButtons" container>
+            <Grid item>
+              <LoginButton
+                oidcIssuer={oidcIssuer}
+                redirectUrl="/"
+                authOptions={authOptions}>
+                <Button id="loginButton" data-testid="button" color="primary" variant="contained">Connect</Button>
               </LoginButton>
-            ),
-          }}
-        />
-      </FormGroup>
-        <Link href="https://inrupt.net/register" margin={'30%'} > No tienes una cuenta? Regístrate aqui</Link>
-        </CardContent>
-        
-      </Card>
+            </Grid>
+            <Grid item>
+              <Button href="/" variant="contained" id="cancelButton" >Cancel</Button>
+            </Grid>
+          </Grid>
+          <Typography variant="body1" component="p" id="help">
+            <Link href="https://inrupt.net/register" margin={'30%'} > ¿No tienes una cuenta? Regístrate aqui</Link>
+          </Typography>
+        </>
+    </CardContent>
+    </Card>
     </form>
   );
 }
