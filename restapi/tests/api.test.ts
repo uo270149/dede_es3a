@@ -6,6 +6,7 @@ import cors from 'cors';
 import exp from 'constants';
 import api from '../api';
 import { IProducto } from '../modelos/productoModelo';
+import { Types } from 'mongoose';
 
 let app: Application;
 //let server: http.Server;
@@ -81,5 +82,32 @@ describe('producto', () => {
         for (var i = 0; i < productos.length; i++) {
             expect(productos[i]).toStrictEqual(servidor.productos[i]);
         }
+    });
+
+    /**
+     * Probar que podemos obtener un producto por su referencia
+     */
+    it('Producto según su referencia ', async () => {
+        let productoBuscado: IProducto = servidor.productos[1];
+
+        const response: Response = await request(app).get('/api/products/' + productoBuscado.referencia.toString());
+        expect(response.statusCode).toBe(200);
+
+        // Obtenemos el producto del body de la respuesta
+        let productoEncontrado = response.body;
+        productoEncontrado.referencia = new Types.ObjectId(productoEncontrado.referencia);
+        expect(productoEncontrado).toStrictEqual(productoBuscado);
+    });
+
+    /**
+     * Probar que no obtenemos nada al buscar un producto que no existe
+     */
+    it('Producto que no existe en el sistema ', async () => {
+        // Referencia de un producto inexistente
+        let referencia: string = "asdfghjklñ";
+        // Buscamos un producto con esa referencia (inexistente)
+        const response: Response = await request(app).get('/api/products/' + referencia);
+        // El código de respuesta debería ser 404 (no encontrado)
+        expect(response.statusCode).toBe(404);
     });
 });
