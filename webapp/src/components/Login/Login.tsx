@@ -2,10 +2,9 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useState, useEffect } from "react";
 import { LoginButton, useSession } from "@inrupt/solid-ui-react";
-import { Autocomplete, Button, Card, CardHeader, Container, Grid, Link, TextField, Typography } from "@mui/material";
+import { Autocomplete, Button, Card, CardContent, CardHeader, Container, Grid, Link, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { handleIncomingRedirect,  onSessionRestore } from "@inrupt/solid-client-authn-browser";
-import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 
 const useStyles = makeStyles((theme: Theme) =>
