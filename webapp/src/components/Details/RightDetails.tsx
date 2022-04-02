@@ -25,6 +25,19 @@ type parsedProduct = {
 };
  
 const RightDetails = (parsed:parsedProduct) => {
+  
+  function addToCart(){
+    const item = {"id":parsed.product[0].id,"nombre":parsed.product[0].nombre,"precio":parsed.product[0].precio,"imagen":parsed.product[0].imagen};
+    var cart:string = sessionStorage.getItem('cart') as string;
+    if(JSON.parse(cart).length > 0){
+      var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
+    } else{
+      var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
+    }
+    sessionStorage.setItem('cart', newCart);
+    alert("Artículo: \"" + parsed.product[0].nombre + "\" añadido al carrito.");
+  }
+
   return (
     <Box sx={{ '& button': { m: 2 } }} >
       <div>
@@ -66,7 +79,7 @@ const RightDetails = (parsed:parsedProduct) => {
             Favorito
          </Button>
 
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }}>
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}>
            Añadir al carrito
          </Button>
       </div>
