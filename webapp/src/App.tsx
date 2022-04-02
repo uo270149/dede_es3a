@@ -5,7 +5,7 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Fragments/Footer';
 import { Product } from './shared/shareddtypes';
-import Login from './components/Login/Login'
+import Login_v2 from './components/Login/Login_v2'
 import Requests from './components/Requests/Requests'
 
 let productos= new Array<Product>();
@@ -17,7 +17,7 @@ function App(): JSX.Element {
         <Route  path={"/"} element={<Home/>} />
         <Route  path="/Cart" element={<Cart/>}/>
         <Route  path="/Details" element={<Details/>}/>
-        <Route  path="/Login" element={<Login/>}/>
+        <Route  path="/Login_v2" element={<Login_v2/>}/>
         <Route  path="/Requests" element={<Requests/>}/>
         </Routes>
       </Router>
