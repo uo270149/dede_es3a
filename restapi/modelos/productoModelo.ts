@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-interface IProducto {
+export interface IProducto {
     referencia:String;
     marca:String;
     modelo: String;

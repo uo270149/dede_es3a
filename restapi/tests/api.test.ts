@@ -5,6 +5,7 @@ import bp from 'body-parser';
 import cors from 'cors';
 import exp from 'constants';
 import api from '../api';
+import { IProducto } from '../modelos/productoModelo';
 
 let app: Application;
 let server: http.Server;
@@ -46,6 +47,19 @@ describe('user ', () => {
         let username: string = 'Pablo';
         let email: string = 'gonzalezgpablo@uniovi.es';
         const response: Response = await request(app).post('/api/users/add').send({ name: username, email: email }).set('Accept', 'application/json');
+        expect(response.statusCode).toBe(200);
+    })
+});
+
+describe('producto', () => {
+    /**
+     * Probar que podemos listar productos sin errores
+     */
+    it('can be listed', async () => {
+        const response: Response = await request(app).get("api/products/list");
+        const productos: IProducto[] = response.body;
+
+        // todo en orden
         expect(response.statusCode).toBe(200);
     })
 });
