@@ -4,7 +4,7 @@ import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
 
 const ProfileViewer = () => {
   const { session } = useSession();
-  const { webId } = session.info;
+ // const { webId } = session.info;
 
   return (
     <Container fixed>
