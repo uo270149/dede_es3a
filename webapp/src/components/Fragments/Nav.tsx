@@ -111,9 +111,12 @@ export default function MenuAppBar() {
               {!session.info.isLoggedIn ? (
                   <MenuItem onClick={handleClose} to='/FormLogIn'
                   component={Link} >Login</MenuItem>
-              ): (
+              ): ([
                 <MenuItem onClick={handleClose} to='/ProfileViewer'
-                component={Link} >Profile</MenuItem>
+                component={Link} >Profile</MenuItem> ,
+                <MenuItem onClick={handleClose} to='/FormLogIn'
+                component={Link} >LogOut</MenuItem>
+              ]
               )}
               </Menu>
             </div>
