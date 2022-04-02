@@ -2,7 +2,7 @@ import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 import { Console } from "console";
 import { useState } from "react";
 import FormLogIn from "./FormLogIn";
-
+import ProfileViewer from "./ProfileViewer"
 const Login_v2 = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -18,7 +18,7 @@ const Login_v2 = () => {
 
     return(
         <SessionProvider sessionId="">
-            {(!isLoggedIn) ? <FormLogIn/> : console.log("Se conecta XD")};
+            {(!isLoggedIn) ? <FormLogIn/> : <ProfileViewer/>};
         </SessionProvider>
     )
 }
