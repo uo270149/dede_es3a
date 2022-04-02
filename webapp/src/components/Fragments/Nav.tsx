@@ -12,6 +12,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { useSession } from '@inrupt/solid-ui-react';
 
 const useStyle = makeStyles({
   stickToBottom: {
@@ -37,6 +38,8 @@ export default function MenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const {session, logout} = useSession();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -105,8 +108,13 @@ export default function MenuAppBar() {
 
               <MenuItem onClick={handleClose} to='/Requests'
                 component={Link} >Mis pedidos</MenuItem>
-                <MenuItem onClick={handleClose} to='/Login_v2'
-                component={Link} >Login</MenuItem>
+              {!session.info.isLoggedIn ? (
+                  <MenuItem onClick={handleClose} to='/FormLogIn'
+                  component={Link} >Login</MenuItem>
+              ): (
+                <MenuItem onClick={handleClose} to='/ProfileViewer'
+                component={Link} >Profile</MenuItem>
+              )}
               </Menu>
             </div>
           )}
