@@ -4,6 +4,6 @@ global:
 
 #configuración con solo un endpoint para extraer métricas
 scrape_configs:
-  -job_name: "ejemplo-app"
+  -job_name: "dede_es3a"
   static_configs:
     -targets: ["restapi:5000"]
