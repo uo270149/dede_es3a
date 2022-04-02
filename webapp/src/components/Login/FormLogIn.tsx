@@ -56,10 +56,10 @@ const FormLogIn = () => {
           onChange={(e) => setIdp(e.target.value)}
           InputProps={{
             endAdornment: (
-              <LoginButton oidcIssuer={idp} redirectUrl={currentUrl}>
+              <LoginButton oidcIssuer={idp} redirectUrl={"http://localhost:3000/"}>
                 <Button variant="contained" color="primary">
                   Login
-                  </Button>
+                </Button>
               </LoginButton>
             ),
           }}
