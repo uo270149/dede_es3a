@@ -1,4 +1,5 @@
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
+import { Container } from "@mui/material";
 import { Console } from "console";
 import { useState } from "react";
 import FormLogIn from "./FormLogIn";
@@ -11,15 +12,13 @@ const Login_v2 = () => {
     session.onLogin(() => {
         setIsLoggedIn(true);
     })
-
     session.onLogout(() => {
         setIsLoggedIn(false);
-    })
-
+      })
     return(
-        <SessionProvider sessionId="">
+        <Container>
             {(!isLoggedIn) ? <FormLogIn/> : <ProfileViewer/>};
-        </SessionProvider>
+        </Container>
     )
 }
 export default Login_v2;
