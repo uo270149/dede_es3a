@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { ObjectId } from 'mongoose';
 
 interface IProducto {
     referencia:String;
@@ -11,6 +12,7 @@ interface IProducto {
   }
 
   interface ProductoDoc extends mongoose.Document {
+    _id: ObjectId;
     referencia:String;
     marca:String;
     modelo: String;

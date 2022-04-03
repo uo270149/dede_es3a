@@ -27,7 +27,7 @@ type parsedProduct = {
 const RightDetails = (parsed:parsedProduct) => {
   
   function addToCart(){
-    const item = {"id":parsed.product[0].id,"nombre":parsed.product[0].nombre,"precio":parsed.product[0].precio,"imagen":parsed.product[0].imagen};
+    const item = {"_objectId":parsed.product[0]._objectId,"id":parsed.product[0].id,"nombre":parsed.product[0].nombre,"precio":parsed.product[0].precio,"imagen":parsed.product[0].imagen};
     var cart:string = sessionStorage.getItem('cart') as string;
     if(JSON.parse(cart).length > 0){
       var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
