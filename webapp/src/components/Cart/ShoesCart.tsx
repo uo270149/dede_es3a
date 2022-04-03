@@ -31,10 +31,6 @@ const useStyles = makeStyles({
   
   });
 
-function deleteFromCart(product:string){
-
-}
-
 const ShoesCart = () => {
   const classes = useStyles();
     const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
@@ -68,8 +64,14 @@ const ShoesCart = () => {
             </CardActionArea>
             <IconButton aria-label="delete" onClick={() => 
             {
-              console.log("");
-            }}><DeleteIcon /></IconButton>
+              // Eliminar de carrito
+              var newCart = carrito.filter(function (cartProduct:TypeProduct) {     // Eliminamos el producto que tenga todas las propiedades iguales al buscado
+                return (cartProduct.id != item.id && cartProduct.nombre != item.nombre && cartProduct.precio != item.precio && cartProduct.imagen != item.imagen);
+              });
+              sessionStorage.setItem('cart', JSON.stringify(newCart));
+              window.location.reload();   // Recargamos la pagina
+            }
+            }><DeleteIcon /></IconButton>
           </Card>
           </Grid>
           )}
