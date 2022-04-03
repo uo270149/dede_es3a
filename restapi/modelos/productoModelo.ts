@@ -1,5 +1,4 @@
-import mongoose from 'mongoose'
-import { ObjectId } from 'mongoose';
+import mongoose, { ObjectId } from 'mongoose';
 
 export interface IProducto {
     referencia:String;

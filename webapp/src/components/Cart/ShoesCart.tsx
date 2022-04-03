@@ -64,9 +64,21 @@ const ShoesCart = () => {
             <IconButton aria-label="delete" onClick={() => 
             {
               // Eliminar de carrito
-              var newCart = carrito.filter(function (cartProduct:TypeProduct) {     // Eliminamos el producto que tenga todas las propiedades iguales al buscado
-                return (cartProduct._objectId != item._objectId);
+              var itemFound:boolean = false;
+              var auxCart: TypeProduct[] = [];
+              for( var cartProduct of carrito ){
+                // Guardamos en una lista auxiliar todos los elementos del carrito excepto el que queremos eliminar
+                if(cartProduct._objectId != item._objectId || itemFound){
+                  auxCart.push(cartProduct);
+                } else{
+                  itemFound = true;
+                }
+              }
+              // Filtramos el carrito con los elementos contenidos en la lista auxiliar
+              var newCart = carrito.filter(function (cartProduct:TypeProduct) {     
+                return (auxCart.includes(cartProduct));
               });
+              // Establecemos el nuevo valor para el carrito
               sessionStorage.setItem('cart', JSON.stringify(newCart));
               window.location.reload();   // Recargamos la pagina
             }

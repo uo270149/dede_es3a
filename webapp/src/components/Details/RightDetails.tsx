@@ -91,16 +91,3 @@ const RightDetails = (parsed:parsedProduct) => {
   );
 };
 export default RightDetails;
-
-const images = [
-  {
-    url: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b5d26789-8695-4ea4-80e0-47e59b6a3d8e/air-force-1-zapatillas-46WdMJ.png',
-    title: 'Nike Air Force 1',
-    width: '40%',
-  },
-  {
-    url: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/945a101d-1b0e-4302-b6f3-0668cea0b494/air-force-1-zapatillas-46WdMJ.png',
-    title: 'Nike Air Force 1',
-    width: '30%',
-  },
-];
