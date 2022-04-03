@@ -4,6 +4,12 @@ import consultarREST from './consultarREST';
 import "dotenv/config";
 import { ObjectId } from 'mongoose';
 
+//Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
+let URL_BASE = `${process.env.API_REST_URL_BASE_LOCAL}`
+if(process.env.PORT) {
+  URL_BASE = `${process.env.API_REST_URL_BASE_HEROKU}`
+}
+
 const router = express.Router()
 //Recuperamos todos los colores asociados a un producto facilitando su referencia
 router.get('/producto/detalles/colores/:referencia', async (req: Request, res: Response) => {
@@ -18,7 +24,7 @@ router.get('/producto/detalles/foto/:referencia', async (req: Request, res: Resp
   const productos = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las fotos asociadas a este producto
-    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + productos[0].id)
+    const fotos = await consultarREST(URL_BASE +'foto/' + productos[0].id)
     return res.json(fotos);
   }
   return res.json();
@@ -30,7 +36,7 @@ router.get('/producto/detalles/fotos/:referencia', async (req: Request, res: Res
   const productos = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las fotos asociadas a este producto
-    const fotos = await consultarREST(`${process.env. API_REST_URL_BASE}`+'fotos/' + productos[0].id)
+    const fotos = await consultarREST(URL_BASE +'fotos/' + productos[0].id)
     return res.json(fotos);
   }
   return res.json();
@@ -43,7 +49,7 @@ router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Re
   const productos = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las tallas asociadas a este producto
-    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas/' + productos[0].id)
+    const tallas = await consultarREST(URL_BASE +'tallas/' + productos[0].id)
     return res.json(tallas);
   }
   return res.json();
@@ -55,7 +61,7 @@ router.get('/producto/detalles/tallas_disponibles/:referencia', async (req: Requ
   const productos = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las tallas disponibles asociadas a este producto
-    const tallas = await consultarREST(`${process.env. API_REST_URL_BASE}`+'tallas_disponibles/' + productos[0].id)
+    const tallas = await consultarREST(URL_BASE +'tallas_disponibles/' + productos[0].id)
     return res.json(tallas);
   }
   return res.json();
@@ -83,7 +89,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
       salida.nombre = entrada.marca + " " +entrada.modelo;
       salida.precio = entrada.precio
       //Recuperamos la imagen principal asociada a este producto
-      const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
+      const foto = await consultarREST(URL_BASE +'foto/' + entrada.id) ;
       if (foto.length != 0)
         salida.imagen = foto[0].ruta
       else
@@ -125,7 +131,7 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
     salida.precio = entrada.precio
     salida.descripcion = entrada.descripcion;
     //Recuperamos la imagen principal asociada a este producto
-    const foto = await consultarREST(`${process.env. API_REST_URL_BASE}`+'foto/' + entrada.id) ;
+    const foto = await consultarREST(URL_BASE +'foto/' + entrada.id) ;
     if (foto.length != 0)
       salida.imagen = foto[0].ruta
     else
