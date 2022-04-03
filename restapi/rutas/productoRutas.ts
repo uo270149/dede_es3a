@@ -4,7 +4,10 @@ import consultarREST from './consultarREST';
 import "dotenv/config";
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-const URL_BASE = "http://" + process.env.HEROKU_APP_NAME +".herokuapp.com/" || `${process.env.API_REST_URL_BASE}`
+let URL_BASE = `${process.env.API_REST_URL_BASE}`
+if(process.env.HEROKU_APP_NAME) {
+  const URL_BASE = "http://" + process.env.HEROKU_APP_NAME +".herokuapp.com/"
+}
 
 const router = express.Router()
 //Recuperamos todos los colores asociados a un producto facilitando su referencia
