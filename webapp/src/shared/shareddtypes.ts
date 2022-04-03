@@ -1,4 +1,4 @@
-import { ShorthandPropertyAssignment } from "typescript";
+import { ObjectId } from 'mongoose';
 
 export type User = {
     name:string;
@@ -11,6 +11,7 @@ export type Product = {
 }
 
 export type TypeProduct = {
+  _objectId: ObjectId;
   id: string;
   nombre: string;
   precio: number;

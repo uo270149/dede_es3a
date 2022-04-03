@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 const ShoesCart = () => {
   const classes = useStyles();
     const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
-    console.log(carrito);
     return (
       <Container maxWidth="md" className={classes.colores2}>
         <Typography variant='h3' className={classes.colores}>
@@ -66,7 +65,7 @@ const ShoesCart = () => {
             {
               // Eliminar de carrito
               var newCart = carrito.filter(function (cartProduct:TypeProduct) {     // Eliminamos el producto que tenga todas las propiedades iguales al buscado
-                return (cartProduct.id != item.id && cartProduct.nombre != item.nombre && cartProduct.precio != item.precio && cartProduct.imagen != item.imagen);
+                return (cartProduct._objectId != item._objectId);
               });
               sessionStorage.setItem('cart', JSON.stringify(newCart));
               window.location.reload();   // Recargamos la pagina

@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { Producto , ProductoDoc} from '../modelos/productoModelo';
 import consultarREST from './consultarREST';
 import "dotenv/config";
+import { ObjectId } from 'mongoose';
 
 const router = express.Router()
 //Recuperamos todos los colores asociados a un producto facilitando su referencia
@@ -63,6 +64,7 @@ router.get('/producto/detalles/tallas_disponibles/:referencia', async (req: Requ
 router.get('/products/list', async (req: Request, res: Response) => {
   //formato de salida que espera el front-end
   type TypeProduct = {
+    _objectId: ObjectId;
     id: String;
     nombre: String;
     precio: Number;
@@ -76,7 +78,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
   for (var i=0; i< productos.length; i++)
   {
       let entrada = productos[i];
-      let salida: TypeProduct = ({ id: "", nombre:"",precio:0,imagen: "" });
+      let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,imagen: "" });
       salida.id = entrada.referencia;
       salida.nombre = entrada.marca + " " +entrada.modelo;
       salida.precio = entrada.precio
@@ -102,6 +104,7 @@ router.post('/products/add', async (req: Request, res: Response) => {
 router.get('/producto/detalles/:referencia', async (req: Request, res: Response) => {
   //formato de salida que espera el front-end
   type TypeProduct = {
+    _objectId: ObjectId;
     id: String;
     nombre: String;
     precio: Number;
@@ -116,7 +119,7 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
   const product = await Producto.findOne({referencia: ref})
   if(product){
     let entrada = product;
-    let salida: TypeProduct = ({ id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
+    let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
     salida.id = entrada.referencia;
     salida.nombre = entrada.marca + " " +entrada.modelo;
     salida.precio = entrada.precio
