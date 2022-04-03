@@ -5,7 +5,10 @@ import express,{Application} from 'express';
 var app: Application = express()
 
 //En Heroku se asigna el puerto de forma dinámica. (process.env.PORT)
-const port: number = parseInt(process.env.PORT) || 3000
+let port: number = 3000
+if(process.env.PORT) {
+ port = parseInt(process.env.PORT)
+}
 
 app.use(express.static('build'))
 
