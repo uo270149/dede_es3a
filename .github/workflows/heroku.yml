@@ -1,9 +1,10 @@
-name: Despliegue en Heroku
+name: Despliegue en Heroku (rama de desarrollo)
 
 on:
   push:
-    branches:
-      - 'uo68216-pruebas-despliegue'
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
 
 jobs:
   heroku-restapi:
@@ -19,6 +20,7 @@ jobs:
           appdir: "restapi" # <- This will point to the api folder in your project
 
   heroku-webapp:
+    needs: [heroku-restapi]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
