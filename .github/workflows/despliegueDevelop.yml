@@ -5,7 +5,11 @@ on:
     branches:
       - 'uo68216-pruebas-despliegue'
 
-jobs:  
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+
+jobs:
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
     runs-on: ubuntu-latest
@@ -14,11 +18,12 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
-          name: arquisoft/dede_es3a/webapp
+          name: ${{ github.repository }}/webapp
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PUSH_TOKEN }}
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           workdir: webapp
+
   docker-push-restapi:
     name: Push restapi Docker Image to GitHub Packages
     runs-on: ubuntu-latest
@@ -27,8 +32,8 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@3.04
       with:
-          name: arquisoft/dede_es3a/restapi
+          name: ${{ github.repository }}/restapi
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKER_PUSH_TOKEN }}
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           workdir: restapi
