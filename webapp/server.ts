@@ -3,7 +3,9 @@ import express,{Application} from 'express';
 //setting the option module to commonjs
 
 var app: Application = express()
-const port: number = 3000;
+
+//En Heroku se asigna el puerto de forma dinámica. (process.env.PORT)
+const port: number = parseInt(process.env.PORT) || 3000
 
 app.use(express.static('build'))
 
