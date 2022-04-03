@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import { ObjectId } from 'mongoose';
 
-interface IProducto {
+export interface IProducto {
     referencia:String;
     marca:String;
     modelo: String;
