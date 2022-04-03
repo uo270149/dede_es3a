@@ -1,13 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { ImageList, ImageListItem } from "@mui/material";
 
-const useStyles = makeStyles({
-    sizes: {
-      marginLeft:'34%',
-      marginTop:'100px',
-    },
-  });
-
 const LeftDetails = () => {
       
       return (
