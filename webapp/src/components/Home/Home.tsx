@@ -50,6 +50,11 @@ const Home = () => {
   const [products, setProducts] = useState<TypeProduct[]>([]);
   const reloadItems = async () => {
     setProducts(await getProducts());
+    
+    // Inicializacion de carrito
+    if(sessionStorage.getItem('cart') == null){
+      sessionStorage.setItem('cart', JSON.stringify([]));
+    }
   }
   useEffect(()=>{
     reloadItems();

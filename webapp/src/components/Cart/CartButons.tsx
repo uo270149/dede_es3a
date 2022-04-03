@@ -32,12 +32,20 @@ const useStyles = makeStyles({
   },
 });
 
+function FinishBuying(){
+  if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
+    sessionStorage.setItem('cart', JSON.stringify([]));
+    alert("Compra realizada");
+    window.location.reload();
+  }
+}
+
 export default function CartButons() {
     const classes = useStyles();
   return (
     <Container maxWidth='lg' className={classes.container}>    
       <div className={classes.margen}>
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' >
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' onClick={FinishBuying}>
           Finalizar Compra
         </Button>
       </div>        
