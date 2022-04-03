@@ -10,6 +10,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
+  #Front-end
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
     runs-on: ubuntu-latest
@@ -23,7 +24,8 @@ jobs:
           password: ${{ secrets.DOCKER_PUSH_TOKEN }}
           registry: ${{ env.REGISTRY }}
           workdir: webapp
-
+  
+  #Back-end
   docker-push-restapi:
     name: Push restapi Docker Image to GitHub Packages
     runs-on: ubuntu-latest
