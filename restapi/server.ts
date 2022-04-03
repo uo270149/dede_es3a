@@ -23,9 +23,11 @@ mongoose
   .then(() => console.log("Conectado a la base de datos MongoDB "))
   .catch((err) => console.error("Error al conectar a MongoDB", err));
 
+const PORT = process.env.PORT || `${process.env.API_REST_PORT}`
+
 app
-  .listen(parseInt(`${process.env.API_REST_PORT}`, 10), (): void => {
-    console.log("REST api escuchando en el puerto " + `${process.env.API_REST_PORT}`);
+  .listen(PORT, (): void => {
+    console.log(`REST api escuchando en el puerto ${PORT}`);
   })
   .on("error", (error: Error) => {
     console.error("Error ocurrido: " + error.message);
