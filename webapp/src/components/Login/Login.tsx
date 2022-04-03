@@ -1,5 +1,4 @@
 import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
-import { Console } from "console";
 import { useState } from "react";
 import FormLogIn from "./FormLogIn";
 import ProfileViewer from "./ProfileViewer"

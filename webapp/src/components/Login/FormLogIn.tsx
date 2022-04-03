@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { LoginButton} from "@inrupt/solid-ui-react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
