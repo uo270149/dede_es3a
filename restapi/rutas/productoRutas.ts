@@ -4,9 +4,9 @@ import consultarREST from './consultarREST';
 import "dotenv/config";
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-let URL_BASE = `${process.env.API_REST_URL_BASE}`
-if(process.env.HEROKU_APP_NAME) {
-  URL_BASE = "http://" + process.env.HEROKU_APP_NAME +".herokuapp.com/"
+let URL_BASE = `${process.env.API_REST_URL_BASE_LOCAL}`
+if(process.env.PORT) {
+  URL_BASE = `${process.env.API_REST_URL_BASE_HEROKU}`
 }
 
 const router = express.Router()
