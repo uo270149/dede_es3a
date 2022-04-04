@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import {Container, Grid } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@material-ui/core';
-
+import { TypeProduct } from '../../shared/shareddtypes';
 
 const useStyles = makeStyles({
     sizes: {
@@ -30,64 +30,59 @@ const useStyles = makeStyles({
     }
   
   });
-  
-const shoes_images=[
-    {
-        id:'1',
-        name:'Nike Air Max 90',
-        price:'149,99 €',
-        image:'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/75d0471d-9d61-49c2-b1f9-fff297b10dd7/air-max-90-surplus-zapatillas-rpgT3V.png'
-    },
-    {
-        id:'2',
-        name:'Adidas de Pixar',
-        price:'149,99 €',
-        image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_agk4j-1Ofuy6yUvowjpcBVctwkywepbJrWaw717uf1_0qipyfDN5ZGbCFhm0ytAtEy4&usqp=CAU'
-    },{
-        id:'3',
-        name:'ZAPATILLA NMD_R1 V2',
-        price:'140 €',
-        image:'https://assets.adidas.com/images/w_600,f_auto,q_auto/b1fb22faa98a4626bba9ad110106940f_9366/Zapatilla_NMD_R1_V2_Negro_GX0540_01_standard.jpg'
-    },
-    {
-        id:'4',
-        name:'ZAPATILLAS GRAND COURT BASE',
-        price:'11.999 €',
-        image:'https://assets.adidas.com/images/w_600,f_auto,q_auto/1790130ab31944ddbb90aa4300cd10a9_9366/Zapatillas_Grand_Court_Base_Blanco_EE7904_01_standard.jpg'
-    }]
-
 
 const ShoesCart = () => {
   const classes = useStyles();
-          
+    const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
     return (
       <Container maxWidth="md" className={classes.colores2}>
         <Typography variant='h3' className={classes.colores}>
           ARTICULOS EN EL CARRITO
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
-        {shoes_images.map( item =>
+        {carrito.map( (item:TypeProduct) =>
           <Grid item  sm={2} md={2} key={item.id}>
           <Card className={classes.sizes}>
             <CardActionArea>
               <CardMedia
                 component="img"
-                alt={item.name}
+                alt={item.nombre}
                 height="200px"
                 width="200px"
-                image={item.image}
-                title={item.name}
+                image={item.imagen}
+                title={item.nombre}
               />
             <CardContent >
               <Typography variant='h6' >
-                {item.name}
+                {item.nombre}
               </Typography>
               <Typography variant='h6' >
-                Precio:{item.price}
+                Precio:{item.precio}
               </Typography>
             </CardContent>
             </CardActionArea>
-            <IconButton aria-label="delete"><DeleteIcon /></IconButton>
+            <IconButton aria-label="delete" onClick={() => 
+            {
+              // Eliminar de carrito
+              var itemFound:boolean = false;
+              var auxCart: TypeProduct[] = [];
+              for( var cartProduct of carrito ){
+                // Guardamos en una lista auxiliar todos los elementos del carrito excepto el que queremos eliminar
+                if(cartProduct._objectId != item._objectId || itemFound){
+                  auxCart.push(cartProduct);
+                } else{
+                  itemFound = true;
+                }
+              }
+              // Filtramos el carrito con los elementos contenidos en la lista auxiliar
+              var newCart = carrito.filter(function (cartProduct:TypeProduct) {     
+                return (auxCart.includes(cartProduct));
+              });
+              // Establecemos el nuevo valor para el carrito
+              sessionStorage.setItem('cart', JSON.stringify(newCart));
+              window.location.reload();   // Recargamos la pagina
+            }
+            }><DeleteIcon /></IconButton>
           </Card>
           </Grid>
           )}

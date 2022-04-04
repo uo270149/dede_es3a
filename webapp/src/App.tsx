@@ -1,31 +1,37 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Home from './components/Home/Home';
-import Container from '@mui/material/Container';
-import Welcome from './components/Welcome';
-import  {getProducts, getUsers} from './api/api';
-import {User} from './shared/shareddtypes';
 import './App.css';
 import Details from './components/Details/Details';
 import Cart from './components/Cart/Cart';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Fragments/Footer';
 import { Product } from './shared/shareddtypes';
+import Requests from './components/Requests/Requests'
+import { useState } from 'react';
+import { SessionProvider } from '@inrupt/solid-ui-react';
+import FormLogIn from './components/Login/FormLogIn';
+import ProfileViewer from './components/Login/ProfileViewer';
 
 let productos= new Array<Product>();
 function App(): JSX.Element {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  
   return (
     <>
+    <SessionProvider sessionId="logIn">
       <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route  path="/Cart" render={() => <Cart/>}/>
-        <Route  path="/Details" render={() => <Details/>}/>
-      </Switch>
+      <Routes>
+        <Route  path={"/"} element={<Home/>} />
+        <Route  path="/Cart" element={<Cart/>}/>
+        <Route  path="/Details" element={<Details/>}/>
+        <Route  path="/FormLogIn" element={<FormLogIn/>}/>
+        <Route  path="/ProfileViewer" element={<ProfileViewer/>}/>
+        <Route  path="/Requests" element={<Requests/>}/>
+        </Routes>
+        <Footer/>
       </Router>
-      <Footer/>
+      </SessionProvider>
     </>
   );
 }
-
 export default App;
