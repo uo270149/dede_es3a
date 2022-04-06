@@ -67,7 +67,7 @@ productoSchema.statics.build = (attr: IProducto) => {
     return new Producto(attr)
 }
 
-const Producto = mongoose.model<ProductoDoc,ProductoModelInterface>('Producto',productoSchema)
+const Producto:ProductoModelInterface = mongoose.model<ProductoDoc,ProductoModelInterface>('Producto',productoSchema)
 
 export { Producto , ProductoDoc }
 

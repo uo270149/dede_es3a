@@ -11,7 +11,7 @@ import { SessionProvider } from '@inrupt/solid-ui-react';
 import FormLogIn from './components/Login/FormLogIn';
 import ProfileViewer from './components/Login/ProfileViewer';
 
-let productos= new Array<Product>();
+let productos:Array<Product>= new Array<Product>();
 function App(): JSX.Element {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);

@@ -24,7 +24,7 @@ mongoose
   .catch((err) => console.error("Error al conectar a MongoDB", err));
 
 //Heroku asigna el puerto de forma dinámica. (process.env.PORT)
-const PORT = process.env.PORT || `${process.env.API_REST_PORT}`
+const PORT:string = process.env.PORT || `${process.env.API_REST_PORT}`
 
 app
   .listen(PORT, (): void => {

@@ -5,7 +5,7 @@ import "dotenv/config";
 import { ObjectId } from 'mongoose';
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-let URL_BASE = `${process.env.API_REST_URL_BASE_LOCAL}`
+let URL_BASE:string = `${process.env.API_REST_URL_BASE_LOCAL}`
 if(process.env.PORT) {
   URL_BASE = `${process.env.API_REST_URL_BASE_HEROKU}`
 }
@@ -13,15 +13,15 @@ if(process.env.PORT) {
 const router = express.Router()
 //Recuperamos todos los colores asociados a un producto facilitando su referencia
 router.get('/producto/detalles/colores/:referencia', async (req: Request, res: Response) => {
-  const ref = req.params.referencia;
-  const colores = await Producto.find({ referencia: ref }, 'color');
+  const ref:string = req.params.referencia;
+  const colores:ProductoDoc[] = await Producto.find({ referencia: ref }, 'color');
   return res.json(colores);
 })
 
 //Recuperamos la foto etiquetada como principal asociada a un producto facilitando su referencia
 router.get('/producto/detalles/foto/:referencia', async (req: Request, res: Response) => {
-  const ref = req.params.referencia;
-  const productos = await Producto.find({ referencia: ref });
+  const ref:string = req.params.referencia;
+  const productos:ProductoDoc[] = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las fotos asociadas a este producto
     const fotos = await consultarREST(URL_BASE +'foto/' + productos[0].id)
@@ -32,8 +32,8 @@ router.get('/producto/detalles/foto/:referencia', async (req: Request, res: Resp
 
 //Recuperamos todas las fotos asociadas a un producto facilitando su referencia
 router.get('/producto/detalles/fotos/:referencia', async (req: Request, res: Response) => {
-  const ref = req.params.referencia;
-  const productos = await Producto.find({ referencia: ref });
+  const ref:string = req.params.referencia;
+  const productos:ProductoDoc[] = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las fotos asociadas a este producto
     const fotos = await consultarREST(URL_BASE +'fotos/' + productos[0].id)
@@ -45,8 +45,8 @@ router.get('/producto/detalles/fotos/:referencia', async (req: Request, res: Res
 
 //Recuperamos todas las tallas asociadas a un producto facilitando su referencia
 router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Response) => {
-  const ref = req.params.referencia;
-  const productos = await Producto.find({ referencia: ref });
+  const ref:string = req.params.referencia;
+  const productos:ProductoDoc[] = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las tallas asociadas a este producto
     const tallas = await consultarREST(URL_BASE +'tallas/' + productos[0].id)
@@ -57,8 +57,8 @@ router.get('/producto/detalles/tallas/:referencia', async (req: Request, res: Re
 
 //Recuperamos todas las tallas disponibles (con existencias en stock) asociadas a un producto facilitando su referencia
 router.get('/producto/detalles/tallas_disponibles/:referencia', async (req: Request, res: Response) => {
-  const ref = req.params.referencia;
-  const productos = await Producto.find({ referencia: ref });
+  const ref:string = req.params.referencia;
+  const productos:ProductoDoc[] = await Producto.find({ referencia: ref });
   if (productos.length == 1){
     //Recuperamos todas las tallas disponibles asociadas a este producto
     const tallas = await consultarREST(URL_BASE +'tallas_disponibles/' + productos[0].id)
@@ -77,13 +77,13 @@ router.get('/products/list', async (req: Request, res: Response) => {
     imagen: String;
   }
 
-  let resultado = new Array<TypeProduct>();
+  let resultado:TypeProduct[] = new Array<TypeProduct>();
 
-  const productos = await Producto.find({})
+  const productos:ProductoDoc[] = await Producto.find({})
   
   for (var i=0; i< productos.length; i++)
   {
-      let entrada = productos[i];
+      let entrada:ProductoDoc = productos[i];
       let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,imagen: "" });
       salida.id = entrada.referencia;
       salida.nombre = entrada.marca + " " +entrada.modelo;
@@ -102,7 +102,7 @@ router.get('/products/list', async (req: Request, res: Response) => {
 router.post('/products/add', async (req: Request, res: Response) => {
   const { referencia, marca, modelo, color, precio, descripcion, categoria } = req.body;
 
-  const product = Producto.build({ referencia, marca, modelo, color, precio, descripcion, categoria })
+  const product:ProductoDoc = Producto.build({ referencia, marca, modelo, color, precio, descripcion, categoria })
   await product.save()
   return res.status(201).send(product)
 })
@@ -118,9 +118,9 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
     imagen: String;
   }
 
-  let resultado = new Array<TypeProduct>();
+  let resultado:TypeProduct[] = new Array<TypeProduct>();
   //Parametro referencia
-  const ref = req.params.referencia;
+  const ref:string = req.params.referencia;
   //Realizamos la busqueda por referencia
   const product = await Producto.findOne({referencia: ref})
   if(product){

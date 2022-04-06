@@ -2,14 +2,13 @@ import {User, Product, TypeProduct} from '../shared/shareddtypes';
 
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-let apiEndPoint ='http://localhost:5000/'
+let apiEndPoint:string ='http://localhost:5000/'
 if(process.env.PORT) {
   apiEndPoint = 'http://dede-es3a-restapi.herokuapp.com/'
 }
 
 export async function addUser(user:User):Promise<boolean>{
-    //const apiEndPoint= 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'users/add', {
+    let response:Response = await fetch(apiEndPoint+'users/add', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({'name':user.name, 'email':user.email})
@@ -21,19 +20,18 @@ export async function addUser(user:User):Promise<boolean>{
 }
 
 export async function getUsers():Promise<User[]>{
-    //const apiEndPoint= 'http://localhost:5000/api'
-    let response = await fetch(apiEndPoint+'users/list');
+    let response:Response = await fetch(apiEndPoint+'users/list');
     //The objects returned by the api are directly convertible to User objects
     return response.json()
 }
 
 export async function getProducts(): Promise<TypeProduct[]> {
-  const response = await fetch(apiEndPoint+'products/list');
+  const response:Response = await fetch(apiEndPoint+'products/list');
   return response.json();
 }
 
 export async function getProduct(productId : string): Promise<TypeProduct> {
-  const apiPetition = apiEndPoint+'producto/detalles/' + productId;
-  const response = await fetch(apiPetition);
+  const apiPetition:string = apiEndPoint+'producto/detalles/' + productId;
+  const response:Response = await fetch(apiPetition);
   return response.json();
 }
