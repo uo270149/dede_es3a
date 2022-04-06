@@ -89,7 +89,7 @@ const ShoesView = (parsed : ProductsParsed) => {
     }
     setProductos(filter);
    }
-  let details = '/Details?id='
+  let details:string = '/Details?id='
   return (
     <><Search color='white'>
       <SearchIconWrapper>
