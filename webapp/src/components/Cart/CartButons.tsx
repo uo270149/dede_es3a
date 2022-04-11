@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import { makeStyles } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     sizes: {
@@ -35,8 +36,6 @@ const useStyles = makeStyles({
 function FinishBuying(){
   if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
     sessionStorage.setItem('cart', JSON.stringify([]));
-    alert("Compra realizada");
-    window.location.reload();
   }
 }
 
@@ -45,7 +44,7 @@ export default function CartButons() {
   return (
     <Container maxWidth='lg' className={classes.container}>    
       <div className={classes.margen}>
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' onClick={FinishBuying}>
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = '/FormLogIn' component={Link} onClick={FinishBuying}>
           Finalizar Compra
         </Button>
       </div>        

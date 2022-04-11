@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
+function FinishBuying(){
+    alert("Compra realizada");
+}
 const FormLogIn = () => {
   const classes = useStyles();
   const [idp, setIdp] = useState("https://inrupt.net");
@@ -55,7 +59,7 @@ const FormLogIn = () => {
           InputProps={{
             endAdornment: (
               <LoginButton oidcIssuer={idp} redirectUrl={"http://localhost:3000/"}>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary"  onClick={FinishBuying}>
                   Login
                 </Button>
               </LoginButton>
