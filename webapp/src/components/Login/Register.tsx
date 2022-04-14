@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -33,7 +33,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Register = () => {
   const classes = useStyles();
-  
+  const [userName,setUserName]=useState("");
+  const [password,setPassword]=useState("");
+  const [confirmpassword,setCPassword]=useState("");
+
+
+  function addUserToSession(){
+    //IR A LA BASE DE DATOS
+    if(confirmpassword==password){
+      let item = {"username":userName,"password":password, "cart":sessionStorage.getItem('cart') as string};
+      sessionStorage.setItem('user',JSON.stringify(item));
+      window.location.replace("http://localhost:3000/");
+    }
+    else{
+      alert("Las contraseñas no cinciden");
+      window.location.reload();
+    }
+    
+  }
   return (
     <><Nav />
     <form className={classes.container} noValidate autoComplete="on">
@@ -47,30 +64,35 @@ const Register = () => {
                           type="email"
                           label="Username"
                           placeholder="Username"
-                          margin="normal" />
+                          margin="normal"
+                          onChange={e=>setUserName(e.target.value)}/>
+                          
                       <TextField
                           fullWidth
                           id="password"
                           type="password"
                           label="Password"
                           placeholder="Password"
-                          margin="normal" />
+                          margin="normal" 
+                          onChange={e=>setPassword(e.target.value)}/>
                       <TextField
                           fullWidth
                           id="check password"
                           type="password"
                           label="Check Password"
                           placeholder=" Check Password"
-                          margin="normal" />
+                          margin="normal" 
+                          onChange={e=>setCPassword(e.target.value)}/>
                   </div>
               </CardContent>
               <CardActions>
                   <Button
+                      onClick={addUserToSession}
                       variant="contained"
                       size="large"
                       color="primary"
                       className={classes.loginBtn}
-                      href="http://localhost:3000/">
+                      >
                       Login
                   </Button>
 

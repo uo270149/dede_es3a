@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Box, Typography } from '@mui/material';
 import TableSizes from './TableSizes';
-import { TypeProduct } from '../../shared/shareddtypes';
+import { TypeProduct, User } from '../../shared/shareddtypes';
 
 const tallas = [
   <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>36</Button>,
@@ -35,6 +35,15 @@ const RightDetails = (parsed:parsedProduct) => {
       var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
     }
     sessionStorage.setItem('cart', newCart);
+    var usuario:string = sessionStorage.getItem('user') as string;
+    const [nombre,pas]=usuario.split(",");
+    const[u,username]=nombre.split(":")
+    const[p,password]=pas.split(":")
+    if(usuario!=undefined){
+      let item2 = {"username":username,"password":password, "cart":sessionStorage.getItem('cart') as string};
+      sessionStorage.setItem('user',JSON.stringify(item2));
+      var Comprueba:string = sessionStorage.getItem('user') as string;
+    }
     alert("Artículo: \"" + parsed.product[0].nombre + "\" añadido al carrito.");
   }
 

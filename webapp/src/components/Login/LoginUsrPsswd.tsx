@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useRef, useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
@@ -8,6 +8,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import { Link, Typography } from "@mui/material";
 import Nav from '../Fragments/Nav';
+import { User } from '../../shared/shareddtypes';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -32,9 +34,19 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+
+
+
 const Login = () => {
   const classes = useStyles();
+  const [userName,setUserName]=useState("");
+  const [password,setPassword]=useState("");
   
+  function addUserToSession(){
+    //IR A LA BASE DE DATOS
+    let item = {"username":userName,"password":password, "cart":sessionStorage.getItem('cart') as string};
+    sessionStorage.setItem('user',JSON.stringify(item));
+  }
   return (
     <><Nav />
     <form className={classes.container} noValidate autoComplete="on">
@@ -48,18 +60,21 @@ const Login = () => {
               type="email"
               label="Username"
               placeholder="Username"
-              margin="normal" />
+              margin="normal" 
+              onChange={e=>setUserName(e.target.value)}/>
             <TextField
               fullWidth
               id="password"
               type="password"
               label="Password"
               placeholder="Password"
-              margin="normal" />
+              margin="normal" 
+              onChange={e=>setPassword(e.target.value)}/>
           </div>
         </CardContent>
         <CardActions>
           <Button
+            onClick={addUserToSession}
             variant="contained"
             size="large"
             color="primary"
