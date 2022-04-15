@@ -87,22 +87,23 @@ router.get('/products/list', async (req: Request, res: Response) => {
       let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,imagen: "" });
       salida.id = entrada.referencia;
       salida.nombre = entrada.marca + " " +entrada.modelo;
-      salida.precio = entrada.precio
+      salida.precio = entrada.precio;
       //Recuperamos la imagen principal asociada a este producto
-      const foto = await consultarREST(URL_BASE +'foto/' + entrada.id) ;
-      if (foto.length != 0)
-        salida.imagen = foto[0].ruta
-      else
-        salida.imagen = "" //buscar una imagen por defecto si no hay principal
-      resultado.push(salida)
+      if (entrada.fotos.length != 0){
+        salida.imagen = entrada.fotos[0].ruta;
+      }
+      else{
+        salida.imagen = ""; //buscar una imagen por defecto si no hay principal
+      }
+      resultado.push(salida);
   }
   return res.status(200).send(resultado)
 })
 
 router.post('/products/add', async (req: Request, res: Response) => {
-  const { referencia, marca, modelo, color, precio, descripcion, categoria } = req.body;
+  const { referencia, marca, modelo, color, precio, descripcion, categoria, fotos, tallas} = req.body;
 
-  const product:ProductoDoc = Producto.build({ referencia, marca, modelo, color, precio, descripcion, categoria })
+  const product:ProductoDoc = Producto.build({ referencia, marca, modelo, color, precio, descripcion, categoria , fotos, tallas })
   await product.save()
   return res.status(201).send(product)
 })
