@@ -27,24 +27,20 @@ type parsedProduct = {
 const RightDetails = (parsed:parsedProduct) => {
   
   function addToCart(){
+    // Objeto a almacenar
     const item = {"_objectId":parsed.product[0]._objectId,"id":parsed.product[0].id,"nombre":parsed.product[0].nombre,"precio":parsed.product[0].precio,"imagen":parsed.product[0].imagen};
+    // Sacamos el carrito almacenado en sesion
     var cart:string = sessionStorage.getItem('cart') as string;
-    if(JSON.parse(cart).length > 0){
+    
+    // Si el carrito NO esta vacio, añadimos el nuevo item al final
+    if(JSON.parse(cart).length > 0){  
       var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
-    } else{
+    } 
+    // Si no, introducimos el primer item a nuestro carrito
+    else{ 
       var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
     }
     sessionStorage.setItem('cart', newCart);
-/*
-    var usuario:string = sessionStorage.getItem('user') as string;
-    const [nombre,pas]=usuario.split(",");
-    const[u,username]=nombre.split(":")
-    const[p,password]=pas.split(":")
-    if(usuario!=undefined){
-      let item2 = {"username":username,"password":password, "cart":sessionStorage.getItem('cart') as string};
-      sessionStorage.setItem('user',JSON.stringify(item2));
-    }
-*/
     alert("Artículo: \"" + parsed.product[0].nombre + "\" añadido al carrito.");
   }
 
