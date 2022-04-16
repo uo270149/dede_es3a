@@ -35,6 +35,7 @@ const RightDetails = (parsed:parsedProduct) => {
       var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
     }
     sessionStorage.setItem('cart', newCart);
+/*
     var usuario:string = sessionStorage.getItem('user') as string;
     const [nombre,pas]=usuario.split(",");
     const[u,username]=nombre.split(":")
@@ -42,8 +43,8 @@ const RightDetails = (parsed:parsedProduct) => {
     if(usuario!=undefined){
       let item2 = {"username":username,"password":password, "cart":sessionStorage.getItem('cart') as string};
       sessionStorage.setItem('user',JSON.stringify(item2));
-      var Comprueba:string = sessionStorage.getItem('user') as string;
     }
+*/
     alert("Artículo: \"" + parsed.product[0].nombre + "\" añadido al carrito.");
   }
 

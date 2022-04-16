@@ -28,13 +28,13 @@ export async function getUsers():Promise<User[]>{
 /*
 * Metodo que utilizaremos para comprobar si el usuario que intenta logearse, existe en base de datos.
 */
-export async function loginUser(username : string, password : string): Promise<Boolean> {
+export async function getUser(username : string, password : string): Promise<User | null> {
   const apiPetition:string = apiEndPoint+'users/login/' + username + '/' + password;
   const response:Response = await fetch(apiPetition);
-  let result : Promise<User>  = response.json();
-  // Si encontramos un usuario con esas credenciales, permitimos el inicio de sesion
-  console.log(result);
-  return result!=undefined;
+  if(response.status == 500) {
+    return null;
+  }
+  return response.json();
 }
 
 export async function getProducts(): Promise<TypeProduct[]> {

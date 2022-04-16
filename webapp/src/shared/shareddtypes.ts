@@ -3,7 +3,6 @@ import { ObjectId } from 'mongoose';
 export type User = {
     username:string;
     password:string;
-    cart:TypeProduct[];
   }
 
 export type Product = {
