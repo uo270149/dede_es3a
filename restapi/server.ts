@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import { productoRouter } from './rutas/productoRutas';
+import { usuarioRouter } from './rutas/usuarioRutas';
 import { fotoRouter } from './rutas/fotoRutas';
 import { tallaRouter } from './rutas/tallaRutas';
 import "dotenv/config";
@@ -14,6 +15,7 @@ app.use(cors())
 app.use(productoRouter)
 app.use(fotoRouter)
 app.use(tallaRouter)
+app.use(usuarioRouter)
 
 mongoose
   .connect(`${process.env.MONGODB_URI}`, {

@@ -80,7 +80,7 @@ const ShoesView = (parsed : ProductsParsed) => {
   refreshProductos();
   },[]);
   function filterFunction(texto: any) {
-    var filter;
+    var filter:TypeProduct[];
     if(texto==""){
       filter=parsed.products;
     }

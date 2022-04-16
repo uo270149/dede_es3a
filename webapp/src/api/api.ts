@@ -25,6 +25,18 @@ export async function getUsers():Promise<User[]>{
     return response.json()
 }
 
+/*
+* Metodo que utilizaremos para comprobar si el usuario que intenta logearse, existe en base de datos.
+*/
+export async function loginUser(username : string, password : string): Promise<Boolean> {
+  const apiPetition:string = apiEndPoint+'users/login/' + username + '/' + password;
+  const response:Response = await fetch(apiPetition);
+  let result : Promise<User>  = response.json();
+  // Si encontramos un usuario con esas credenciales, permitimos el inicio de sesion
+  console.log(result);
+  return result!=undefined;
+}
+
 export async function getProducts(): Promise<TypeProduct[]> {
   const response:Response = await fetch(apiEndPoint+'products/list');
   return response.json();
