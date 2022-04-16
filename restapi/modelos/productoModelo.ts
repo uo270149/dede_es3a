@@ -8,9 +8,21 @@ export interface IProducto {
     precio: Number;
     descripcion: String;
     categoria:String; //Hombre, Mujer, Niño, Niña
-  }
+    fotos: Foto[];
+    tallas: Talla[];
+}
 
-  interface ProductoDoc extends mongoose.Document {
+interface Foto{
+    ruta:String;
+    descripcion: String;
+}  
+
+interface Talla {
+    numero: String;
+    cantidad: Number;
+}
+
+interface ProductoDoc extends mongoose.Document {
     _id: ObjectId;
     referencia:String;
     marca:String;
@@ -19,11 +31,13 @@ export interface IProducto {
     precio: Number;
     descripcion: String;
     categoria:String; //Hombre, Mujer, Niño, Niña
-  }
+    fotos: Foto[];
+    tallas: Talla[];
+}
 
-  interface ProductoModelInterface extends mongoose.Model<ProductoDoc> {
+interface ProductoModelInterface extends mongoose.Model<ProductoDoc> {
     build(attr: IProducto): ProductoDoc
-  }
+}
 
 const productoSchema = new mongoose.Schema({
     referencia: {
@@ -60,7 +74,31 @@ const productoSchema = new mongoose.Schema({
         type: String,
         required: false,
         trim: true
-    }
+    },
+    fotos: [{
+        ruta:{
+            type: String,
+            required: true,
+            trim: true
+        },
+        descripcion:{
+            type: String,
+            required: false,
+            trim: true
+        }
+    }],
+    
+    tallas:[{
+        numero:{
+            type: String,
+            required: true,
+            trim: true
+        },
+        cantidad:{
+            type: Number,
+            required: true
+        }
+    }],
 })
 
 productoSchema.statics.build = (attr: IProducto) => {
