@@ -1,9 +1,11 @@
 import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
 //import mongoose from 'mongoose';
-import { IProducto, Producto } from './modelos/productoModelo';
+import { IProducto } from './modelos/productoModelo';
+import { IUsuario } from './modelos/usuarioModelo';
 
 const Productos = require('./modelos/productoModelo');
+const Usuarios = require('./modelos/usuarioModelo');
 const mongoose = require('mongoose');
 const api: Router = express.Router();
 
@@ -36,6 +38,20 @@ api.post(
         return res.sendStatus(200);
     }
 );
+
+api.get(
+    "/users/login/:user/:pass",
+    async (req: Request, res: Response): Promise<Response> => {
+        var user:string = req.params.user;
+        var pass:string = req.params.pass;
+        const usuario: IUsuario = await Usuarios.findOne( {username: user, password: pass} );
+        if (usuario) {
+            return res.status(200).send(usuario);
+        } else {
+            return res.status(404).json({ message: 'El usuario con nombre "${user}" no se ha encontrado.' });
+        }
+    }
+)
 
 api.get(
     "/products/list",

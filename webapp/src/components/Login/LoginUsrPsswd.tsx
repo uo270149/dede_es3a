@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import { Link, Typography } from "@mui/material";
 import Nav from '../Fragments/Nav';
 import { User } from '../../shared/shareddtypes';
+import { getUser } from '../../api/api';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,11 +42,22 @@ const Login = () => {
   const classes = useStyles();
   const [userName,setUserName]=useState("");
   const [password,setPassword]=useState("");
-  
-  function addUserToSession(){
-    //IR A LA BASE DE DATOS
-    let item = {"username":userName,"password":password, "cart":sessionStorage.getItem('cart') as string};
-    sessionStorage.setItem('user',JSON.stringify(item));
+
+  async function addUserToSession(){
+    //Comprobamos los credenciales introducidos en base de datos
+    var user = (await getUser(userName, password)); 
+    if(user==null){
+      // Usuario no encontrado
+      alert('Credenciales incorrectas.');
+    } else {
+      // Usuario encontrado en base de datos
+      var parsedUser:User = (user as unknown as Array<User>)[0];
+      console.log(parsedUser.username);
+      // Lo guardamos en sesion (solo el usuario, la contraseña no la necesitamos para nada)
+      sessionStorage.setItem('user', parsedUser.username);
+      // Redirigimos a inicio
+      window.location.href='http://localhost:3000/';
+    }
   }
   return (
     <><Nav />
@@ -78,8 +90,7 @@ const Login = () => {
             variant="contained"
             size="large"
             color="primary"
-            className={classes.loginBtn}
-            href="http://localhost:3000/">
+            className={classes.loginBtn}>
             Login
           </Button>
 

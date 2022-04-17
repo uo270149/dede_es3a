@@ -44,7 +44,7 @@ export default function MenuAppBar() {
   };
 
   const {session, logout} = useSession();
-  const usuario = JSON.parse(sessionStorage.getItem('user') as string);
+  const usuario = sessionStorage.getItem('user');
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={classes.stickToBottom}>

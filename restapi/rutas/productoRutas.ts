@@ -125,16 +125,15 @@ router.get('/producto/detalles/:referencia', async (req: Request, res: Response)
   //Realizamos la busqueda por referencia
   const product = await Producto.findOne({referencia: ref})
   if(product){
-    let entrada = product;
+    let entrada:ProductoDoc = product;
     let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
     salida.id = entrada.referencia;
     salida.nombre = entrada.marca + " " +entrada.modelo;
     salida.precio = entrada.precio
     salida.descripcion = entrada.descripcion;
-    //Recuperamos la imagen principal asociada a este producto
-    const foto = await consultarREST(URL_BASE +'foto/' + entrada.id) ;
-    if (foto.length != 0)
-      salida.imagen = foto[0].ruta
+
+    if (entrada.fotos.length != 0)
+      salida.imagen = entrada.fotos[0].ruta;
     else
       salida.imagen = "" //buscar una imagen por defecto si no hay principal
     resultado.push(salida)
