@@ -3,6 +3,7 @@ import { Button, Card, CardActionArea, CardContent, CardHeader, Container, Typog
 import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
 import Nav from '../Fragments/Nav';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import GetAddressPod from "../POD/GetAddressPod";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,13 +51,10 @@ const ProfileViewer = () => {
               <Typography gutterBottom variant="h5" component="h2">
                 <Text property={FOAF.name.iri.value} />
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
-                <Text property={VCARD.organization_name.iri.value} />
-              </Typography>
             </CardContent>
 
             <CardActionArea style={{ justifyContent: "center", display: "flex" }}>
-            <Text id= "direction" property={VCARD.note.iri.value} />
+            <GetAddressPod  webId = { session.info.webId }/>
             </CardActionArea>
           </Card>
         </CombinedDataProvider>

@@ -4,7 +4,7 @@ import React, {useEffect} from "react";
 import { Box, Grid } from "@mui/material";
 
 type Props_POD = {
-    webID: string;
+    webId: string;
 };
 
 async function userAddress(webID: string): Promise<string[]> {
@@ -21,12 +21,13 @@ async function userAddress(webID: string): Promise<string[]> {
     let country= getStringNoLocale(addressUser as Thing, VCARD.country_name) as string;
     
     let address = [street_address,locality,postal_code,region,country];
+    console.log(address);
     return address;
   }
 
 function GetAddressPod( props: Props_POD): JSX.Element {
     const [address, setAddress] = React.useState<string[]>([]);
-    const getAddress = async () => setAddress(await userAddress(props.webID))
+    const getAddress = async () => setAddress(await userAddress(props.webId))
 
     useEffect(() => {
         getAddress();
@@ -38,7 +39,7 @@ function GetAddressPod( props: Props_POD): JSX.Element {
             <Box component="p">Calle: {address[0]}</Box>
             <Box component="p">Localidad: {address[1]}</Box>
             <Box component="p">Codigo Postal: {address[2]}</Box>
-            <Box component="p">Región: {address[3]}</Box>"
+            <Box component="p">Región: {address[3]}</Box>
             <Box component="p">Pais: {address[4]}</Box>
           </Grid>
         </Grid>
