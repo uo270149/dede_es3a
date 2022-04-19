@@ -1,4 +1,5 @@
 import {User, Product, TypeProduct} from '../shared/shareddtypes';
+import { ObjectId } from 'bson';
 
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
@@ -8,12 +9,17 @@ if(process.env.PORT) {
 }
 
 export async function addUser(user:User):Promise<boolean>{
+    const id = new ObjectId();
+    const userParam = { username:user.username, password:user.password};
     let response:Response = await fetch(apiEndPoint+'users/add', {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
-       // body: JSON.stringify({'user':user.username, 'email':user.email})
+        body: JSON.stringify(userParam),
+        headers: {
+          'Content-Type':'application/json'
+        }        
       });
-    if (response.status===200)
+      console.log(response);
+    if (response.status===201)
       return true;
     else
       return false;

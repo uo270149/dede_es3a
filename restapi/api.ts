@@ -3,16 +3,12 @@ import { check } from 'express-validator';
 //import mongoose from 'mongoose';
 import { IProducto } from './modelos/productoModelo';
 import { IUsuario } from './modelos/usuarioModelo';
+import { User } from '../webapp/src/shared/shareddtypes';
 
 const Productos = require('./modelos/productoModelo');
 const Usuarios = require('./modelos/usuarioModelo');
 const mongoose = require('mongoose');
 const api: Router = express.Router();
-
-interface User {
-    name: string;
-    email: string;
-}
 
 //This is not a restapi as it mantains state but it is here for
 //simplicity. A database should be used instead.
@@ -27,15 +23,17 @@ api.get(
 
 api.post(
     "/users/add", [
-    check('name').isLength({ min: 1 }).trim().escape(),
-    check('email').isEmail().normalizeEmail()
+    check('username').isLength({ min: 1 }).trim().escape(),
+    check('password')
 ],
     async (req: Request, res: Response): Promise<Response> => {
-        let name = req.body.name;
-        let email = req.body.email;
-        let user: User = { name: name, email: email };
-        users.push(user);
-        return res.sendStatus(200);
+        const id = req.body._id;
+        const username = req.body.username;
+        const password = req.body.password;
+        const user: User = { username: username, password: password };
+
+        return res.status(200).send(user);
+        
     }
 );
 

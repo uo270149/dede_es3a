@@ -34,5 +34,5 @@ usuarioSchema.statics.build = (attr: IUsuario) => {
 
 const Usuario:UsuarioModelInterface = mongoose.model<UsuarioDoc,UsuarioModelInterface>('Usuario',usuarioSchema)
 
-export default Usuario 
+export { Usuario, UsuarioDoc }
 

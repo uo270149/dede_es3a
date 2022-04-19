@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import Usuario from '../modelos/usuarioModelo';
+import { Usuario, UsuarioDoc } from '../modelos/usuarioModelo';
 import "dotenv/config";
 import {User} from '../../webapp/src/shared/shareddtypes';
 
@@ -28,7 +28,14 @@ router.get('/users/login/:username/:password', async (req: Request, res: Respons
     } else{
       return res.status(500).json();
     }
-
 })
+
+router.post("/users/add", async (req: Request, res: Response) => {
+  const { username, password } = req.body;
+
+  const usuario:UsuarioDoc = Usuario.build({  username, password })
+  await usuario.save()
+  return res.status(201).send(usuario)
+});
 
 export { router as usuarioRouter }
