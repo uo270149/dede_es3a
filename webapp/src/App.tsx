@@ -13,6 +13,7 @@ import ProfileViewer from './components/Login/ProfileViewer';
 import LoginUsrPsswd from './components/Login/LoginUsrPsswd';
 import Register from './components/Login/Register';
 
+
 let productos:Array<Product>= new Array<Product>();
 function App(): JSX.Element {
 
