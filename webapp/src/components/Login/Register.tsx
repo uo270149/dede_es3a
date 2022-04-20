@@ -7,6 +7,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Nav from '../Fragments/Nav';
+import { User } from '../../shared/shareddtypes';
+import { addUser, getUser } from '../../api/api';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -38,18 +41,32 @@ const Register = () => {
   const [confirmpassword,setCPassword]=useState("");
 
 
-  function addUserToSession(){
-    //IR A LA BASE DE DATOS
+  async function addUserToSession(){
     if(confirmpassword==password){
-      let item = {"username":userName,"password":password, "cart":sessionStorage.getItem('cart') as string};
-      sessionStorage.setItem('user',JSON.stringify(item));
-      window.location.replace("http://localhost:3000/");
+      const newUser:User = {username:userName, password:password};
+      let checkUser: User|null = (await getUser(userName, password));
+      // Comprobamos que el usuario no exista ya
+      if(checkUser==null) {
+        // Comprobamos que se añada el usuario correctamente
+        let add:boolean = (await addUser(newUser));
+        if(add){
+          const item = {"username":userName,"password":password};
+          // Almacenamos el usuario en sesión
+          sessionStorage.setItem('user',JSON.stringify(item));
+          window.location.href='http://localhost:3000/';
+        }
+        else{
+          alert("Credenciales inválidas");
+        }
+      }
+      else{
+        alert("El usuario ya existe");
+      }
     }
     else{
       alert("Las contraseñas no cinciden");
-      window.location.reload();
-    }
-    
+    }    
+    window.location.reload();
   }
   return (
     <><Nav />
@@ -93,7 +110,7 @@ const Register = () => {
                       color="primary"
                       className={classes.loginBtn}
                       >
-                      Login
+                      Registrarse
                   </Button>
 
               </CardActions>
