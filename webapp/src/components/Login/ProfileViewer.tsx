@@ -26,6 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     margen:{
       margin: '-25px 0 0 -25px',
+      marginRight:'30%',
+      marginTop: theme.spacing(20),
       display: 'flex',
       justifyContent:'center',
       position: 'absolute',
@@ -45,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-async function userAddress(webID: string): Promise<string[]> {
+async function userAddress(webID: string): Promise<string> {
         
   let profileDocumentURI = webID.split("#")[0]
   let myDataSet = await getSolidDataset(profileDocumentURI)
@@ -58,7 +60,7 @@ async function userAddress(webID: string): Promise<string[]> {
   let postal_code= getStringNoLocale(addressUser as Thing, VCARD.postal_code) as string
   let region= getStringNoLocale(addressUser as Thing, VCARD.region) as string
   let country= getStringNoLocale(addressUser as Thing, VCARD.country_name) as string;
-  let address = [street_address,locality,postal_code,region,country];
+  let address = street_address+" "+ locality+" "+ postal_code+" "+region+" "+ country;
   return address;
 }
 const ProfileViewer = () => {
@@ -66,7 +68,7 @@ const ProfileViewer = () => {
   const { session } = useSession();
   const { webId } = session.info;
 
-  const [address, setAddress] = React.useState<string[]>([]);
+  const [address, setAddress] = React.useState<string>("");
   const getAddress = async () => setAddress(await userAddress(session.info.webId!))
 
   useEffect(() => {
@@ -96,6 +98,7 @@ const ProfileViewer = () => {
       });
   }
   function distancias(){
+    if(address !== ""){
       const coord= coordenadas();
       var latitudAlmacen =43.354805679135595
       var longitudAlmacen= -5.8513295460816295
@@ -108,8 +111,10 @@ const ProfileViewer = () => {
       var dist=2*Math.asin( Math.sqrt(a));
       
       return Math.round(dist*0.3*100)/100
+    }
+    else return 0;
   }
-  function calcularValorGastosdeEnvío(address: string[]){
+  function calcularValorGastosdeEnvío(address: string){
     var x=0
     x= Number(sessionStorage.getItem('precioCarrito'));
     var d= distancias();
@@ -146,11 +151,11 @@ const ProfileViewer = () => {
           <div className={classes.margen}>
               <Card>
                   <Typography variant='h5'>
-                      Precio total + Gastos de envío: {calcularValorGastosdeEnvío(address)}
+                      Precio total + Gastos de envío ({distancias()}): {calcularValorGastosdeEnvío(address)}
                   </Typography>
               </Card>
 
-              <Button variant="contained" endIcon={<ShoppingCartIcon />} size='large' to='/Home' component={Link} onClick={FinishBuying}>
+              <Button variant="contained" endIcon={<ShoppingCartIcon />}  size='large' onClick={FinishBuying} href='http://localhost:3000'>
                   Finalizar Compra
               </Button>
           </div>
