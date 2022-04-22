@@ -1,6 +1,5 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
-import puppeteer from "puppeteer";
-
+import puppeteer from "puppeteer"; 
 const feature = loadFeature('./features/register-form.feature');
 
 let page: puppeteer.Page;
@@ -23,25 +22,27 @@ defineFeature(feature, test => {
 
   test('The user is not registered in the site', ({given,when,then}) => {
     
-    let email:string;
+    // En el login tenemos user + pass
     let username:string;
+    let password:string;
 
     given('An unregistered user', () => {
-      email = "newuser@test.com"
-      username = "newuser"
+      username = "client1"
+      password = "pass1"
     });
 
     when('I fill the data in the form and press submit', async () => {
-      await expect(page).toMatch('Hi, ASW students')
-      await expect(page).toFillForm('form[name="register"]', {
+      await expect(page).toMatch('Registro')
+      await expect(page).toFillForm('form[name="registro"]', {
         username: username,
-        email: email,
+        password: password,
+        confirmpassword: password
       })
-      await expect(page).toClick('button', { text: 'Accept' })
+      await expect(page).toClick('button', { text: 'Registrarse' })
     });
 
     then('A confirmation message should be shown in the screen', async () => {
-      await expect(page).toMatch('You have been registered in the system!')
+      await expect(page).toMatch('Usuario añadido')
     });
   })
 

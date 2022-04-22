@@ -53,6 +53,7 @@ const Register = () => {
           const item = {"username":userName,"password":password};
           // Almacenamos el usuario en sesión
           sessionStorage.setItem('user',JSON.stringify(item));
+          alert("Usuario añadido");
           window.location.href='http://localhost:3000/';
         }
         else{
@@ -70,7 +71,7 @@ const Register = () => {
   }
   return (
     <><Nav />
-    <form className={classes.container} noValidate autoComplete="on">
+    <form className={classes.container} noValidate autoComplete="on" name="registro">
           <Card className={classes.card}>
               <CardHeader className={classes.header} title="Registro" />
               <CardContent>
