@@ -4,51 +4,27 @@ import React, {useEffect} from "react";
 import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-type Props_POD = {
-    webId: string;
-};
+import { calcularValorGastosdeEnvío } from "./Coordenadas";
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    container: {
-      display: 'flex', 
-      flexWrap: 'wrap',
-      width: '60%',
-      height:'60%',
-      marginTop:'10%',
-      marginLeft:'30%',
-      margin: `${theme.spacing(0)} auto`
-    },
-    loginBtn: {
-      marginTop: theme.spacing(2),
-      flexGrow: 1
-    },
     margen:{
       margin: '-25px 0 0 -25px',
       marginRight:'30%',
-      marginTop: theme.spacing(20),
       display: 'flex',
       justifyContent:'center',
       position: 'absolute',
-      top: '50%',
-      left: '50%',
+      top: '40%',
+      left: '35%'
       
-    },
-    header: {
-      textAlign: 'center',
-      background: '#212121',
-      color: '#fff'
-    },
-    card: {
-      marginTop: theme.spacing(10),
-      width: '70%',
-      height:''
-    },
+    }
   })
 );
 function FinishBuying(){
     if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
       sessionStorage.setItem('cart', JSON.stringify([]));
+      sessionStorage.setItem('webIdSesion',JSON.stringify([]))
       alert("Compra realizada");
     }
   }
@@ -72,57 +48,25 @@ async function userAddress(): Promise<string> {
 function GastosEnvio(): JSX.Element {
     const classes = useStyles();
     const [address, setAddress] = React.useState<string>("");
+    const [gastosdeEnvio, setGastosdeEnvio] = React.useState<Number>(0);
     const getAddress = async () => setAddress(await userAddress())
+    
 
     useEffect(() => {
         getAddress();
+        cal();
+        
     });
-    
-  function coordenadas(){
-    const axios = require("axios");
-    return axios
-      .get(
-        "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
-        address +
-          ".json?access_token=" + "pk.eyJ1IjoidW8yNzE0NDciLCJhIjoiY2wyN2MxdDdwMHMxcTNkbnAyd2x3ajFpaiJ9.4meULCmzm3oog7dC-22EvQ"
-      )
-      .then((response: any) => {
-        return response.data;
-      })
-      .catch((error: any) => {
-        return error;
-      });
-  }
-  function distancias(){
-    if(address !== ""){
-      const coord= coordenadas();
-      var latitudAlmacen =43.354805679135595
-      var longitudAlmacen= -5.8513295460816295
-      let lat = coord.features[0].geometry.coordinates[1];
-      let lon = coord.features[0].geometry.coordinates[0];
-      var difLatitud=latitudAlmacen-lat;
-      var difLong=longitudAlmacen-lon;
-      var constante = (Math.PI/180)
-      var a = Math.sin(difLatitud*constante/2)^2 + Math.cos(latitudAlmacen)*Math.cos(lat)* Math.sin(difLong*constante/2)^2
-      var dist=2*Math.asin( Math.sqrt(a));
-      
-      return Math.round(dist*0.3*100)/100
-    }
-    else return 0;
-  }
-  function calcularValorGastosdeEnvío(address: string){
-    var x=0
-    x= Number(sessionStorage.getItem('precioCarrito'));
-    var d= distancias();
-    return x+d;
-  }
 
+    const cal = async () => {
+      setGastosdeEnvio( await calcularValorGastosdeEnvío(address) );
+    };
     return (
         <Container>
           <div className={classes.margen}>
               <Card>
                   <Typography variant='h5'>
-                      Precio total + Gastos de envío ({distancias()}): {calcularValorGastosdeEnvío(address)}
+                      Precio total + Gastos de envío: {gastosdeEnvio}
                   </Typography>
               </Card>
 

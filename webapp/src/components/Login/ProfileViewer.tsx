@@ -4,7 +4,7 @@ import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
 import Nav from '../Fragments/Nav';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import GetAddressPod from "../POD/GetAddressPod";
-
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -79,7 +79,7 @@ const ProfileViewer = () => {
           Logout
         </Button>
       </LogoutButton>
-        <Button style={{ marginTop: 20 }} variant="contained" color="primary" href="/GastosEnvio" onClick={guardarWebId}>
+        <Button style={{ marginTop: 20 }}endIcon={<ShoppingCartIcon />}  variant="contained" color="secondary" href="/GastosEnvio" onClick={guardarWebId}>
           Continuar con su compra 
         </Button>
 
