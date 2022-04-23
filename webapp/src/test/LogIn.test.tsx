@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import LoginPage from '../components/Login/LoginUsrPsswd';
+import LoginUsrPsswd from "../components/Login/LoginUsrPsswd";
 
-/**
-test("Test Description", async () => {
-    const { getByText, container } = render(<ThingToRender />);
-    expect(getByText("Text to find")).toBeInTheDocument();
-    expect(container.querySelector("div")!.className).toContain("colorSuccess");
-  });
-**/
+test("LogIn correcto", async () => {
+  const { getByText } = render(<LoginUsrPsswd/>);
+
+  expect(getByText("Loggeate!")).toBeInTheDocument();
+ // expect(getByText("Username")).toBeInTheDocument();
+ // expect(getByText("Password")).toBeInTheDocument();
+ // expect(getByText("¿No tienes una cuenta? Regístrate aqui")).toBeInTheDocument();
+});
