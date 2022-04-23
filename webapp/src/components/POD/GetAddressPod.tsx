@@ -19,9 +19,7 @@ async function userAddress(webID: string): Promise<string[]> {
     let postal_code= getStringNoLocale(addressUser as Thing, VCARD.postal_code) as string
     let region= getStringNoLocale(addressUser as Thing, VCARD.region) as string
     let country= getStringNoLocale(addressUser as Thing, VCARD.country_name) as string;
-    
     let address = [street_address,locality,postal_code,region,country];
-    console.log(address);
     return address;
   }
 
