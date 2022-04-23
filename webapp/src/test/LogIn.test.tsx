@@ -5,7 +5,6 @@ test("LogIn correcto", async () => {
   const { getByText } = render(<LoginUsrPsswd/>);
 
   expect(getByText("Loggeate!")).toBeInTheDocument();
- // expect(getByText("Username")).toBeInTheDocument();
- // expect(getByText("Password")).toBeInTheDocument();
- // expect(getByText("¿No tienes una cuenta? Regístrate aqui")).toBeInTheDocument();
+  expect(getByText("Username")).toBeInTheDocument();
+  expect(getByText("Password")).toBeInTheDocument();
 });

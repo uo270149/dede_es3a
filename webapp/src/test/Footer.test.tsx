@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from "@testing-library/react";
+import { render  } from "@testing-library/react";
 import Footer from '../components/Fragments/Footer';
 
 test('check that the footer is rendering propertly', async() => {

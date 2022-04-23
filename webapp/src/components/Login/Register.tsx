@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Nav from '../Fragments/Nav';
 import { User } from '../../shared/shareddtypes';
 import { addUser, getUser } from '../../api/api';
+import { Alert, Snackbar } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,12 +35,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+type Notification = {
+  message: string;
+}
+
 const Register = () => {
   const classes = useStyles();
   const [userName,setUserName]=useState("");
   const [password,setPassword]=useState("");
   const [confirmpassword,setCPassword]=useState("");
 
+  const [notificationStatus, setNotificationStatus] = useState(false);
+  const [notification, setNotification] = useState<Notification>({message:''});
 
   async function addUserToSession(){
     if(confirmpassword==password){
@@ -50,22 +57,34 @@ const Register = () => {
         // Comprobamos que se añada el usuario correctamente
         let add:boolean = (await addUser(newUser));
         if(add){
+          setNotificationStatus(true);
           const item = {"username":userName,"password":password};
           // Almacenamos el usuario en sesión
           sessionStorage.setItem('user',JSON.stringify(item));
-          alert("Usuario añadido");
-          window.location.href='http://localhost:3000/';
+          setNotificationStatus(true);
+          setNotification({
+            message:'Usuario correctamente añadido'
+          });
         }
         else{
-          alert("Credenciales inválidas");
+          setNotificationStatus(true);
+          setNotification({
+            message:'Credenciales inválidas'
+          });
         }
       }
       else{
-        alert("El usuario ya existe");
+        setNotificationStatus(true);
+        setNotification({
+          message:'El usuario ya existe'
+        });
       }
     }
     else{
-      alert("Las contraseñas no cinciden");
+      setNotificationStatus(true);
+      setNotification({
+        message:'Las contraseñas no coinciden'
+      });
     }    
     window.location.reload();
   }
@@ -116,7 +135,13 @@ const Register = () => {
 
               </CardActions>
           </Card>
-      </form></>
+      </form>
+      <Snackbar open={notificationStatus} autoHideDuration={3000} onClose={()=>{setNotificationStatus(false)}}>
+        <Alert sx={{ width: '100%' }}>
+          {notification.message}
+        </Alert>
+      </Snackbar>
+    </>
   );
 }
 

@@ -6,14 +6,8 @@ export type User = {
   }
 
 export type Product = {
-    name: string;
-    precio: number;
-  }
-
-export type ListProduct = {
-  img: string;
-  title: string;
-  author: string;
+   nombre: string;
+   precio: number;
 }
 
 export type TypeProduct = {
