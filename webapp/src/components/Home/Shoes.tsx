@@ -9,7 +9,6 @@ import {alpha, Grid, InputBase, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import { TypeProduct } from '../../shared/shareddtypes';
 import SearchIcon from '@mui/icons-material/Search';
-import { FilterAltRounded } from '@mui/icons-material';
 import { getProducts } from '../../api/api';
 
 const Search = styled('div')(({ theme }) => ({
@@ -135,33 +134,3 @@ const ShoesView = (parsed : ProductsParsed) => {
 }
 
 export default ShoesView;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
