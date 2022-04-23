@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from 'react-router-dom';
+import { Card, TextField, Typography } from '@mui/material';
+import { useSession } from '@inrupt/solid-ui-react';
 
 const useStyles = makeStyles({
     sizes: {
@@ -33,21 +35,43 @@ const useStyles = makeStyles({
   },
 });
 
-function FinishBuying(){
+function calcularValor(){
+  var x=0
+  var x2=""
   if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
-    sessionStorage.setItem('cart', JSON.stringify([]));
+    var cart:string = sessionStorage.getItem('cart') as string;
+    var primero = cart.split("},{")
+    for(var i=0; i<primero.length; i++){
+    var [objid,id,nombre,precio,imagen]=primero[i].split(",");
+    var [p,valor]=precio.split(":")
+      x=x+Number(valor)
+
+    }
+    x2=String(x);
   }
+  sessionStorage.setItem('precioCarrito',x2)
+  return x;
 }
 
 export default function CartButons() {
     const classes = useStyles();
   return (
-    <Container maxWidth='lg' className={classes.container}>    
+    
+    <Container maxWidth='lg' className={classes.container}>  
       <div className={classes.margen}>
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = '/FormLogIn' component={Link} onClick={FinishBuying}>
-          Finalizar Compra
+      <Card>
+      <Typography variant='h5'>
+                  Precio total sin gastos de Envio: {calcularValor()}
+                </Typography> 
+                </Card>
+        
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = '/FormLogIn' component={Link}>
+          Loggeate para Finalizar Compra
         </Button>
-      </div>        
-    </Container>
+        </div> 
+        </Container>  
+     
+           
+    
   );
 }

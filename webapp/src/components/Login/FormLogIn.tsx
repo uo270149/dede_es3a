@@ -2,6 +2,7 @@ import { Button, Card, CardContent, CardHeader, Container, FormGroup, Link, Text
 import { useEffect, useState } from "react";
 import { LoginButton} from "@inrupt/solid-ui-react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import Nav from "../Fragments/Nav";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,9 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-function FinishBuying(){
-    alert("Compra realizada");
-}
 const FormLogIn = () => {
   const classes = useStyles();
   const [idp, setIdp] = useState("https://inrupt.net");
@@ -44,36 +42,36 @@ const FormLogIn = () => {
   }, [setCurrentUrl]);
 
   return (
+    <><Nav />
     <form className={classes.container} noValidate autoComplete="on">
-    <Card className={classes.card}>
+      <Card className={classes.card}>
         <CardHeader className={classes.header} title="Login" />
         <CardContent>
-      <Container fixed>
-      <FormGroup>
-        <TextField
-          label="Identity Provider"
-          placeholder="Identity Provider"
-          type="url"
-          value={idp}
-          onChange={(e) => setIdp(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <LoginButton oidcIssuer={idp} redirectUrl={"http://localhost:3000/"}>
-                <Button variant="contained" color="primary"  onClick={FinishBuying}>
-                  Login
-                </Button>
-              </LoginButton>
-            ),
-          }}
-        />
-      </FormGroup>
-      <Typography variant="body1" component="p" id="help">
-            <Link href="https://inrupt.net/register" margin={'30%'} > ¿No tienes una cuenta? Regístrate aqui</Link>
-          </Typography>
-    </Container>
-   </CardContent>
-    </Card>
-    </form>
+          <Container fixed>
+            <FormGroup>
+              <TextField
+                label="Identity Provider"
+                placeholder="Identity Provider"
+                type="url"
+                value={idp}
+                onChange={(e) => setIdp(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <LoginButton oidcIssuer={idp} redirectUrl={"http://localhost:3000/ProfileViewer"}>
+                      <Button variant="contained" color="primary">
+                        Login
+                      </Button>
+                    </LoginButton>
+                  ),
+                }} />
+            </FormGroup>
+            <Typography variant="body1" component="p" id="help">
+              <Link href="https://inrupt.net/register" margin={'30%'}> ¿No tienes una cuenta? Regístrate aqui</Link>
+            </Typography>
+          </Container>
+        </CardContent>
+      </Card>
+    </form></>
   );
 }
 export default FormLogIn;
