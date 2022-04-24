@@ -1,14 +1,5 @@
 import { render } from "@testing-library/react";
-import { Route, Router, Routes } from "react-router-dom";
 import Cart from '../components/Cart/Cart';
-
-const carrito = [
-    <Router>
-    <Routes>
-      <Route  path="/Cart" element={<Cart/>}/>
-      </Routes>
-    </Router>
-]
 
 test("Carrito vacio", async () => {
     const { getByText } = render( <Cart/>);

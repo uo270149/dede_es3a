@@ -36,9 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-
-
-const Login = () => {
+const LoginUsrPsswd = () => {
   const classes = useStyles();
   const [userName,setUserName]=useState("");
   const [password,setPassword]=useState("");
@@ -102,5 +100,4 @@ const Login = () => {
     </form></>
   );
 }
-
-export default Login;
+export default LoginUsrPsswd;

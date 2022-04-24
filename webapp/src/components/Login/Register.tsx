@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexWrap: 'wrap',
       width: 400,
       margin: `${theme.spacing(0)} auto`,
-      marginTop: theme.spacing(20)
+      marginTop: theme.spacing(10)
     },
     loginBtn: {
       marginTop: theme.spacing(2),
@@ -35,18 +35,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-type Notification = {
-  message: string;
-}
-
 const Register = () => {
   const classes = useStyles();
   const [userName,setUserName]=useState("");
   const [password,setPassword]=useState("");
   const [confirmpassword,setCPassword]=useState("");
-
-  const [notificationStatus, setNotificationStatus] = useState(false);
-  const [notification, setNotification] = useState<Notification>({message:''});
 
   async function addUserToSession(){
     if(confirmpassword==password){
@@ -57,34 +50,22 @@ const Register = () => {
         // Comprobamos que se añada el usuario correctamente
         let add:boolean = (await addUser(newUser));
         if(add){
-          setNotificationStatus(true);
           const item = {"username":userName,"password":password};
           // Almacenamos el usuario en sesión
           sessionStorage.setItem('user',JSON.stringify(item));
-          setNotificationStatus(true);
-          setNotification({
-            message:'Usuario correctamente añadido'
-          });
+          alert("Usuario añadido");
+          window.location.href='http://localhost:3000/';
         }
         else{
-          setNotificationStatus(true);
-          setNotification({
-            message:'Credenciales inválidas'
-          });
+          alert("Credenciales inválidas");
         }
       }
       else{
-        setNotificationStatus(true);
-        setNotification({
-          message:'El usuario ya existe'
-        });
+        alert("El usuario ya existe");
       }
     }
     else{
-      setNotificationStatus(true);
-      setNotification({
-        message:'Las contraseñas no coinciden'
-      });
+      alert("Las contraseñas no coinciden");
     }    
     window.location.reload();
   }
@@ -136,13 +117,7 @@ const Register = () => {
               </CardActions>
           </Card>
       </form>
-      <Snackbar open={notificationStatus} autoHideDuration={3000} onClose={()=>{setNotificationStatus(false)}}>
-        <Alert sx={{ width: '100%' }}>
-          {notification.message}
-        </Alert>
-      </Snackbar>
     </>
   );
 }
-
 export default Register;
