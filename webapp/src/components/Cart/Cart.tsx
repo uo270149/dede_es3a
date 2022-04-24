@@ -8,7 +8,6 @@ import CartButons from './CartButons';
 const Cart = () => {
     return (
       <div>
-        <Nav/>
         <Stack
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}

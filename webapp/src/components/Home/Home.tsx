@@ -27,7 +27,6 @@ const Home = () => {
     
     return (
       <div>
-        <Nav />
         <ShoesView products={products}/>
         <List/>
         <Footer/>

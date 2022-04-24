@@ -70,7 +70,7 @@ const Register = () => {
     window.location.reload();
   }
   return (
-    <><Nav />
+    <>
     <form className={classes.container} noValidate autoComplete="on" name="registro">
           <Card className={classes.card}>
               <CardHeader className={classes.header} title="Registro" />

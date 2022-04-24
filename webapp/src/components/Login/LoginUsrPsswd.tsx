@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexWrap: 'wrap',
       width: 400,
       margin: `${theme.spacing(0)} auto`,
-      marginTop: theme.spacing(20)
+      marginTop: theme.spacing(10)
     },
     loginBtn: {
       marginTop: theme.spacing(2),
@@ -58,7 +58,7 @@ const LoginUsrPsswd = () => {
     }
   }
   return (
-    <><Nav />
+    <>
     <form className={classes.container} noValidate autoComplete="on">
       <Card className={classes.card}>
         <CardHeader className={classes.header} title="Loggeate!" />

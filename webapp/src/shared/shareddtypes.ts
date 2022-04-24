@@ -18,3 +18,11 @@ export type TypeProduct = {
   descripcion: string;
   imagen: string;
 }
+
+export type ProductTest = {
+  id: string;
+  nombre: string;
+  precio: number;
+  descripcion: string;
+  imagen: string;
+}
