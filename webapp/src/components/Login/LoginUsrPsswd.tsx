@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexWrap: 'wrap',
       width: 400,
       margin: `${theme.spacing(0)} auto`,
-      marginTop: theme.spacing(20)
+      marginTop: theme.spacing(10)
     },
     loginBtn: {
       marginTop: theme.spacing(2),
@@ -36,9 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-
-
-const Login = () => {
+const LoginUsrPsswd = () => {
   const classes = useStyles();
   const [userName,setUserName]=useState("");
   const [password,setPassword]=useState("");
@@ -60,7 +58,7 @@ const Login = () => {
     }
   }
   return (
-    <><Nav />
+    <>
     <form className={classes.container} noValidate autoComplete="on">
       <Card className={classes.card}>
         <CardHeader className={classes.header} title="Loggeate!" />
@@ -102,5 +100,4 @@ const Login = () => {
     </form></>
   );
 }
-
-export default Login;
+export default LoginUsrPsswd;

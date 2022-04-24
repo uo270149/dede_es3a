@@ -13,6 +13,7 @@ import ProfileViewer from './components/Login/ProfileViewer';
 import LoginUsrPsswd from './components/Login/LoginUsrPsswd';
 import Register from './components/Login/Register';
 import GastosEnvio from './components/POD/GastosEnvio';
+import Nav from './components/Fragments/Nav';
 
 
 let productos:Array<Product>= new Array<Product>();
@@ -21,9 +22,9 @@ function App(): JSX.Element {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   
   return (
-    <>
     <SessionProvider sessionId="logIn">
       <Router>
+      <Nav/>
       <Routes>
         <Route  path={"/"} element={<Home/>} />
         <Route  path="/Cart" element={<Cart/>}/>
@@ -38,7 +39,6 @@ function App(): JSX.Element {
         <Footer/>
       </Router>
       </SessionProvider>
-    </>
   );
 }
 export default App;

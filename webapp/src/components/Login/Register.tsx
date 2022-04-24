@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Nav from '../Fragments/Nav';
 import { User } from '../../shared/shareddtypes';
 import { addUser, getUser } from '../../api/api';
+import { Alert, Snackbar } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexWrap: 'wrap',
       width: 400,
       margin: `${theme.spacing(0)} auto`,
-      marginTop: theme.spacing(20)
+      marginTop: theme.spacing(10)
     },
     loginBtn: {
       marginTop: theme.spacing(2),
@@ -40,7 +41,6 @@ const Register = () => {
   const [password,setPassword]=useState("");
   const [confirmpassword,setCPassword]=useState("");
 
-
   async function addUserToSession(){
     if(confirmpassword==password){
       const newUser:User = {username:userName, password:password};
@@ -53,6 +53,7 @@ const Register = () => {
           const item = {"username":userName,"password":password};
           // Almacenamos el usuario en sesión
           sessionStorage.setItem('user',JSON.stringify(item));
+          alert("Usuario añadido");
           window.location.href='http://localhost:3000/';
         }
         else{
@@ -64,13 +65,13 @@ const Register = () => {
       }
     }
     else{
-      alert("Las contraseñas no cinciden");
+      alert("Las contraseñas no coinciden");
     }    
     window.location.reload();
   }
   return (
-    <><Nav />
-    <form className={classes.container} noValidate autoComplete="on">
+    <>
+    <form className={classes.container} noValidate autoComplete="on" name="registro">
           <Card className={classes.card}>
               <CardHeader className={classes.header} title="Registro" />
               <CardContent>
@@ -115,8 +116,8 @@ const Register = () => {
 
               </CardActions>
           </Card>
-      </form></>
+      </form>
+    </>
   );
 }
-
 export default Register;

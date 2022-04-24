@@ -6,12 +6,20 @@ export type User = {
   }
 
 export type Product = {
-  nombre: string;
-  precio: number;
+   nombre: string;
+   precio: number;
 }
 
 export type TypeProduct = {
   _objectId: ObjectId;
+  id: string;
+  nombre: string;
+  precio: number;
+  descripcion: string;
+  imagen: string;
+}
+
+export type ProductTest = {
   id: string;
   nombre: string;
   precio: number;

@@ -38,7 +38,6 @@ export default function Details():JSX.Element {
   } else {
     return (
       <div>
-        <Nav />
         <Stack
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
@@ -47,7 +46,6 @@ export default function Details():JSX.Element {
           <LeftDetails/>
           <RightDetails product={product as unknown as Array<TypeProduct>}/>
         </Stack>
-        <Footer/>
       </div>
     );
   }
