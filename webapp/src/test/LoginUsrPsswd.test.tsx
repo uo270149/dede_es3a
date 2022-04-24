@@ -7,6 +7,6 @@ test("LogIn correcto", async () => {
   expect(screen.getByText("Loggeate!")).toBeInTheDocument();
   expect(screen.getByText("Username")).toBeInTheDocument();
   expect(screen.getByText("Password")).toBeInTheDocument();
-  expect(screen.getByText("LOGIN")).toBeInTheDocument();
+  expect(screen.getByText("Login")).toBeInTheDocument();
   expect(screen.getByText("¿No tienes una cuenta? Regístrate aqui")).toBeInTheDocument();
 });

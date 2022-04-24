@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from "@testing-library/react";
 import { ProductTest, TypeProduct } from '../shared/shareddtypes';
-import Home from '../components/Home/Home';
+import Shoes from '../components/Home/Shoes';
 import { ObjectId } from 'mongodb';
 
 test('check that the home is rendering propertly', async() => {
@@ -13,7 +13,7 @@ test('check that the home is rendering propertly', async() => {
         descripcion: "Zapatilla con personajes de Pixar animacion"
     }];
     
-    const { getByText } = render(<Home/>);
+    const { getByText } = render(<Shoes/>);
     expect(getByText(products[0].nombre)).toBeInTheDocument();
     expect(getByText(products[0].precio)).toBeInTheDocument();
 });
