@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from "@testing-library/react";
-import { TypeProduct } from '../shared/shareddtypes';
-import ShoesView from '../components/Home/Shoes';
+import { ProductTest, TypeProduct } from '../shared/shareddtypes';
+import Home from '../components/Home/Home';
 import { ObjectId } from 'mongodb';
 
 test('check that the home is rendering propertly', async() => {
-    const products: TypeProduct[] = [{
-        _objectId: new ObjectId("62598df82841d14b30fbd6b1"),
+    const products: ProductTest[] = [{
         id: "1b",
         imagen: "https://i.imgur.com/dHfRXIu.jpg",
         nombre: "Adidas Pixar",
@@ -14,7 +13,7 @@ test('check that the home is rendering propertly', async() => {
         descripcion: "Zapatilla con personajes de Pixar animacion"
     }];
     
-    const { getByText } = render(<ShoesView products={ products }/>);
+    const { getByText } = render(<Home/>);
     expect(getByText(products[0].nombre)).toBeInTheDocument();
     expect(getByText(products[0].precio)).toBeInTheDocument();
 });
