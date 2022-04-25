@@ -2,7 +2,6 @@ import { Button, Card, CardContent, CardHeader, Container, FormGroup, Link, Text
 import { useEffect, useState } from "react";
 import { LoginButton} from "@inrupt/solid-ui-react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Nav from "../Fragments/Nav";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,7 +41,7 @@ const FormLogIn = () => {
   }, [setCurrentUrl]);
 
   return (
-    <><Nav />
+    <>
     <form className={classes.container} noValidate autoComplete="on">
       <Card className={classes.card}>
         <CardHeader className={classes.header} title="Login" />

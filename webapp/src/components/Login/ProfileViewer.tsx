@@ -1,7 +1,6 @@
 import { useSession, CombinedDataProvider, Image, LogoutButton, Text } from "@inrupt/solid-ui-react";
 import { Button, Card, CardActionArea, CardContent, CardHeader, Container, Typography } from "@material-ui/core";
 import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
-import Nav from '../Fragments/Nav';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import GetAddressPod from "../POD/GetAddressPod";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -54,7 +53,7 @@ const ProfileViewer = () => {
   }
 
   return (
-    <><Nav />
+    <>
     <form className={classes.container} noValidate autoComplete="on">
     <Container fixed>
       {session.info.webId ? (
