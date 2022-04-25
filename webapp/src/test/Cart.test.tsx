@@ -1,12 +1,11 @@
 import { render } from "@testing-library/react";
 import { Route, Router, Routes } from "react-router-dom";
-import Cart from '../components/Cart/Cart';
+import CartButons from '../components/Cart/CartButons';
 
 test("Carrito vacio", async () => {
-    const { getByText } = render(<Cart/>);
+    const { getByText } = render(<CartButons/>);
 
     expect(getByText("Precio total sin gastos de Envio: 0")).toBeInTheDocument();
-    expect(getByText("ARTICULOS EN EL CARRITO")).toBeInTheDocument();
 });
 
 /***

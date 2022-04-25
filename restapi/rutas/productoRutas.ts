@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { Producto , ProductoDoc} from '../modelos/productoModelo';
 import consultarREST from './consultarREST';
 import "dotenv/config";
-import { ObjectId } from 'mongoose';
+import { ObjectId } from 'bson';
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
 let URL_BASE:string = `${process.env.API_REST_URL_BASE_LOCAL}`
