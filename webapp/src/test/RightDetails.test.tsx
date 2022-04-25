@@ -1,11 +1,13 @@
 import React from 'react';
 import { render } from "@testing-library/react";
 import RightDetails from '../components/Details/RightDetails';
-import { Product, ProductTest } from '../shared/shareddtypes';
+import { TypeProduct } from '../shared/shareddtypes';
+import {ObjectId} from 'bson';
 
 test('Right Details funcionando', async() => {
-    const products: ProductTest[] = [{
-
+    const strObject : ObjectId = new ObjectId("62598df82841d14b30fbd6b1");
+    const product: TypeProduct[] = [{
+        _objectId: strObject,
         id: "1b",
         imagen: "https://i.imgur.com/dHfRXIu.jpg",
         nombre: "Adidas Pixar",
@@ -13,8 +15,8 @@ test('Right Details funcionando', async() => {
         descripcion: "Zapatilla con personajes de Pixar animacion"
     }];
 
-   // const { getByText } = render(<RightDetails product={[]}/>);
+    const { getByText } = render(<RightDetails product={product}/>);
 
-   // expect(getByText(product[0].nombre)).toBeInTheDocument();
-   // expect(getByText(product[0].precio)).toBeInTheDocument();
+    expect(getByText(product[0].nombre)).toBeInTheDocument();
+    expect(getByText(product[0].precio)).toBeInTheDocument();
 });
