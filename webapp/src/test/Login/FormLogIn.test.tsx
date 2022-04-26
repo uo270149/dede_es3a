@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import FormLogIn from '../components/Login/FormLogIn';
+import FormLogIn from '../../components/Login/FormLogIn';
 
 test("Vista registro correcta", async () => {
     const { getByText } = render(<FormLogIn />);

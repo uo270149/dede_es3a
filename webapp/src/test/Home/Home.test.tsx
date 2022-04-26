@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from "@testing-library/react";
-import { TypeProduct } from '../shared/shareddtypes';
-import Shoes from '../components/Home/Shoes';
+import { TypeProduct } from '../../shared/shareddtypes';
+import Shoes from '../../components/Home/Shoes';
 import {ObjectId} from 'bson';
 
 test('check that the home is rendering propertly', async() => {

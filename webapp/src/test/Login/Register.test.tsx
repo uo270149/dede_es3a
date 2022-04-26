@@ -1,7 +1,7 @@
 import { act, fireEvent, render } from "@testing-library/react";
-import Register from '../components/Login/Register';
-import { User } from "../shared/shareddtypes";
-import * as api from '../api/api';
+import Register from '../../components/Login/Register';
+import { User } from "../../shared/shareddtypes";
+import * as api from '../../api/api';
 import { createTrue } from "typescript";
 
 /*** 

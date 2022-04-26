@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from "@testing-library/react";
-import RightDetails from '../components/Details/RightDetails';
-import { TypeProduct } from '../shared/shareddtypes';
+import RightDetails from '../../components/Details/RightDetails';
+import { TypeProduct } from '../../shared/shareddtypes';
 import {ObjectId} from 'bson';
 
 test('Right Details funcionando', async() => {
