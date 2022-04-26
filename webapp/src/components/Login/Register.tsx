@@ -98,7 +98,7 @@ const Register = () => {
                           id="check password"
                           type="password"
                           label="Check Password"
-                          placeholder=" Check Password"
+                          placeholder="Check Password"
                           margin="normal" 
                           onChange={e=>setCPassword(e.target.value)}/>
                   </div>

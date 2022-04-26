@@ -1,10 +1,11 @@
 import { render } from "@testing-library/react";
-import ShoesCart from "../../components/Cart/ShoesCart";
+import CartButtons from "../../components/Cart/CartButons";
 
 test("Carrito vacio", async () => {
-    const { getByText } = render(<ShoesCart/>);
+    const { getByText } = render(<CartButtons/>);
 
-    expect(getByText("ARTICULOS EN EL CARRITO")).toBeInTheDocument();
+    expect(getByText("Precio total sin gastos de Envio:")).toBeInTheDocument();
+    expect(getByText("Loggeate para Finalizar Compra")).toBeInTheDocument();
     //expect(getByText("Precio")).toBeInTheDocument();
 });
 

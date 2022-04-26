@@ -19,4 +19,15 @@ test('Right Details funcionando', async() => {
 
     expect(getByText(product[0].nombre)).toBeInTheDocument();
     expect(getByText(product[0].precio)).toBeInTheDocument();
+    expect(getByText(product[0].descripcion)).toBeInTheDocument();
+    expect(getByText("Colores")).toBeInTheDocument();
+    expect(getByText("Blanco")).toBeInTheDocument();
+    expect(getByText("Negro")).toBeInTheDocument();
+    expect(getByText("Tallas disponibles")).toBeInTheDocument();
+    expect(getByText("36")).toBeInTheDocument();
+    expect(getByText("37")).toBeInTheDocument();
+    expect(getByText("38")).toBeInTheDocument();
+    expect(getByText("39")).toBeInTheDocument();
+    expect(getByText("40")).toBeInTheDocument();
+    expect(getByText("Añadir al carrito")).toBeInTheDocument();
 });

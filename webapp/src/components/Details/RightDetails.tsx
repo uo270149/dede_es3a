@@ -62,7 +62,7 @@ const RightDetails = (parsed:parsedProduct) => {
 	      <Typography color= "#FFFFFF">
            Colores
         </Typography>
-        <ButtonGroup variant="outlined" aria-label="colores">
+        <ButtonGroup variant="outlined" aria-label="colores" key="colores">
            {colores}
         </ButtonGroup>
       </div>
@@ -71,20 +71,12 @@ const RightDetails = (parsed:parsedProduct) => {
 	      <Typography color= "#FFFFFF">
            Tallas disponibles
         </Typography>
-        <ButtonGroup color= "primary" variant="outlined" aria-label="tallas">
+        <ButtonGroup color= "primary" variant="outlined" aria-label="tallas" key="tallas">
            {tallas}
         </ButtonGroup>
       </div>
 
       <div>
-        <Button 
-        variant="contained" 
-        startIcon={<FavoriteBorder />} 
-        size="medium"
-        sx={{ bgcolor: '#FFFFFF', color: 'black'}}>
-            Favorito
-         </Button>
-
         <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}>
            Añadir al carrito
          </Button>

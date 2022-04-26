@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from "@testing-library/react";
 import TableSizes from '../../components/Details/TableSizes';
-import { TypeProduct } from '../../shared/shareddtypes';
-import {ObjectId} from 'bson';
 
 test('Table Sizes funcionando', async() => {
     const { getByText } = render(<TableSizes/>);
