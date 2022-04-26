@@ -1,6 +1,5 @@
 [[section-glossary]]
 == Glosario
-****
 .Glosario
 [options="header",cols="1,3"]
 |===
