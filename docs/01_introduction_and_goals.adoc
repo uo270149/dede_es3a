@@ -59,10 +59,10 @@ usuario.
 .Stakeholders
 [options="header",cols="1,2"]
 |===
-|Role/Name|Expectations| 
+|Role/Name|Expectations 
 |Administradores |Realizar una administración cómoda y sin inconvenientes.
-| Equipo de desarrollo|Esperan poder obtener una aplicacíon correcta y usable.
-| Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
+|Equipo de desarrollo|Esperan poder obtener una aplicacíon correcta y usable.
+|Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
 |===
 
 Administradores: se encargan de modificar precios, calcular inventarios, ver todos los pedidos realizados o 
