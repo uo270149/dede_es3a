@@ -80,7 +80,7 @@ const ShoesCart = () => {
               });
               // Establecemos el nuevo valor para el carrito
               sessionStorage.setItem('cart', JSON.stringify(newCart));
-              window.location.reload();   // Recargamos la pagina
+              window.location.reload();
             }
             }><DeleteIcon /></IconButton>
           </Card>
