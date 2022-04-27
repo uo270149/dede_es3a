@@ -1,6 +1,3 @@
-import Nav from '../Fragments/Nav';
-import { makeStyles } from '@material-ui/core/styles';
-import Footer from '../Fragments/Footer';
 import List from './List';
 import ShoesView from './Shoes';
 import {useState, useEffect} from 'react';
@@ -25,11 +22,11 @@ const Home = () => {
     reloadItems();
   },[]);
     
+  console.log(products);
     return (
       <div>
         <ShoesView products={products}/>
         <List/>
-        <Footer/>
       </div>
     );
   };

@@ -33,7 +33,8 @@ const useStyles = makeStyles({
 
 const ShoesCart = () => {
   const classes = useStyles();
-    const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
+  
+  const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
     return (
       <Container maxWidth="md" className={classes.colores2}>
         <Typography variant='h3' className={classes.colores}>

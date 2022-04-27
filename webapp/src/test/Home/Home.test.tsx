@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { TypeProduct } from '../../shared/shareddtypes';
 import Shoes from '../../components/Home/Shoes';
 import {ObjectId} from 'bson';
@@ -15,7 +15,8 @@ test('check that the home is rendering propertly', async() => {
         descripcion: "Zapatilla con personajes de Pixar animacion"
     }];
     
-    const { getByText } = render(<Shoes products={products}/>);
-    expect(getByText(products[0].nombre)).toBeInTheDocument();
-    expect(getByText(products[0].precio)).toBeInTheDocument();
+    render(<Shoes products={products}/>);
+
+    const precio = screen.getAllByText("Precio:"+products[0].precio);
+    expect(precio).toBeInTheDocument();
 });

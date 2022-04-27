@@ -1,8 +1,9 @@
 import { render } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import CartButtons from "../../components/Cart/CartButons";
 
-test("Carrito vacio", async () => {
-    const { getByText } = render(<CartButtons/>);
+test("CartButons basico", async () => {
+    const { getByText } = render(<BrowserRouter><CartButtons/></BrowserRouter>);
 
     expect(getByText("Precio total sin gastos de Envio:")).toBeInTheDocument();
     expect(getByText("Loggeate para Finalizar Compra")).toBeInTheDocument();

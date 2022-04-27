@@ -39,7 +39,7 @@ test("Vista registro correcta", async () => {
     expect(getByText("Password")).toBeInTheDocument();
     expect(getByText("Check Password")).toBeInTheDocument();
     expect(getByText("Registrarse")).toBeInTheDocument();
-})
+});
 
 
 test("Vista registro correcta placeholders", async () => {
