@@ -44,7 +44,7 @@ const FormLogIn = () => {
     <>
     <form className={classes.container} noValidate autoComplete="on">
       <Card className={classes.card}>
-        <CardHeader className={classes.header} title="Login" />
+        <CardHeader className={classes.header} title="Identificate" />
         <CardContent>
           <Container fixed>
             <FormGroup>

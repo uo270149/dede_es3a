@@ -1,0 +1,20 @@
+import React from 'react';
+import { screen, render } from "@testing-library/react";
+import List from '../../components/Home/List';
+
+test('List de Home funcionando', async() => {
+    render(<List/>);
+
+    const pokemon = screen.getByAltText("Pokemon");
+    expect(pokemon).toBeInTheDocument();
+    const babyYoda = screen.getByAltText("Zapatillas Baby Yoda");
+    expect(babyYoda).toBeInTheDocument();
+    const style = screen.getByAltText("Style");
+    expect(style).toBeInTheDocument();
+    const cañaAlta = screen.getByAltText("Caña Alta");
+    expect(cañaAlta).toBeInTheDocument();
+    const loUltimo = screen.getByAltText("Lo último");
+    expect(loUltimo).toBeInTheDocument();
+    const casual = screen.getByAltText("Casual");
+    expect(casual).toBeInTheDocument();
+});

@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from 'react-router-dom';
-import { Card, TextField, Typography } from '@mui/material';
-import { useSession } from '@inrupt/solid-ui-react';
+import { Card, Typography } from '@mui/material';
 
 const useStyles = makeStyles({
     sizes: {

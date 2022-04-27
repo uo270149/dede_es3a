@@ -1,8 +1,5 @@
-import { act, fireEvent, render } from "@testing-library/react";
-import Register from '../components/Login/Register';
-import { User } from "../shared/shareddtypes";
-import * as api from '../api/api';
-import { createTrue } from "typescript";
+import { screen, render } from "@testing-library/react";
+import Register from '../../components/Login/Register';
 
 /*** 
 jest.mock('../api/api');
@@ -42,4 +39,16 @@ test("Vista registro correcta", async () => {
     expect(getByText("Password")).toBeInTheDocument();
     expect(getByText("Check Password")).toBeInTheDocument();
     expect(getByText("Registrarse")).toBeInTheDocument();
+})
+
+
+test("Vista registro correcta placeholders", async () => {
+  render(<Register />);
+
+  const username = screen.getByPlaceholderText("Username");
+  expect(username).toBeInTheDocument();
+  const password = screen.getByPlaceholderText("Password");
+  expect(password).toBeInTheDocument();
+  const checkPass = screen.getByPlaceholderText("Check Password");
+  expect(checkPass).toBeInTheDocument();
 })

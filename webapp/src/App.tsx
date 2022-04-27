@@ -14,6 +14,7 @@ import LoginUsrPsswd from './components/Login/LoginUsrPsswd';
 import Register from './components/Login/Register';
 import GastosEnvio from './components/POD/GastosEnvio';
 import Nav from './components/Fragments/Nav';
+import Us from './components/Developers/Us';
 
 
 let productos:Array<Product>= new Array<Product>();
@@ -35,6 +36,7 @@ function App(): JSX.Element {
         <Route  path="/GastosEnvio" element={<GastosEnvio/>}/>
         <Route  path="/ProfileViewer" element={<ProfileViewer/>}/>
         <Route  path="/Requests" element={<Requests/>}/>
+        <Route  path="/Us" element={<Us/>}/>
         </Routes>
         <Footer/>
       </Router>
