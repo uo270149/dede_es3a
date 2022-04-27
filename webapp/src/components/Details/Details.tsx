@@ -10,11 +10,11 @@ import { getProduct } from '../../api/api';
 
 export default function Details():JSX.Element {
   //Obtenemos la parte de parametros de la url
-  const querystring:string = window.location.search;
-  const params:URLSearchParams = new URLSearchParams(querystring)
+  const querystring = window.location.search;
+  const params = new URLSearchParams(querystring)
   
   //Obtenemos la id del producto
-  const id:string = params.get('id') as string;
+  const id = params.get('id') as string;
   
   const [product, setProduct] = useState<TypeProduct>();
   const reloadDetails = async () => {

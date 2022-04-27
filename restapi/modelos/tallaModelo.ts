@@ -37,6 +37,6 @@ tallaSchema.statics.build = (attr: ITalla) => {
     return new Talla(attr)
 }
 
-const Talla:TallaModelInterface = mongoose.model<TallaDoc,TallaModelInterface>('Talla',tallaSchema)
+const Talla = mongoose.model<TallaDoc,TallaModelInterface>('Talla',tallaSchema)
 
 export { Talla, TallaDoc}

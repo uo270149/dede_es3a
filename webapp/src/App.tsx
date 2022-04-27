@@ -10,12 +10,8 @@ import { useState } from 'react';
 import { SessionProvider } from '@inrupt/solid-ui-react';
 import FormLogIn from './components/Login/FormLogIn';
 import ProfileViewer from './components/Login/ProfileViewer';
-import LoginUsrPsswd from './components/Login/LoginUsrPsswd';
-import Register from './components/Login/Register';
-import GastosEnvio from './components/POD/GastosEnvio';
 
-
-let productos:Array<Product>= new Array<Product>();
+let productos= new Array<Product>();
 function App(): JSX.Element {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -28,10 +24,7 @@ function App(): JSX.Element {
         <Route  path={"/"} element={<Home/>} />
         <Route  path="/Cart" element={<Cart/>}/>
         <Route  path="/Details" element={<Details/>}/>
-        <Route  path="/LoginUsrPsswd" element={<LoginUsrPsswd/>}/>
-        <Route  path="/Register" element={<Register/>}/>
         <Route  path="/FormLogIn" element={<FormLogIn/>}/>
-        <Route  path="/GastosEnvio" element={<GastosEnvio/>}/>
         <Route  path="/ProfileViewer" element={<ProfileViewer/>}/>
         <Route  path="/Requests" element={<Requests/>}/>
         </Routes>
