@@ -73,6 +73,7 @@ export default function MenuAppBar() {
                 component={Link}
                 size="large"
                 className={classes.colorButtom}
+                title={"Home"}
               >
                 <HomeIcon/>
               </IconButton>
@@ -81,6 +82,7 @@ export default function MenuAppBar() {
                 component={Link}
                 size="large"
                 className={classes.colorButtom}
+                title={"Cart"}
               >
                 <ShoppingCartIcon />
               </IconButton>
@@ -110,12 +112,12 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
 
-              <MenuItem onClick={handleClose} to='/Requests'
+              <MenuItem onClick={handleClose} to='/Requests' title={"Mis pedidos"}
                 component={Link} >Mis pedidos</MenuItem>
-                <MenuItem onClick={handleClose}  to='/Us'
-                  component={Link} >About Us </MenuItem>
+                <MenuItem onClick={handleClose}  to='/Us' title={"About Us "}
+                  component={Link } >About Us </MenuItem>
               { usuario==null && !session.info.isLoggedIn ? (
-                  <MenuItem onClick={handleClose} to='/LoginUsrPsswd'
+                  <MenuItem onClick={handleClose} to='/LoginUsrPsswd' title={"Login"}
                   component={Link} >Login</MenuItem>
                 
               ): ([
