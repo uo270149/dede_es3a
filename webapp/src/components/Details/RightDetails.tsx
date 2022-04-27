@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { FavoriteBorder } from "@mui/icons-material";
 import { Box, Typography } from '@mui/material';
 import TableSizes from './TableSizes';
-import { TypeProduct } from '../../shared/shareddtypes';
+import { TypeProduct, User } from '../../shared/shareddtypes';
 
 const tallas = [
   <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>36</Button>,
@@ -27,11 +27,17 @@ type parsedProduct = {
 const RightDetails = (parsed:parsedProduct) => {
   
   function addToCart(){
+    // Objeto a almacenar
     const item = {"_objectId":parsed.product[0]._objectId,"id":parsed.product[0].id,"nombre":parsed.product[0].nombre,"precio":parsed.product[0].precio,"imagen":parsed.product[0].imagen};
+    // Sacamos el carrito almacenado en sesion
     var cart:string = sessionStorage.getItem('cart') as string;
-    if(JSON.parse(cart).length > 0){
+    
+    // Si el carrito NO esta vacio, añadimos el nuevo item al final
+    if(JSON.parse(cart).length > 0){  
       var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
-    } else{
+    } 
+    // Si no, introducimos el primer item a nuestro carrito
+    else{ 
       var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
     }
     sessionStorage.setItem('cart', newCart);

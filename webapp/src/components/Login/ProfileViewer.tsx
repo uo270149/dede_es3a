@@ -3,7 +3,8 @@ import { Button, Card, CardActionArea, CardContent, CardHeader, Container, Typog
 import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
 import Nav from '../Fragments/Nav';
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-
+import GetAddressPod from "../POD/GetAddressPod";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -19,6 +20,17 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(2),
       flexGrow: 1
     },
+    margen:{
+      margin: '-25px 0 0 -25px',
+      marginRight:'30%',
+      marginTop: theme.spacing(20),
+      display: 'flex',
+      justifyContent:'center',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      
+    },
     header: {
       textAlign: 'center',
       background: '#212121',
@@ -31,10 +43,15 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
 const ProfileViewer = () => {
   const classes = useStyles();
   const { session } = useSession();
   const { webId } = session.info;
+  function guardarWebId(){
+    sessionStorage.setItem('webIdSesion', webId as string);
+    const w= sessionStorage.getItem('webIdSesion');
+  }
 
   return (
     <><Nav />
@@ -50,13 +67,9 @@ const ProfileViewer = () => {
               <Typography gutterBottom variant="h5" component="h2">
                 <Text property={FOAF.name.iri.value} />
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
-                <Text property={VCARD.organization_name.iri.value} />
-              </Typography>
             </CardContent>
-
             <CardActionArea style={{ justifyContent: "center", display: "flex" }}>
-            <Text id= "direction" property={VCARD.note.iri.value} />
+            <GetAddressPod  webId = { session.info.webId }/>
             </CardActionArea>
           </Card>
         </CombinedDataProvider>
@@ -66,6 +79,9 @@ const ProfileViewer = () => {
           Logout
         </Button>
       </LogoutButton>
+        <Button style={{ marginTop: 20 }}endIcon={<ShoppingCartIcon />}  variant="contained" color="secondary" href="/GastosEnvio" onClick={guardarWebId}>
+          Continuar con su compra 
+        </Button>
 
     </Container>
     </form></>
@@ -73,3 +89,5 @@ const ProfileViewer = () => {
 }
 
 export default ProfileViewer
+
+

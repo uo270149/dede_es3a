@@ -17,6 +17,7 @@ Son las restricciones tecnicas que tendrá el equipo a lo largo del desarrollo.
 .Form
 Tabla con todas las restricciones técnicas junto con una breve descripción .
 ****
+.Restricciones técnicas
 [options="header",cols="1,2"]
 |===
 |Restricción|Descripción
@@ -26,6 +27,7 @@ Tabla con todas las restricciones técnicas junto con una breve descripción .
 |Git| El código ha de ser subido a un repositorio remoto en GitHub.
 |PlantUML| Herramienta de código abierto que permite la creación de diagramas de forma textual.
 |Draw.io| Herramienta que permite la creación de diagramas de forma gráfica.
+|Material ui| Es una biblioteca de código abierto que implementa el lenguaje visual de «materiales» de Google en sus componentes React.
 |===
 
 === Restricciones de negocio
@@ -37,11 +39,11 @@ Son las restricciones de negocio para el desarrollo del sistema.
 .Form 
 Tabla con todas las restricciones de negocio junto con una breve descripción .
 ****
-
+.Restricciones de negocio
 [options="header",cols="1,2"]
 |===
 |Restricción|Descripción
-|Equipo| El equipo esta formado por 5 personas con las que apenas hemos interactuado con anterioridad.
+|Equipo| El equipo esta formado por 5 personas con las que apenas hemos interactuado con anterioridad. Además de esto, 2 miembros del equipo abandonaron el proyecto.
 |Horarios| Todos somos estudiantes con más asignaturas o incluso que trabaja mientras cursa esta asignatura.
 |Límite de tiempo| Cada entrega tiene una fecha de entrega bastante cercana a la anterior.
 |===
