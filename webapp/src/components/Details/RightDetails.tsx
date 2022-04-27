@@ -8,16 +8,16 @@ import TableSizes from './TableSizes';
 import { TypeProduct, User } from '../../shared/shareddtypes';
 
 const tallas = [
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>36</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>37</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>38</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>39</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}}>40</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36">36</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="37">37</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="38">38</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36">39</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="40">40</Button>,
 ]
 
 const colores = [
-  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}}>Blanco</Button>,
-  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}}>Negro</Button>,
+  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}} key="Blanco">Blanco</Button>,
+  <Button  sx={{ bgcolor: '#FFFFFF', color: 'black'}} key="Negro">Negro</Button>,
 ]
 
 type parsedProduct = {
