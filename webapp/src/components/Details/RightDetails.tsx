@@ -8,11 +8,11 @@ import TableSizes from './TableSizes';
 import { TypeProduct, User } from '../../shared/shareddtypes';
 
 const tallas = [
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36">36</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="37">37</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="38">38</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36">39</Button>,
-  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="40">40</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36_tallas" title={"36_tallas"}>36</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="37_tallas" title={"37_tallas"}>37</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="38_tallas" title={"38_tallas"}>38</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="36_tallas" title={"39_tallas"}>39</Button>,
+  <Button sx={{ bgcolor: 'black', color: '#FFFFFF'}} key="40_tallas" title={"40_tallas"}>40</Button>,
 ]
 
 const colores = [

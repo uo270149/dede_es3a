@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import RightDetails from '../../components/Details/RightDetails';
 import { TypeProduct } from '../../shared/shareddtypes';
 import {ObjectId} from 'bson';
@@ -15,7 +15,7 @@ test('Right Details funcionando', async() => {
         descripcion: "Zapatilla con personajes de Pixar animacion"
     }];
 
-    const { getByText } = render(<RightDetails product={product}/>);
+    const { getByText, getByTitle} = render(<RightDetails product={product}/>);
 
     expect(getByText(product[0].nombre)).toBeInTheDocument();
     expect(getByText(product[0].precio)).toBeInTheDocument();
@@ -24,10 +24,10 @@ test('Right Details funcionando', async() => {
     expect(getByText("Blanco")).toBeInTheDocument();
     expect(getByText("Negro")).toBeInTheDocument();
     expect(getByText("Tallas disponibles")).toBeInTheDocument();
-    expect(getByText("36")).toBeInTheDocument();
-    expect(getByText("37")).toBeInTheDocument();
-    expect(getByText("38")).toBeInTheDocument();
-    expect(getByText("39")).toBeInTheDocument();
-    expect(getByText("40")).toBeInTheDocument();
     expect(getByText("Añadir al carrito")).toBeInTheDocument();
+    expect(getByTitle("36_tallas")).toBeInTheDocument();
+    expect(getByTitle("37_tallas")).toBeInTheDocument();
+    expect(getByTitle("38_tallas")).toBeInTheDocument();
+    expect(getByTitle("39_tallas")).toBeInTheDocument();
+    expect(getByTitle("40_tallas")).toBeInTheDocument();
 });
