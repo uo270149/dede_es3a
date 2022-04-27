@@ -3,12 +3,14 @@ import mongoose, { ObjectId } from 'mongoose';
 export interface IPedido {
     usuario:String;
     precio:Number;
+    contenido:Array<String>;    // Almacenara el nombre de los articulos solicitados
 }
 
 interface PedidoDoc extends mongoose.Document {
     _id: ObjectId;
     usuario:String;
     precio:Number;
+    contenido:Array<String>;
 }
 
 interface PedidoModelInterface extends mongoose.Model<PedidoDoc> {
@@ -23,6 +25,11 @@ const pedidoSchema = new mongoose.Schema({
     },
     precio: {
         type: Number,
+        required: true,
+        trim: true
+    },
+    contenido: {
+        type: Array,
         required: true,
         trim: true
     },

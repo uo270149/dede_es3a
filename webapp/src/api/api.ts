@@ -53,8 +53,7 @@ export async function getProduct(productId : string): Promise<TypeProduct> {
 }
 
 export async function addOrder(order:Order):Promise<Order>{
-  const orderParam = { usuario:order.usuario, precio:order.precio};
-  console.log(orderParam);
+  const orderParam = { usuario:order.usuario, precio:order.precio, contenido:order.contenido };
   let response:Response = await fetch(apiEndPoint+'pedidos/add', {
       method: 'POST',
       body: JSON.stringify(orderParam),
@@ -62,11 +61,11 @@ export async function addOrder(order:Order):Promise<Order>{
         'Content-Type':'application/json'
       }        
     });
-  console.log(response);
   return response.json();
 }
 
 export async function getOrders(username : string): Promise<TypeOrder[]> {
-  const response:Response = await fetch(apiEndPoint+'pedidos/list/'+username);
+  const apiPetition:string = apiEndPoint+'pedidos/list/' + username;
+  const response:Response = await fetch(apiPetition);
   return response.json();
 }

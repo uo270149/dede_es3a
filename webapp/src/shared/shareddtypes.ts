@@ -14,6 +14,7 @@ export type Product = {
 export type Order = {
   usuario: string;
   precio: number;
+  contenido: Array<string>;
 }
 
 export type TypeProduct = {
@@ -29,4 +30,5 @@ export type TypeOrder = {
   _objectId: ObjectId;
   usuario: string;
   precio: number;
+  contenido: Array<string>;
 }
