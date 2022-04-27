@@ -38,13 +38,9 @@ export default function MenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleCloseLogOut = () => {
-    setAnchorEl(null);
-    sessionStorage.removeItem('user');
-  };
 
   const {session, logout} = useSession();
-  const usuario = sessionStorage.getItem('user');
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={classes.stickToBottom}>
@@ -112,14 +108,14 @@ export default function MenuAppBar() {
 
               <MenuItem onClick={handleClose} to='/Requests'
                 component={Link} >Mis pedidos</MenuItem>
-              { usuario==null && !session.info.isLoggedIn ? (
-                  <MenuItem onClick={handleClose} to='/LoginUsrPsswd'
+              {!session.info.isLoggedIn ? (
+                  <MenuItem onClick={handleClose} to='/FormLogIn'
                   component={Link} >Login</MenuItem>
               ): ([
                 <MenuItem onClick={handleClose} to='/ProfileViewer'
                 component={Link} >Profile</MenuItem> ,
-                <MenuItem onClick={handleCloseLogOut}  to='/LoginUsrPsswd'
-                component={Link} >LogOut {logout}</MenuItem>
+                <MenuItem onClick={handleClose} to='/FormLogIn'
+                component={Link} >LogOut</MenuItem>
               ]
               )}
               </Menu>

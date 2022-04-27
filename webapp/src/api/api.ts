@@ -1,55 +1,39 @@
 import {User, Product, TypeProduct} from '../shared/shareddtypes';
-import { ObjectId } from 'bson';
 
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-let apiEndPoint:string ='http://localhost:5000/'
+let apiEndPoint ='http://localhost:5000/'
 if(process.env.PORT) {
   apiEndPoint = 'http://dede-es3a-restapi.herokuapp.com/'
 }
 
 export async function addUser(user:User):Promise<boolean>{
-    const id = new ObjectId();
-    const userParam = { username:user.username, password:user.password};
-    let response:Response = await fetch(apiEndPoint+'users/add', {
+    //const apiEndPoint= 'http://localhost:5000/api'
+    let response = await fetch(apiEndPoint+'users/add', {
         method: 'POST',
-        body: JSON.stringify(userParam),
-        headers: {
-          'Content-Type':'application/json'
-        }        
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({'name':user.name, 'email':user.email})
       });
-      console.log(response);
-    if (response.status===201)
+    if (response.status===200)
       return true;
     else
       return false;
 }
 
 export async function getUsers():Promise<User[]>{
-    let response:Response = await fetch(apiEndPoint+'users/list');
+    //const apiEndPoint= 'http://localhost:5000/api'
+    let response = await fetch(apiEndPoint+'users/list');
     //The objects returned by the api are directly convertible to User objects
     return response.json()
 }
 
-/*
-* Metodo que utilizaremos para comprobar si el usuario que intenta logearse, existe en base de datos.
-*/
-export async function getUser(username : string, password : string): Promise<User | null> {
-  const apiPetition:string = apiEndPoint+'users/login/' + username + '/' + password;
-  const response:Response = await fetch(apiPetition);
-  if(response.status == 500) {
-    return null;
-  }
-  return response.json();
-}
-
 export async function getProducts(): Promise<TypeProduct[]> {
-  const response:Response = await fetch(apiEndPoint+'products/list');
+  const response = await fetch(apiEndPoint+'products/list');
   return response.json();
 }
 
 export async function getProduct(productId : string): Promise<TypeProduct> {
-  const apiPetition:string = apiEndPoint+'producto/detalles/' + productId;
-  const response:Response = await fetch(apiPetition);
+  const apiPetition = apiEndPoint+'producto/detalles/' + productId;
+  const response = await fetch(apiPetition);
   return response.json();
 }
