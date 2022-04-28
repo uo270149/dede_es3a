@@ -19,6 +19,8 @@ test('check that the home is rendering propertly', async() => {
 
     const nombre = screen.getAllByText(products[0].nombre);
     expect(nombre).toBeInTheDocument();
-    const precio = screen.getAllByText("Precio:"+products[0].precio);
-    expect(precio).toBeInTheDocument();
+    const precio1 = screen.getAllByText("Precio:");
+    expect(precio1).toBeInTheDocument();
+    const precio2 = screen.getAllByText(products[0].precio);
+    expect(precio2).toBeInTheDocument();
 });
