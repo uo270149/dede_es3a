@@ -16,7 +16,6 @@ const Cart = () => {
             <ShoesCart/>
             <CartButons/>
         </Stack>
-        <Footer/>
       </div>   
     );
   };

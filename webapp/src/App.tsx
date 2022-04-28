@@ -5,7 +5,6 @@ import Cart from './components/Cart/Cart';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from './components/Fragments/Footer';
 import { Product } from './shared/shareddtypes';
-import Requests from './components/Requests/Requests'
 import { useState } from 'react';
 import { SessionProvider } from '@inrupt/solid-ui-react';
 import FormLogIn from './components/Login/FormLogIn';
@@ -15,6 +14,7 @@ import Register from './components/Login/Register';
 import GastosEnvio from './components/POD/GastosEnvio';
 import Nav from './components/Fragments/Nav';
 import Us from './components/Developers/Us';
+import ListRequests from './components/Requests/ListRequests';
 
 
 let productos:Array<Product>= new Array<Product>();
@@ -35,7 +35,7 @@ function App(): JSX.Element {
         <Route  path="/FormLogIn" element={<FormLogIn/>}/>
         <Route  path="/GastosEnvio" element={<GastosEnvio/>}/>
         <Route  path="/ProfileViewer" element={<ProfileViewer/>}/>
-        <Route  path="/Requests" element={<Requests/>}/>
+        <Route  path="/ListRequests" element={<ListRequests/>}/>
         <Route  path="/Us" element={<Us/>}/>
         </Routes>
         <Footer/>

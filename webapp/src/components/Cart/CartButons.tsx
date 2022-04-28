@@ -37,20 +37,22 @@ const useStyles = makeStyles({
 function calcularValor(){
   var x=0
   var x2=""
-  if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
-    var cart:string = sessionStorage.getItem('cart') as string;
-    var primero = cart.split("},{")
-    for(var i=0; i<primero.length; i++){
-    var [objid,id,nombre,precio,imagen]=primero[i].split(",");
-    var [p,valor]=precio.split(":")
-      x=x+Number(valor)
-
+  if(JSON.parse(sessionStorage.getItem('cart') as string) != null){
+    if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
+      var cart:string = sessionStorage.getItem('cart') as string;
+      var primero = cart.split("},{")
+      for(var i=0; i<primero.length; i++){
+      var [objid,id,nombre,precio,imagen]=primero[i].split(",");
+      var [p,valor]=precio.split(":")
+        x=x+Number(valor)
+  
+      }
+      x2=String(x);
     }
-    x2=String(x);
+    sessionStorage.setItem('precioCarrito',x2)
+    return x;
+   }
   }
-  sessionStorage.setItem('precioCarrito',x2)
-  return x;
-}
 
 export default function CartButons() {
     const classes = useStyles();
