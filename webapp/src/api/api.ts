@@ -1,5 +1,4 @@
-import {User, Product, TypeProduct} from '../shared/shareddtypes';
-import { ObjectId } from 'bson';
+import { User, Product, TypeProduct, Order, TypeOrder } from '../shared/shareddtypes';
 
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
@@ -9,7 +8,6 @@ if(process.env.PORT) {
 }
 
 export async function addUser(user:User):Promise<boolean>{
-    const id = new ObjectId();
     const userParam = { username:user.username, password:user.password};
     let response:Response = await fetch(apiEndPoint+'users/add', {
         method: 'POST',
@@ -50,6 +48,24 @@ export async function getProducts(): Promise<TypeProduct[]> {
 
 export async function getProduct(productId : string): Promise<TypeProduct> {
   const apiPetition:string = apiEndPoint+'producto/detalles/' + productId;
+  const response:Response = await fetch(apiPetition);
+  return response.json();
+}
+
+export async function addOrder(order:Order):Promise<Order>{
+  const orderParam = { usuario:order.usuario, precio:order.precio, contenido:order.contenido };
+  let response:Response = await fetch(apiEndPoint+'pedidos/add', {
+      method: 'POST',
+      body: JSON.stringify(orderParam),
+      headers: {
+        'Content-Type':'application/json'
+      }        
+    });
+  return response.json();
+}
+
+export async function getOrders(username : string): Promise<TypeOrder[]> {
+  const apiPetition:string = apiEndPoint+'pedidos/list/' + username;
   const response:Response = await fetch(apiPetition);
   return response.json();
 }

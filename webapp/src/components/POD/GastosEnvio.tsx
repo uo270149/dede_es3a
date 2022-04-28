@@ -5,7 +5,8 @@ import { Box, Button, Card, Container, Grid, Typography } from "@mui/material";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { calcularValorGastosdeEnvío } from "./Coordenadas";
-
+import { addOrder } from "../../api/api";
+import { Order, TypeProduct } from "../../shared/shareddtypes";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,11 +22,19 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
+let costePedido:number = 0;
 function FinishBuying(){
     if(JSON.parse(sessionStorage.getItem('cart') as string).length > 0){
+      // Creamos el pedido para el usuario
+      const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
+      const articulosPedido:Array<string> = carrito.map( (item:TypeProduct) => item.nombre );   // Seleccionamos solo los nombres de los articulos
+      const order:Order = { usuario:(sessionStorage.getItem('user') as string), precio:costePedido, contenido:articulosPedido};
+      addOrder(order);
+      // Vaciamos el carrito
       sessionStorage.setItem('cart', JSON.stringify([]));
       sessionStorage.setItem('webIdSesion',JSON.stringify([]))
       alert("Compra realizada");
+
     }
   }
 async function userAddress(): Promise<string> {
@@ -59,7 +68,9 @@ function GastosEnvio(): JSX.Element {
     });
 
     const cal = async () => {
-      setGastosdeEnvio( await calcularValorGastosdeEnvío(address) );
+      var costeGastosDeEnvio = await calcularValorGastosdeEnvío(address)
+      setGastosdeEnvio( costeGastosDeEnvio );
+      costePedido = costeGastosDeEnvio;
     };
     return (
         <Container>

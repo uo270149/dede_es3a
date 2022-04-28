@@ -1,8 +1,12 @@
 import express, { Request, Response } from 'express';
 import { Usuario, UsuarioDoc } from '../modelos/usuarioModelo';
 import "dotenv/config";
-import {User} from '../../webapp/src/shared/shareddtypes';
 
+
+type User = {
+  username:string;
+  password:string;
+}
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
 let URL_BASE:string = `${process.env.API_REST_URL_BASE_LOCAL}`
 if(process.env.PORT) {
