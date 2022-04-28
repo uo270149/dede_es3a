@@ -22,7 +22,6 @@ const Home = () => {
     reloadItems();
   },[]);
     
-  console.log(products);
     return (
       <div>
         <ShoesView products={products}/>

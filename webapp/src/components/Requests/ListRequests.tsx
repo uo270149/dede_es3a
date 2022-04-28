@@ -26,8 +26,9 @@ const ListRequests = () => {
                 width: '200%', 
                 maxWidth: 500, 
                 bgcolor: 'background.paper' }}>
+      { console.log(pedidos) }
       {
-        pedidos != null ? (
+        Object.keys(pedidos).length !== 0 ? (
           pedidos.map(item =>
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
