@@ -54,6 +54,16 @@ function calcularValor(){
 
 export default function CartButons() {
     const classes = useStyles();
+    // La siguiente variable indicará el lugar de redireccionado al pulsar sobre el boton "Loggeate para Finalizar Compra"
+    let linkFinalizarCompra:string;
+    if(sessionStorage.getItem('user') != null) {
+      // Si ya hemos iniciado sesión, iremos al log de los pods
+      linkFinalizarCompra = '/FormLogIn';
+    }
+    else {
+      // Si no, necesitaremos logearnos en la aplicación
+      linkFinalizarCompra = '/LoginUsrPsswd';
+    }
   return (
     
     <Container maxWidth='lg' className={classes.container}>  
@@ -64,7 +74,7 @@ export default function CartButons() {
                 </Typography> 
                 </Card>
         
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = '/FormLogIn' component={Link}>
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = {linkFinalizarCompra} component={Link}>
           Loggeate para Finalizar Compra
         </Button>
         </div> 
