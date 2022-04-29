@@ -10,7 +10,7 @@ import { Link, Typography } from "@mui/material";
 import Nav from '../Fragments/Nav';
 import { User } from '../../shared/shareddtypes';
 import { getUser } from '../../api/api';
-
+import {} from '../../../../restapi/server'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
