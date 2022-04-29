@@ -4,5 +4,5 @@ export default {
         "^.+\\.tsx?$": "ts-jest"
     },
     collectCoverage: true,
-    collectCoverageFrom: ["api.ts"]
+    collectCoverageFrom: ["server.ts", "productoRutas.ts", "usuarioRutas.ts", "pedidoRutas.ts"]
 }
