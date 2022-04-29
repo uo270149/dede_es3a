@@ -33,14 +33,16 @@ const RightDetails = (parsed:parsedProduct) => {
     var cart:string = sessionStorage.getItem('cart') as string;
     
     // Si el carrito NO esta vacio, añadimos el nuevo item al final
-    if(JSON.parse(cart).length > 0){  
-      var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
-    } 
-    // Si no, introducimos el primer item a nuestro carrito
-    else{ 
-      var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
+    if(JSON.parse(cart) != null){
+      if(JSON.parse(cart).length > 0){  
+        var newCart:string = cart.substring(0, cart.length-1) + ',' + JSON.stringify(item) + ']';
+      } 
+      // Si no, introducimos el primer item a nuestro carrito
+      else{ 
+        var newCart:string = cart.substring(0, cart.length-1) + JSON.stringify(item) + ']';
+      }
+      sessionStorage.setItem('cart', newCart);
     }
-    sessionStorage.setItem('cart', newCart);
     alert("Artículo: \"" + parsed.product[0].nombre + "\" añadido al carrito.");
   }
 
@@ -77,7 +79,8 @@ const RightDetails = (parsed:parsedProduct) => {
       </div>
 
       <div>
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}>
+        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}
+          data-testid="cart">
            Añadir al carrito
          </Button>
       </div>

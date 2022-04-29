@@ -110,6 +110,7 @@ const Register = () => {
                       size="large"
                       color="primary"
                       className={classes.loginBtn}
+                      data-testid="register"
                       >
                       Registrarse
                   </Button>

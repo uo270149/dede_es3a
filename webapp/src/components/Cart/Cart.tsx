@@ -1,6 +1,3 @@
-import Nav from '../Fragments/Nav';
-import { makeStyles } from '@material-ui/core/styles';
-import Footer from '../Fragments/Footer';
 import { Divider, Stack } from '@mui/material';
 import ShoesCart from './ShoesCart';
 import CartButons from './CartButons';
