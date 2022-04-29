@@ -2,9 +2,9 @@ name: Despliegue en Heroku (rama de desarrollo)
 
 on:
   push:
-    branches: [ uo271447-pruebasheroku2 ]
+    branches: [ uo271411-pruebas-heroku ]
   pull_request:
-    branches: [ uo271447-pruebasheroku2 ]
+    branches: [ uo271411-pruebas-heroku ]
 
 jobs:
   heroku-restapi:
@@ -18,7 +18,7 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
           appdir: "restapi" # <- This will point to the api folder in your project
-          branch: "uo271447-pruebasheroku2"
+          branch: "uo271411-pruebas-heroku"
 
   heroku-webapp:
     needs: [heroku-restapi]
@@ -32,4 +32,4 @@ jobs:
           heroku_email:  ${{secrets.HEROKU_EMAIL}}
           usedocker: true
           appdir: "webapp" # <- This will point to the api folder in your project
-          branch: "uo271447-pruebasheroku2"  
+          branch: "uo271411-pruebas-heroku"  

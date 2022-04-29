@@ -76,6 +76,7 @@ const ShoesView = (parsed : ProductsParsed) => {
     setProductos(await getProducts());
   }
   useEffect(()=>{
+    console.log(process.env.PORT);
   refreshProductos();
   },[]);
   function filterFunction(texto: any) {
