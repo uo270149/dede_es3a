@@ -1,8 +1,9 @@
 import { User, Product, TypeProduct, Order, TypeOrder } from '../shared/shareddtypes';
-
+import {obtenerport} from '../../server';
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
 let apiEndPoint:string ='https://dede-es3a-restapi.herokuapp.com/'
+console.log({obtenerport})
 if(process.env.PORT) {
   apiEndPoint = 'http://localhost:5000/'
 }

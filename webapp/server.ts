@@ -7,8 +7,14 @@ var app: Application = express()
 //En Heroku se asigna el puerto de forma dinámica. (process.env.PORT)
 let port: number = 3000
 if(process.env.PORT) {
+ console.log('no se prueba supongo jaja')
  port = parseInt(process.env.PORT)
 }
+
+export
+  async function obtenerport(){
+    return port as number;
+  }
 
 app.use(express.static('build'))
 
