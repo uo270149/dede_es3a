@@ -1,5 +1,5 @@
 import { User, Product, TypeProduct, Order, TypeOrder } from '../shared/shareddtypes';
-
+require("dotenv").config();
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
 const PORT = process.env.PORT ||5000
