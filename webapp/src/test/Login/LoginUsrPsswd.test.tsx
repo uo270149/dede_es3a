@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import LoginUsrPsswd from "../../components/Login/LoginUsrPsswd";
 
 test("LogIn correcto", async () => {
@@ -18,4 +18,12 @@ test("Vista LogIn correcta placeholders", async () => {
   expect(username).toBeInTheDocument();
   const password = screen.getByPlaceholderText("Password");
   expect(password).toBeInTheDocument();
+})
+
+test("Vista LogIn no añadir usuario correcto", async () => {
+  const alertMock = jest.spyOn(window,'alert').mockImplementation(); 
+  render(<LoginUsrPsswd />);
+
+  fireEvent.click(screen.getByText("Login"));
+  expect(alertMock).toHaveBeenCalledTimes(0); // No deberia salir nada
 })

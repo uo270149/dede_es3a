@@ -88,7 +88,8 @@ const LoginUsrPsswd = () => {
             variant="contained"
             size="large"
             color="primary"
-            className={classes.loginBtn}>
+            className={classes.loginBtn}
+            data-testid="addUser">
             Login
           </Button>
 

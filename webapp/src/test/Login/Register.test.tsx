@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, fireEvent } from "@testing-library/react";
 import Register from '../../components/Login/Register';
 
 /*** 
@@ -51,4 +51,13 @@ test("Vista registro correcta placeholders", async () => {
   expect(password).toBeInTheDocument();
   const checkPass = screen.getByPlaceholderText("Check Password");
   expect(checkPass).toBeInTheDocument();
+})
+
+
+test("Vista Register no añadir usuario correcto", async () => {
+  const alertMock = jest.spyOn(window,'alert').mockImplementation(); 
+  render(<Register />);
+
+  fireEvent.click(screen.getByText("Registrarse"));
+  expect(alertMock).toHaveBeenCalledTimes(0);
 })

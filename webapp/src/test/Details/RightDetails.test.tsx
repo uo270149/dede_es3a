@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from "@testing-library/react";
+import { findByText, fireEvent, render, screen } from "@testing-library/react";
 import RightDetails from '../../components/Details/RightDetails';
 import { TypeProduct } from '../../shared/shareddtypes';
 import {ObjectId} from 'bson';
@@ -30,4 +30,22 @@ test('Right Details funcionando', async() => {
     expect(getByTitle("38_tallas")).toBeInTheDocument();
     expect(getByTitle("39_tallas")).toBeInTheDocument();
     expect(getByTitle("40_tallas")).toBeInTheDocument();
+});
+
+test('Right Details añadir al carrito funcionando', async() => {
+    const alertMock = jest.spyOn(window,'alert').mockImplementation(); 
+    const strObject : ObjectId = new ObjectId("62598df82841d14b30fbd6b1");
+    let product: TypeProduct[] = [{
+        _objectId: strObject,
+        id: "1b",
+        imagen: "https://i.imgur.com/dHfRXIu.jpg",
+        nombre: "Adidas Pixar",
+        precio: 119.99,
+        descripcion: "Zapatilla con personajes de Pixar animacion"
+    }];
+
+    render(<RightDetails product={product}/>);
+
+    fireEvent.click(screen.getByTestId("cart"));
+    expect(alertMock).toHaveBeenCalledTimes(1);
 });

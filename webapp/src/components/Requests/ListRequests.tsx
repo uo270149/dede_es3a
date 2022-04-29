@@ -26,7 +26,6 @@ const ListRequests = () => {
                 width: '200%', 
                 maxWidth: 500, 
                 bgcolor: 'background.paper' }}>
-      { console.log(pedidos) }
       {
         Object.keys(pedidos).length !== 0 ? (
           pedidos.map(item =>
