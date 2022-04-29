@@ -54,7 +54,9 @@ const LoginUsrPsswd = () => {
       // Lo guardamos en sesion (solo el usuario, la contraseña no la necesitamos para nada)
       sessionStorage.setItem('user', parsedUser.username);
       // Redirigimos a inicio
-      window.location.href='http://localhost:3000/';
+      //window.location.href='http://localhost:3000/';
+      console.log('Te como el pito');
+      window.location.href = window.location.protocol + '//' + window.location.host + '/'
     }
   }
   return (

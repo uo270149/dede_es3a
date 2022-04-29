@@ -24,6 +24,13 @@ export default function Details():JSX.Element {
     }
   }
   useEffect(()=>{
+    console.log(window.location.href);
+    console.log(window.location.hostname);
+    console.log(window.location.pathname);
+    console.log(window.location.protocol);
+    console.log(window.location.host);
+    console.log(window.location.port);
+    // /home = window.location.protocol + '//' window.location.host + '/'
     // De esta forma evitamos que la pagina se este recargando permanentemente
     reloadDetails();    
   },[]);
