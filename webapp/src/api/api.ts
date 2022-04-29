@@ -1,11 +1,10 @@
 import { User, Product, TypeProduct, Order, TypeOrder } from '../shared/shareddtypes';
-import { obtenerport } from "../../../restapi/server";
+
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-let apiEndPoint:string ='http://localhost:5000/'
-console.log(obtenerport);
+let apiEndPoint:string ='https://dede-es3a-restapi.herokuapp.com/'
 if(process.env.PORT) {
-  apiEndPoint = 'https://dede-es3a-restapi.herokuapp.com/'
+  apiEndPoint = 'http://localhost:5000/'
 }
 
 export async function addUser(user:User):Promise<boolean>{
