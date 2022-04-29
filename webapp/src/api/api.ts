@@ -1,12 +1,10 @@
 import { User, Product, TypeProduct, Order, TypeOrder } from '../shared/shareddtypes';
-require("dotenv").config();
+import { obtenerport } from "../../../restapi/server";
 
 //Obtenemos la url de la apirest de Heroku o utilizamos localhost por defecto
-const PORT = process.env.PORT ||5000
 let apiEndPoint:string ='http://localhost:5000/'
-console.log('haztalowebo')
-if(PORT!==5000) {
-  console.log('tu quiere mi p');
+console.log(obtenerport);
+if(process.env.PORT) {
   apiEndPoint = 'https://dede-es3a-restapi.herokuapp.com/'
 }
 
