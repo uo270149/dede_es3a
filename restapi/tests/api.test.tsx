@@ -10,12 +10,10 @@ import { Types } from 'mongoose';
 
 let app: Application;
 //let server: http.Server;
-var server: http.Server;
-
-//const mongoose = require("mongoose");
+const servidor = require('./servidor.tests');
 
 beforeAll(async () => {
-    app = express();
+    /* app = express();
     const port: number = 5000;
     const options: cors.CorsOptions = {
         origin: ['http://localhost:3000']
@@ -23,6 +21,20 @@ beforeAll(async () => {
     app.use(cors(options));
     app.use(bp.json());
     app.use("/api", api);
+
+    server = app.listen(port, (): void => {
+        console.log('Servidor Restapi para testing escuchando en ' + port);
+    }).on("error", (error: Error) => {
+        console.error('Error ocurrido: ' + error.message);
+    }) */
+
+    // Iniciar la base de datos
+    await servidor.startBD();
+    // Iniciar el servidor
+    app = await servidor.startServidor();
+    // Añadir productos al servidor
+    servidor.añadirProductos();
+
 });
 
 afterAll(async () => {
