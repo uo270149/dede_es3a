@@ -1,16 +1,12 @@
 import request, { Response } from 'supertest';
 import express, { Application } from 'express';
-import * as http from 'http';
-import bp from 'body-parser';
-import cors from 'cors';
-import exp from 'constants';
 import api from '../api';
 import { IProducto } from '../modelos/productoModelo';
 import { Types } from 'mongoose';
 
 let app: Application;
 //let server: http.Server;
-const servidor = require('./servidor.tests');
+const servidor = require('./servidor_test');
 
 beforeAll(async () => {
     /* app = express();
@@ -104,7 +100,7 @@ describe('producto', () => {
      */
     it('Producto que no existe en el sistema ', async () => {
         // Referencia de un producto inexistente
-        let referencia: string = "asdfghjklñ";
+        let referencia: string = "62598e6c2941d14b30fbd6b4";
         // Buscamos un producto con esa referencia (inexistente)
         const response: Response = await request(app).get('/api/products/' + referencia);
         // El código de respuesta debería ser 404 (no encontrado)
