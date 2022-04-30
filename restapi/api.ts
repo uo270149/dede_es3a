@@ -1,10 +1,10 @@
 import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
+import { ObjectId } from 'bson';
 //import mongoose from 'mongoose';
 import { IProducto} from './modelos/productoModelo';
 
 const Productos = require('./modelos/productoModelo');
-const mongoose = require('mongoose');
 const api: Router = express.Router();
 
 interface User {
@@ -49,7 +49,8 @@ api.get(
     "/products/:id",
     async (req: Request, res: Response): Promise<Response> => {
         var id = req.params.id;
-        var objID = mongoose.Types.ObjectId(id);
+        console.log(id);
+        var objID : ObjectId = new ObjectId(id.toString());
         console.log(objID);
         const productos: IProducto = await Productos.findOne({ _id: objID });
         if (productos) {
@@ -61,4 +62,5 @@ api.get(
     }
 )
 
+module.exports = api;
 export default api;

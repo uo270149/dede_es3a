@@ -18,7 +18,7 @@
  // Coleccion de productos para las pruebas
  export const productos: IProducto[] = [
      {
-         "referencia": "1",
+         "referencia": "62598ac12841d14b30fbd695",
          "marca": "Adidas",
          "modelo": "Superstar",
          "color": "Blanco",
@@ -35,7 +35,7 @@
          }],
         },
          {
-         "referencia": "2",
+         "referencia": "62598d802841d14b30fbd6a4",
          "marca": "Nike",
          "modelo": "Blazer",
          "color": "Negro",
@@ -52,7 +52,7 @@
          }],
      }, 
      {
-         "referencia": "3",
+         "referencia": "62598df82841d14b30fbd6b1",
          "marca": "New Balance",
          "modelo": "Made in UK 920",
          "color": "Gris oscuro",
@@ -68,7 +68,7 @@
             "cantidad":25,
          }],
      }, {
-         "referencia": "4",
+         "referencia": "62598e6c2841d14b30fbd6be",
          "marca": "Vans",
          "modelo": "Checkerboard Classic Slip-On",
          "color": "Blanco y Negro",
