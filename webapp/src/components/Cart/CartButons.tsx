@@ -32,9 +32,15 @@ const useStyles = makeStyles({
     left: '50%',
     
   },
+  vacío:{
+    position:'fixed',
+    marginTop:'17%',
+    marginRight:'35%'
+  },
+
 });
 
-function calcularValor(){
+function calcularValor():number{
   var x=0
   var x2=""
   if(JSON.parse(sessionStorage.getItem('cart') as string) != null){
@@ -52,6 +58,7 @@ function calcularValor(){
     sessionStorage.setItem('precioCarrito',x2)
     return x;
    }
+   return x;
   }
 
 export default function CartButons() {
@@ -70,15 +77,23 @@ export default function CartButons() {
     
     <Container maxWidth='lg' className={classes.container}>  
       <div className={classes.margen}>
-      <Card>
-      <Typography variant='h5'>
-                  Precio total sin gastos de Envio: {calcularValor()}
-                </Typography> 
+      { calcularValor()>0 ? (
+                  <><Card>
+            <Typography variant='h5'>
+              Precio total sin gastos de Envio: {calcularValor()}
+            </Typography>
+          </Card><Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to={linkFinalizarCompra} component={Link}>
+              Loggeate para Finalizar Compra
+            </Button></>
+                
+              ): ([
+                <Card className={classes.vacío}>
+                  <Typography variant='h5'>
+                  UPS! Parece que tu carrito está vacío
+                  </Typography>
                 </Card>
-        
-        <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to = {linkFinalizarCompra} component={Link}>
-          Loggeate para Finalizar Compra
-        </Button>
+              ]
+              )}
         </div> 
         </Container>  
      
