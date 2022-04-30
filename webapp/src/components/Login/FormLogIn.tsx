@@ -35,7 +35,7 @@ const FormLogIn = () => {
   const classes = useStyles();
   const [idp, setIdp] = useState("https://inrupt.net");
   const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
-
+  
   useEffect(() => {
     setCurrentUrl(window.location.href);
   }, [setCurrentUrl]);

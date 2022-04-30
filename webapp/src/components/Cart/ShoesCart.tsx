@@ -83,15 +83,12 @@ const ShoesCart = () => {
                 if(cartProduct._objectId != item._objectId || itemFound){
                   auxCart.push(cartProduct);
                 } else{
-                  itemFound = true;
+                  itemFound = true;   // Item encontrado
                 }
               }
-              // Filtramos el carrito con los elementos contenidos en la lista auxiliar
-              var newCart = carrito().filter(function (cartProduct:TypeProduct) {     
-                return (auxCart.includes(cartProduct));
-              });
+
               // Establecemos el nuevo valor para el carrito
-              sessionStorage.setItem('cart', JSON.stringify(newCart));
+              sessionStorage.setItem('cart', JSON.stringify(auxCart));
               window.location.reload();
             }
             }><DeleteIcon /></IconButton>

@@ -9,6 +9,10 @@ let port: number = 3000
 if(process.env.PORT) {
  port = parseInt(process.env.PORT)
 }
+export
+  async function obtenerport2(){
+    return  port;
+  }
 
 app.use(express.static('build'))
 
