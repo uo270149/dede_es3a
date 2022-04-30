@@ -2,9 +2,8 @@ import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
 import { ObjectId } from 'bson';
 //import mongoose from 'mongoose';
-import { IProducto} from './modelos/productoModelo';
+import { IProducto, Producto, ProductoDoc} from './modelos/productoModelo';
 
-const Productos = require('./modelos/productoModelo');
 const api: Router = express.Router();
 
 interface User {
@@ -39,28 +38,11 @@ api.post(
 
 api.get(
     "/products/list",
-    async (req: Request, res: Response): Promise<Response> => {
-        const productos: IProducto[] = await Productos.find({});
+    async (req: Request, res: Response) => {
+        var productos = await Producto.find().exec();
         return res.status(200).send(productos); // obtener productos de la bd
-    }
-);
+    });
 
-api.get(
-    "/products/:id",
-    async (req: Request, res: Response): Promise<Response> => {
-        var id = req.params.id;
-        console.log(id);
-        var objID : ObjectId = new ObjectId(id.toString());
-        console.log(objID);
-        const productos: IProducto = await Productos.findOne({ _id: objID });
-        if (productos) {
-            return res.status(200).send(productos);
-        } else {
-            return res.status(404).json({ message: 'El producto con nombre "${objID}" no se ha encontrado.' });
-        }
-
-    }
-)
 
 module.exports = api;
 export default api;
