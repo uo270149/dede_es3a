@@ -10,7 +10,7 @@ import { Types } from 'mongoose';
 
 let app: Application;
 //let server: http.Server;
-const servidor = require('./servidor.tests');
+const servidor = require('./servidor_test');
 
 beforeAll(async () => {
     /* app = express();
