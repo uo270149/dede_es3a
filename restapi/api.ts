@@ -36,12 +36,38 @@ api.post(
     }
 );
 
-api.get(
-    "/products/list",
-    async (req: Request, res: Response) => {
-        var productos = await Producto.find().exec();
-        return res.status(200).send(productos); // obtener productos de la bd
-    });
+api.get('/products/list', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeProduct = {
+      _objectId: ObjectId;
+      id: String;
+      nombre: String;
+      precio: Number;
+      imagen: String;
+    }
+  
+    let resultado:TypeProduct[] = new Array<TypeProduct>();
+  
+    const productos:ProductoDoc[] = await Producto.find({})
+    
+    for (var i=0; i< productos.length; i++)
+    {
+        let entrada:ProductoDoc = productos[i];
+        let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,imagen: "" });
+        salida.id = entrada.referencia;
+        salida.nombre = entrada.marca + " " +entrada.modelo;
+        salida.precio = entrada.precio;
+        //Recuperamos la imagen principal asociada a este producto
+        if (entrada.fotos.length != 0){
+          salida.imagen = entrada.fotos[0].ruta;
+        }
+        else{
+          salida.imagen = ""; //buscar una imagen por defecto si no hay principal
+        }
+        resultado.push(salida);
+    }
+    return res.status(200).send(resultado)
+  });
 
 
 module.exports = api;

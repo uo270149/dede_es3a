@@ -11,7 +11,6 @@
  const cors = require('cors');
  const mongoose = require('mongoose');
  const api = require('../api');
- const productoSchema = require('../modelos/productoModelo');
  
  let mongod: { start: () => any; getUri: () => any; stop: () => any; server: { close: () => any; } };
  
@@ -131,14 +130,6 @@
   */
  module.exports.closeBD = async () => {
      await mongod.stop();
- }
- 
- /**
-  * Añadir productos a la colección
-  */
- module.exports.añadirProductos = async () => {
-     productoSchema.createCollection();
-     productoSchema.insertMany(productos);
  }
  
  /**
