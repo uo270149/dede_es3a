@@ -82,7 +82,8 @@ export default function CartButons() {
             <Typography variant='h5'>
               Precio total sin gastos de Envio: {calcularValor()}
             </Typography>
-          </Card><Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to={linkFinalizarCompra} component={Link}>
+          </Card>
+          <Button variant="contained" endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} size='large' to={linkFinalizarCompra} component={Link}>
               Loggeate para Finalizar Compra
             </Button></>
                 
