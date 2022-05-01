@@ -6,7 +6,7 @@ import { productoRouter } from './rutas/productoRutas';
 import { usuarioRouter } from './rutas/usuarioRutas';
 import { pedidoRouter } from './rutas/pedidoRutas';
 import "dotenv/config";
-
+import path from "path";
 const app = express()
 app.use(json())
 app.use(cors())
@@ -15,6 +15,9 @@ app.use(productoRouter)
 app.use(usuarioRouter)
 app.use(pedidoRouter)
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
+});
 mongoose
   .connect(`${process.env.MONGODB_URI}`, {
     useNewUrlParser: true,
