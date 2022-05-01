@@ -13,17 +13,17 @@ import path from "path";
 const app = express()
 
 
-app.use(morgan('dev'));
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
+app.use(json())
+app.use(cors())
+
 app.use(productoRouter)
 app.use(usuarioRouter)
 app.use(pedidoRouter)
 
-app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")))
+app.use(express.static(path.join(__dirname, "..", "webapp", "build")))
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "webapp", "build", "index.html"));
 });
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoose.uri)
