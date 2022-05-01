@@ -8,7 +8,7 @@ de Entidad-Relación(ER-Diagram):
 
 image:DiagramaER.png["ER Diagram"]
 
-.Table
+.Modelo de dominio
 [options="header",cols="1,2"]
 |===
 |Name|Descripción
