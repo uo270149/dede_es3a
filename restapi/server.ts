@@ -2,9 +2,11 @@ import express from 'express';
 import cors from "cors";
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
+import config from './config'
 import { productoRouter } from './rutas/productoRutas';
 import { usuarioRouter } from './rutas/usuarioRutas';
 import { pedidoRouter } from './rutas/pedidoRutas';
+import http from 'http';
 import "dotenv/config";
 import path from "path";
 const app = express()
@@ -20,21 +22,13 @@ app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
 });
-mongoose
-  .connect(`${process.env.MONGODB_URI}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("Conectado a la base de datos MongoDB "))
-  .catch((err) => console.error("Error al conectar a MongoDB", err));
-
-//Heroku asigna el puerto de forma dinámica. (process.env.PORT)
-const PORT = process.env.PORT || 5000
-
-app
-  .listen(PORT, (): void => {
-    console.log(`REST api escuchando en el puerto ${PORT}`);
-  })
-  .on("error", (error: Error) => {
-    console.error("Error ocurrido: " + error.message);
-  });
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongoose.uri)
+    .catch(err => console.error(err))
+    .then(() => {
+        // Server Setup
+        const port = process.env.PORT || 8000
+        http.createServer(app).listen(port, () => {
+            console.log(`\x1b[32m`, `Server listening on: ${port}`, `\x1b[0m`)
+        });
+    });
