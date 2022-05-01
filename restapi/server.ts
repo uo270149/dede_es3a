@@ -12,9 +12,7 @@ import "dotenv/config";
 import path from "path";
 const app = express()
 
-app.use(cors({
-  origin: ['http://localhost:3000'] // Fronted URL goes here
-}));
+
 app.use(morgan('dev'));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
