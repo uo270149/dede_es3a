@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express'; 
 import cors from "cors";
 import mongoose from 'mongoose';
+import morgan from 'morgan';
 import { json } from 'body-parser';
 import config from './config'
 import { productoRouter } from './rutas/productoRutas';
@@ -10,9 +11,13 @@ import http from 'http';
 import "dotenv/config";
 import path from "path";
 const app = express()
-app.use(json())
-app.use(cors())
 
+app.use(cors({
+  origin: ['http://localhost:3000'] // Fronted URL goes here
+}));
+app.use(morgan('dev'));
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 app.use(productoRouter)
 app.use(usuarioRouter)
 app.use(pedidoRouter)
