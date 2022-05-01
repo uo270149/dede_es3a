@@ -1,10 +1,10 @@
 import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
+import { ObjectId } from 'bson';
 //import mongoose from 'mongoose';
-import { IProducto, Producto } from './modelos/productoModelo';
+import { Producto, ProductoDoc} from './modelos/productoModelo';
+import { Pedido, PedidoDoc } from './modelos/pedidoModelo';
 
-const Productos = require('./modelos/productoModelo');
-const mongoose = require('mongoose');
 const api: Router = express.Router();
 
 interface User {
@@ -37,28 +37,101 @@ api.post(
     }
 );
 
-api.get(
-    "/products/list",
-    async (req: Request, res: Response): Promise<Response> => {
-        const productos: IProducto[] = await Productos.find({});
-        return res.status(200).send(productos); // obtener productos de la bd
+api.get('/products/list', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeProduct = {
+      _objectId: ObjectId;
+      id: String;
+      nombre: String;
+      precio: Number;
+      imagen: String;
     }
-);
-
-api.get(
-    "/products/:id",
-    async (req: Request, res: Response): Promise<Response> => {
-        var id = req.params.id;
-        var objID = mongoose.Types.ObjectId(id);
-        console.log(objID);
-        const productos: IProducto = await Productos.findOne({ _id: objID });
-        if (productos) {
-            return res.status(200).send(productos);
-        } else {
-            return res.status(404).json({ message: 'El producto con nombre "${objID}" no se ha encontrado.' });
+  
+    let resultado:TypeProduct[] = new Array<TypeProduct>();
+  
+    const productos:ProductoDoc[] = await Producto.find({})
+    
+    for (var i=0; i< productos.length; i++)
+    {
+        let entrada:ProductoDoc = productos[i];
+        let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,imagen: "" });
+        salida.id = entrada.referencia;
+        salida.nombre = entrada.marca + " " +entrada.modelo;
+        salida.precio = entrada.precio;
+        //Recuperamos la imagen principal asociada a este producto
+        if (entrada.fotos.length != 0){
+          salida.imagen = entrada.fotos[0].ruta;
         }
-
+        else{
+          salida.imagen = ""; //buscar una imagen por defecto si no hay principal
+        }
+        resultado.push(salida);
     }
-)
+    return res.status(200).send(resultado)
+  });
 
+  api.get('/products/detalles/:referencia', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeProduct = {
+      _objectId: ObjectId;
+      id: String;
+      nombre: String;
+      precio: Number;
+      descripcion: String;
+      imagen: String;
+    }
+  
+    let resultado:TypeProduct[] = new Array<TypeProduct>();
+    //Parametro referencia
+    const ref:string = req.params.referencia;
+    //Realizamos la busqueda por referencia
+    const product = await Producto.findOne({referencia: ref})
+    if(product){
+      let entrada:ProductoDoc = product;
+      let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
+      salida.id = entrada.referencia;
+      salida.nombre = entrada.marca + " " +entrada.modelo;
+      salida.precio = entrada.precio
+      salida.descripcion = entrada.descripcion;
+  
+      if (entrada.fotos.length != 0)
+        salida.imagen = entrada.fotos[0].ruta;
+      else
+        salida.imagen = "" //buscar una imagen por defecto si no hay principal
+      resultado.push(salida)
+      return res.status(200).send(resultado)
+    } else{
+      return res.status(500).json();
+    }
+    
+  })
+
+  api.get('/pedidos/list/:usuario', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeOrder = {
+      _objectId: ObjectId;
+      usuario: String;
+      precio: Number;
+      contenido: Array<String>;
+    }
+  
+    let resultado:TypeOrder[] = new Array<TypeOrder>();
+    //Parametro usuario
+    const user:string = req.params.usuario;
+    //Realizamos la busqueda por usuario
+    const orders:PedidoDoc[] = await Pedido.find({usuario: user})
+    
+    for(var i=0; i< orders.length; i++) {
+      let entrada:PedidoDoc = orders[i];
+      let salida: TypeOrder = ({ _objectId: entrada._id, usuario: "", precio:0, contenido:[] });
+      salida.usuario = entrada.usuario;
+      salida.precio = entrada.precio;
+      salida.contenido = entrada.contenido;
+  
+      resultado.push(salida);
+    }
+    return res.status(200).send(resultado);
+  })
+
+module.exports = api;
 export default api;

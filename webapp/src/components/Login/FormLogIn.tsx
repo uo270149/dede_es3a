@@ -30,46 +30,47 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
 const FormLogIn = () => {
   const classes = useStyles();
   const [idp, setIdp] = useState("https://inrupt.net");
-  const [currentUrl, setCurrentUrl] = useState("https://localhost:3000");
-
+  const [currentUrl, setCurrentUrl] = useState(window.location.protocol + '//' + window.location.host + '/');
+  
   useEffect(() => {
     setCurrentUrl(window.location.href);
   }, [setCurrentUrl]);
 
   return (
+    <>
     <form className={classes.container} noValidate autoComplete="on">
-    <Card className={classes.card}>
-        <CardHeader className={classes.header} title="Login" />
+      <Card className={classes.card}>
+        <CardHeader className={classes.header} title="Identificate" />
         <CardContent>
-      <Container fixed>
-      <FormGroup>
-        <TextField
-          label="Identity Provider"
-          placeholder="Identity Provider"
-          type="url"
-          value={idp}
-          onChange={(e) => setIdp(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <LoginButton oidcIssuer={idp} redirectUrl={"http://localhost:3000/"}>
-                <Button variant="contained" color="primary">
-                  Login
-                </Button>
-              </LoginButton>
-            ),
-          }}
-        />
-      </FormGroup>
-      <Typography variant="body1" component="p" id="help">
-            <Link href="https://inrupt.net/register" margin={'30%'} > ¿No tienes una cuenta? Regístrate aqui</Link>
-          </Typography>
-    </Container>
-   </CardContent>
-    </Card>
-    </form>
+          <Container fixed>
+            <FormGroup>
+              <TextField
+                label="Identity Provider"
+                placeholder="Identity Provider"
+                type="url"
+                value={idp}
+                onChange={(e) => setIdp(e.target.value)}
+                InputProps={{
+                  endAdornment: (
+                    <LoginButton oidcIssuer={idp} redirectUrl={window.location.protocol + '//' + window.location.host + "/ProfileViewer"}>
+                      <Button variant="contained" color="primary">
+                        Login
+                      </Button>
+                    </LoginButton>
+                  ),
+                }} />
+            </FormGroup>
+            <Typography variant="body1" component="p" id="help">
+              <Link href="https://inrupt.net/register" margin={'30%'}> ¿No tienes una cuenta? Regístrate aqui</Link>
+            </Typography>
+          </Container>
+        </CardContent>
+      </Card>
+    </form></>
   );
 }
 export default FormLogIn;

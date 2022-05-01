@@ -10,11 +10,11 @@ import { getProduct } from '../../api/api';
 
 export default function Details():JSX.Element {
   //Obtenemos la parte de parametros de la url
-  const querystring = window.location.search;
-  const params = new URLSearchParams(querystring)
+  const querystring:string = window.location.search;
+  const params:URLSearchParams = new URLSearchParams(querystring)
   
   //Obtenemos la id del producto
-  const id = params.get('id') as string;
+  const id:string = params.get('id') as string;
   
   const [product, setProduct] = useState<TypeProduct>();
   const reloadDetails = async () => {
@@ -38,16 +38,14 @@ export default function Details():JSX.Element {
   } else {
     return (
       <div>
-        <Nav />
         <Stack
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
         spacing={2}
         >
-          <LeftDetails/>
+          <LeftDetails  product={product as unknown as Array<TypeProduct>}/>
           <RightDetails product={product as unknown as Array<TypeProduct>}/>
         </Stack>
-        <Footer/>
       </div>
     );
   }

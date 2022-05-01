@@ -38,9 +38,13 @@ export default function MenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleCloseLogOut = () => {
+    setAnchorEl(null);
+    sessionStorage.removeItem('user');
+  };
 
   const {session, logout} = useSession();
-
+  const usuario = sessionStorage.getItem('user');
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={classes.stickToBottom}>
@@ -69,6 +73,7 @@ export default function MenuAppBar() {
                 component={Link}
                 size="large"
                 className={classes.colorButtom}
+                title={"Home"}
               >
                 <HomeIcon/>
               </IconButton>
@@ -77,6 +82,7 @@ export default function MenuAppBar() {
                 component={Link}
                 size="large"
                 className={classes.colorButtom}
+                title={"Cart"}
               >
                 <ShoppingCartIcon />
               </IconButton>
@@ -106,16 +112,17 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
 
-              <MenuItem onClick={handleClose} to='/Requests'
+              <MenuItem onClick={handleClose} to='/ListRequests' title={"Mis pedidos"}
                 component={Link} >Mis pedidos</MenuItem>
-              {!session.info.isLoggedIn ? (
-                  <MenuItem onClick={handleClose} to='/FormLogIn'
+                <MenuItem onClick={handleClose}  to='/Us' title={"About Us "}
+                  component={Link } >About Us </MenuItem>
+              { usuario==null && !session.info.isLoggedIn ? (
+                  <MenuItem onClick={handleClose} to='/LoginUsrPsswd' title={"Login"}
                   component={Link} >Login</MenuItem>
+                
               ): ([
-                <MenuItem onClick={handleClose} to='/ProfileViewer'
-                component={Link} >Profile</MenuItem> ,
-                <MenuItem onClick={handleClose} to='/FormLogIn'
-                component={Link} >LogOut</MenuItem>
+                <MenuItem onClick={handleCloseLogOut}  to='/LoginUsrPsswd'
+                component={Link} >LogOut {logout}</MenuItem>
               ]
               )}
               </Menu>

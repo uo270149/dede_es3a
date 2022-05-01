@@ -27,20 +27,32 @@ const useStyles = makeStyles({
   colores2:{
     marginRight:'30%',
     background: "linear-gradient(45deg, #FFFFFF 10%,transparent 70%)"
-    }
+  },
+
+  colores3:{
+    color:'#000000'
+  }
   
   });
 
 const ShoesCart = () => {
   const classes = useStyles();
-    const carrito = JSON.parse(sessionStorage.getItem('cart') as string);
+  
+  const carrito = () => {
+  if(JSON.parse(sessionStorage.getItem('cart') as string) != null){ 
+     return JSON.parse(sessionStorage.getItem('cart') as string);
+  }
+  return null;
+} 
+
     return (
       <Container maxWidth="md" className={classes.colores2}>
         <Typography variant='h3' className={classes.colores}>
           ARTICULOS EN EL CARRITO
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs:2, sm:2,md: 4  }} rowSpacing={{xs: 1}}>
-        {carrito.map( (item:TypeProduct) =>
+        { carrito() != null ? (
+          carrito().map( (item:TypeProduct) =>
           <Grid item  sm={2} md={2} key={item.id}>
           <Card className={classes.sizes}>
             <CardActionArea>
@@ -66,26 +78,31 @@ const ShoesCart = () => {
               // Eliminar de carrito
               var itemFound:boolean = false;
               var auxCart: TypeProduct[] = [];
-              for( var cartProduct of carrito ){
+              for( var cartProduct of carrito() ){
                 // Guardamos en una lista auxiliar todos los elementos del carrito excepto el que queremos eliminar
                 if(cartProduct._objectId != item._objectId || itemFound){
                   auxCart.push(cartProduct);
                 } else{
-                  itemFound = true;
+                  itemFound = true;   // Item encontrado
                 }
               }
-              // Filtramos el carrito con los elementos contenidos en la lista auxiliar
-              var newCart = carrito.filter(function (cartProduct:TypeProduct) {     
-                return (auxCart.includes(cartProduct));
-              });
+
               // Establecemos el nuevo valor para el carrito
-              sessionStorage.setItem('cart', JSON.stringify(newCart));
-              window.location.reload();   // Recargamos la pagina
+              sessionStorage.setItem('cart', JSON.stringify(auxCart));
+              window.location.reload();
             }
             }><DeleteIcon /></IconButton>
           </Card>
           </Grid>
-          )}
+          )
+        ):([
+          <div>
+          <Typography variant='h4' className={classes.colores3}>
+          Carrito vacio
+        </Typography>
+          </div>
+        ])
+        }
         </Grid> 
       </Container>  
     );
