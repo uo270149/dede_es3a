@@ -43,7 +43,7 @@ export default function Details():JSX.Element {
         divider={<Divider orientation="vertical" flexItem />}
         spacing={2}
         >
-          <LeftDetails/>
+          <LeftDetails  product={product as unknown as Array<TypeProduct>}/>
           <RightDetails product={product as unknown as Array<TypeProduct>}/>
         </Stack>
       </div>
