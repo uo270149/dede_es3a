@@ -1,8 +1,5 @@
 import request, { Response } from 'supertest';
-import express, { Application } from 'express';
-import api from '../api';
-import { IProducto } from '../modelos/productoModelo';
-import { Types } from 'mongoose';
+import { Application } from 'express';
 
 let app: Application;
 //let server: http.Server;
@@ -28,8 +25,6 @@ beforeAll(async () => {
     await servidor.startBD();
     // Iniciar el servidor
     app = await servidor.startServidor();
-    // Añadir productos al servidor
-    servidor.añadirProductos();
 
 });
 
@@ -47,7 +42,7 @@ describe('user ', () => {
      * Probar que podemos listar usuarios sin errores
      */
     it('can be listed', async () => {
-        const response: Response = await request(app).get("api/users/list");
+        const response: Response = await request(app).get("/api/users/list");
         expect(response.statusCode).toBe(200);
     });
 
@@ -67,33 +62,30 @@ describe('producto', () => {
      * Probar que podemos listar productos sin errores
      */
     it('can be listed', async () => {
-        const response: Response = await request(app).get("api/products/list");
-        const productos: IProducto[] = response.body;
+        const response: Response = await request(app).get("/api/products/list");
+        const productos: [] = response.body;
 
         // todo en orden
         expect(response.statusCode).toBe(200);
-        // la longitud de las listas es la misma
-        expect(productos.length).toBe(servidor.productos.length);
-        // comprobar que los productos obtenidos sean iguales
-        for (var i = 0; i < productos.length; i++) {
-            expect(productos[i]).toStrictEqual(servidor.productos[i]);
-        }
+        
+        expect(productos.length).toEqual(11);
     });
 
     /**
-     * Probar que podemos obtener un producto por su referencia
+     * Encontrar un producto por su referencia
      */
-    it('Producto según su referencia ', async () => {
-        let productoBuscado: IProducto = servidor.productos[1];
+         it('find by referencia', async () => {
+            const referencia = "9z";
 
-        const response: Response = await request(app).get('/api/products/' + productoBuscado.referencia.toString());
-        expect(response.statusCode).toBe(200);
+            const response: Response = await request(app).get("/api/products/detalles/"+ referencia);
+            const producto: [] = response.body;
+    
+            // todo en orden
+            expect(response.statusCode).toBe(200);
+            
+            expect(producto.length).toEqual(1);
+        });
 
-        // Obtenemos el producto del body de la respuesta
-        let productoEncontrado = response.body;
-        productoEncontrado.referencia = new Types.ObjectId(productoEncontrado.referencia);
-        expect(productoEncontrado).toStrictEqual(productoBuscado);
-    });
 
     /**
      * Probar que no obtenemos nada al buscar un producto que no existe
@@ -106,4 +98,22 @@ describe('producto', () => {
         // El código de respuesta debería ser 404 (no encontrado)
         expect(response.statusCode).toBe(404);
     });
+});
+
+describe('pedidos', () => {
+        /**
+         * Encontrar los pedidos de un usuario
+         */
+        it('can be listed by user', async () => {
+            const user = "admin";
+
+            const response: Response = await request(app).get("/api/pedidos/list/" + user);
+            const pedidos: [] = response.body;
+    
+            // todo en orden
+            expect(response.statusCode).toBe(200);
+            
+            // admin tiene 3 pedidos
+            expect(pedidos.length).toEqual(3);
+        });
 });

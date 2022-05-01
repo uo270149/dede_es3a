@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import { Pedido , PedidoDoc} from '../modelos/pedidoModelo';
-import consultarREST from './consultarREST';
 import "dotenv/config";
 import { ObjectId } from 'bson';
 
