@@ -65,7 +65,6 @@ describe('producto', () => {
         const response: Response = await request(app).get("/api/products/list");
         const productos: [] = response.body;
 
-        // todo en orden
         expect(response.statusCode).toBe(200);
         
         expect(productos.length).toEqual(11);
@@ -80,7 +79,6 @@ describe('producto', () => {
             const response: Response = await request(app).get("/api/products/detalles/"+ referencia);
             const producto: [] = response.body;
     
-            // todo en orden
             expect(response.statusCode).toBe(200);
             
             expect(producto.length).toEqual(1);
@@ -110,7 +108,6 @@ describe('pedidos', () => {
             const response: Response = await request(app).get("/api/pedidos/list/" + user);
             const pedidos: [] = response.body;
     
-            // todo en orden
             expect(response.statusCode).toBe(200);
             
             // admin tiene 3 pedidos

@@ -5,8 +5,8 @@ import CartButtons from "../../components/Cart/CartButons";
 test("CartButons basico", async () => {
     const { getByText } = render(<BrowserRouter><CartButtons/></BrowserRouter>);
 
-    expect(getByText("Precio total sin gastos de Envio:")).toBeInTheDocument();
-    expect(getByText("Loggeate para Finalizar Compra")).toBeInTheDocument();
+    expect(getByText("UPS! Parece que tu carrito está vacío")).toBeInTheDocument();
+ //   expect(getByText("Loggeate para Finalizar Compra")).toBeInTheDocument();
     //expect(getByText("Precio")).toBeInTheDocument();
 });
 
