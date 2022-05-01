@@ -11,7 +11,6 @@ En esta sección se muestra un diagrama de árbol de calidad para el sistema des
 image:DiagramaCalidad.png["DiagramaArbolCalidad"]
 
 === Escenarios de calidad
-.Escenarios de calidad
 [options="header",cols="1,2"]
 |===
 |Requerimiento|Descripción

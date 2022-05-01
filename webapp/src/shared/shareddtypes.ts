@@ -2,8 +2,8 @@ import { ObjectId } from 'bson';
 import { Double } from 'mongodb';
 
 export type User = {
-    username:string;
-    password:string;
+    name:string;
+    email:string;
   }
 
 export type Product = {
