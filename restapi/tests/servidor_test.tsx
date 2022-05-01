@@ -4,7 +4,6 @@
  */
 
  const { MongoMemoryServer } = require("mongodb-memory-server");
- // const mongod = await MongoMemoryServer.create();
  const express = require('express');
  const cors = require('cors');
  const mongoose = require('mongoose');

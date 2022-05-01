@@ -17,16 +17,6 @@ test('Left Details funcionando', async() => {
 
     render(<LeftDetails product={product}/>);
 
-    const deLado1 = screen.getByAltText("De lado 1");
-    expect(deLado1).toBeInTheDocument();
-    const diagonalFrente = screen.getByAltText("Diagonal de frente");
-    expect(diagonalFrente).toBeInTheDocument();
-    const deLado2 = screen.getByAltText("De lado 2");
-    expect(deLado2).toBeInTheDocument();
-    const deArriba = screen.getByAltText("De arriba");
-    expect(deArriba).toBeInTheDocument();
-    const deAtras = screen.getByAltText("De atras");
-    expect(deAtras).toBeInTheDocument();
-    const deAbajo = screen.getByAltText("Abajo");
-    expect(deAbajo).toBeInTheDocument();
+    const imagen = screen.getByAltText("imagen1");
+    expect(imagen).toBeInTheDocument();
 });

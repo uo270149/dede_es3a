@@ -17,6 +17,7 @@ const LeftDetails = (parsed:parsedProduct) => {
             <Card className={classes.sizes}>
               <CardMedia
                 component="img"
+                alt = "imagen1"
                 image={parsed.product[0].imagen}/>
                 </Card>
       );
