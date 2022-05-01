@@ -1,7 +1,7 @@
 import request, { Response } from 'supertest';
 import { Application } from 'express';
-import {  } from '../modelos/productoModelo';
-import { Types } from 'mongoose';
+import { ProductoDoc } from '../modelos/productoModelo';
+import { ObjectId } from 'bson';
 
 let app: Application;
 //let server: http.Server;
@@ -72,6 +72,21 @@ describe('producto', () => {
         
         expect(productos.length).toEqual(11);
     });
+
+    /**
+     * Encontrar un producto por su referencia
+     */
+         it('find by id', async () => {
+            const strObject : ObjectId = new ObjectId("62598ac12841d14b30fbd698");
+
+            const response: Response = await request(app).get("/api/products/detalles/"+"9z");
+            const producto: [] = response.body;
+    
+            // todo en orden
+            expect(response.statusCode).toBe(200);
+            
+            expect(producto.length).toEqual(1);
+        });
 
 
     /**

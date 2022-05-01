@@ -2,7 +2,7 @@ import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
 import { ObjectId } from 'bson';
 //import mongoose from 'mongoose';
-import { IProducto, Producto, ProductoDoc} from './modelos/productoModelo';
+import { Producto, ProductoDoc} from './modelos/productoModelo';
 
 const api: Router = express.Router();
 
@@ -68,6 +68,43 @@ api.get('/products/list', async (req: Request, res: Response) => {
     }
     return res.status(200).send(resultado)
   });
+
+  api.get('/products/detalles/:referencia', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeProduct = {
+      _objectId: ObjectId;
+      id: String;
+      nombre: String;
+      precio: Number;
+      descripcion: String;
+      imagen: String;
+    }
+  
+    let resultado:TypeProduct[] = new Array<TypeProduct>();
+    //Parametro referencia
+    const ref:string = req.params.referencia;
+    //Realizamos la busqueda por referencia
+    const product = await Producto.findOne({referencia: ref})
+    console.log(product);
+    if(product){
+      let entrada:ProductoDoc = product;
+      let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
+      salida.id = entrada.referencia;
+      salida.nombre = entrada.marca + " " +entrada.modelo;
+      salida.precio = entrada.precio
+      salida.descripcion = entrada.descripcion;
+  
+      if (entrada.fotos.length != 0)
+        salida.imagen = entrada.fotos[0].ruta;
+      else
+        salida.imagen = "" //buscar una imagen por defecto si no hay principal
+      resultado.push(salida)
+      return res.status(200).send(resultado)
+    } else{
+      return res.status(500).json();
+    }
+    
+  })
 
 
 module.exports = api;
