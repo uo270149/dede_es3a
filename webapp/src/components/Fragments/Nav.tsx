@@ -48,7 +48,17 @@ export default function MenuAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className={classes.stickToBottom}>
-        <Toolbar className={classes.stickToBottom}>    
+        <Toolbar className={classes.stickToBottom}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          
           <Typography
             variant="h6"
             noWrap

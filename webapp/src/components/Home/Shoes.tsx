@@ -79,7 +79,7 @@ const ShoesView = (parsed : ProductsParsed) => {
   refreshProductos();
   },[]);
   function filterFunction(texto: any) {
-    var filter;
+    var filter:TypeProduct[];
     if(texto==""){
       filter=parsed.products;
     }
@@ -88,7 +88,7 @@ const ShoesView = (parsed : ProductsParsed) => {
     }
     setProductos(filter);
    }
-  let details = '/Details?id='
+  let details:string = '/Details?id='
   return (
     <><Search color='white'>
       <SearchIconWrapper>
