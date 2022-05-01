@@ -15,6 +15,8 @@ app.use(productoRouter)
 app.use(usuarioRouter)
 app.use(pedidoRouter)
 
+app.use(express.static(path.join(__dirname, "..", "..", "..", "webapp", "build")))
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "..", "..", "webapp", "build", "index.html"));
 });
