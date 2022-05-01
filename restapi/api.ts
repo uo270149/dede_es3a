@@ -3,6 +3,7 @@ import { check } from 'express-validator';
 import { ObjectId } from 'bson';
 //import mongoose from 'mongoose';
 import { Producto, ProductoDoc} from './modelos/productoModelo';
+import { Pedido, PedidoDoc } from './modelos/pedidoModelo';
 
 const api: Router = express.Router();
 
@@ -85,7 +86,6 @@ api.get('/products/list', async (req: Request, res: Response) => {
     const ref:string = req.params.referencia;
     //Realizamos la busqueda por referencia
     const product = await Producto.findOne({referencia: ref})
-    console.log(product);
     if(product){
       let entrada:ProductoDoc = product;
       let salida: TypeProduct = ({ _objectId: entrada._id, id: "", nombre:"",precio:0,descripcion:"",imagen: "" });
@@ -106,6 +106,32 @@ api.get('/products/list', async (req: Request, res: Response) => {
     
   })
 
+  api.get('/pedidos/list/:usuario', async (req: Request, res: Response) => {
+    //formato de salida que espera el front-end
+    type TypeOrder = {
+      _objectId: ObjectId;
+      usuario: String;
+      precio: Number;
+      contenido: Array<String>;
+    }
+  
+    let resultado:TypeOrder[] = new Array<TypeOrder>();
+    //Parametro usuario
+    const user:string = req.params.usuario;
+    //Realizamos la busqueda por usuario
+    const orders:PedidoDoc[] = await Pedido.find({usuario: user})
+    
+    for(var i=0; i< orders.length; i++) {
+      let entrada:PedidoDoc = orders[i];
+      let salida: TypeOrder = ({ _objectId: entrada._id, usuario: "", precio:0, contenido:[] });
+      salida.usuario = entrada.usuario;
+      salida.precio = entrada.precio;
+      salida.contenido = entrada.contenido;
+  
+      resultado.push(salida);
+    }
+    return res.status(200).send(resultado);
+  })
 
 module.exports = api;
 export default api;

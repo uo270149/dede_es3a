@@ -1,7 +1,5 @@
 import request, { Response } from 'supertest';
 import { Application } from 'express';
-import { ProductoDoc } from '../modelos/productoModelo';
-import { ObjectId } from 'bson';
 
 let app: Application;
 //let server: http.Server;
@@ -76,10 +74,10 @@ describe('producto', () => {
     /**
      * Encontrar un producto por su referencia
      */
-         it('find by id', async () => {
-            const strObject : ObjectId = new ObjectId("62598ac12841d14b30fbd698");
+         it('find by referencia', async () => {
+            const referencia = "9z";
 
-            const response: Response = await request(app).get("/api/products/detalles/"+"9z");
+            const response: Response = await request(app).get("/api/products/detalles/"+ referencia);
             const producto: [] = response.body;
     
             // todo en orden
@@ -100,4 +98,22 @@ describe('producto', () => {
         // El código de respuesta debería ser 404 (no encontrado)
         expect(response.statusCode).toBe(404);
     });
+});
+
+describe('pedidos', () => {
+        /**
+         * Encontrar los pedidos de un usuario
+         */
+        it('can be listed by user', async () => {
+            const user = "admin";
+
+            const response: Response = await request(app).get("/api/pedidos/list/" + user);
+            const pedidos: [] = response.body;
+    
+            // todo en orden
+            expect(response.statusCode).toBe(200);
+            
+            // admin tiene 3 pedidos
+            expect(pedidos.length).toEqual(3);
+        });
 });
