@@ -1,5 +1,4 @@
 import express, {Request, Response} from 'express'; 
-import cors from "cors";
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import config from './config'
@@ -13,7 +12,6 @@ const app = express()
 
 
 app.use(json())
-app.use(cors())
 
 app.use(productoRouter)
 app.use(usuarioRouter)

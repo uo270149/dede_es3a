@@ -6,21 +6,6 @@ let app: Application;
 const servidor = require('./servidor_test');
 
 beforeAll(async () => {
-    /* app = express();
-    const port: number = 5000;
-    const options: cors.CorsOptions = {
-        origin: ['http://localhost:3000']
-    };
-    app.use(cors(options));
-    app.use(bp.json());
-    app.use("/api", api);
-
-    server = app.listen(port, (): void => {
-        console.log('Servidor Restapi para testing escuchando en ' + port);
-    }).on("error", (error: Error) => {
-        console.error('Error ocurrido: ' + error.message);
-    }) */
-
     // Iniciar la base de datos
     await servidor.startBD();
     // Iniciar el servidor
