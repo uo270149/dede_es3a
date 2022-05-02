@@ -42,6 +42,13 @@
     "eject": "react-scripts eject",
     "prod": "ts-node-dev ./server.ts"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/Cart/**","src/components/Details/**",
+      "src/components/Fragments/**","src/components/Home/**", "src/components/Login/**",
+      "src/components/Requets/**", "src/components/Developers/**" ,"src/App.tsx"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

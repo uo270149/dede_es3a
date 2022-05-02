@@ -1,6 +1,6 @@
-import express, {Request, Response} from 'express'; 
-import cors from "cors";
+import express from 'express'; 
 import mongoose from 'mongoose';
+import cors from "cors";
 import { json } from 'body-parser';
 import config from './config'
 import { productoRouter } from './rutas/productoRutas';
@@ -9,8 +9,8 @@ import { pedidoRouter } from './rutas/pedidoRutas';
 import http from 'http';
 import "dotenv/config";
 import path from "path";
-const app = express()
 
+const app = express()
 
 app.use(json())
 app.use(cors())
