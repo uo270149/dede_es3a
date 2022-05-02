@@ -79,7 +79,7 @@ const RightDetails = (parsed:parsedProduct) => {
       </div>
 
       <div>
-        <Button variant="contained"  endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}
+        <Button variant="contained" name="cart"  endIcon={<ShoppingCartIcon />} sx={{ bgcolor: 'black' }} onClick={addToCart}
           data-testid="cart">
            Añadir al carrito
          </Button>

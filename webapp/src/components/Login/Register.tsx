@@ -79,6 +79,7 @@ const Register = () => {
                       <TextField
                           fullWidth
                           id="username"
+                          name="username"
                           type="email"
                           label="Username"
                           placeholder="Username"
@@ -88,6 +89,7 @@ const Register = () => {
                       <TextField
                           fullWidth
                           id="password"
+                          name="password"
                           type="password"
                           label="Password"
                           placeholder="Password"
@@ -96,6 +98,7 @@ const Register = () => {
                       <TextField
                           fullWidth
                           id="check password"
+                          name="confirmpassword"
                           type="password"
                           label="Check Password"
                           placeholder="Check Password"
