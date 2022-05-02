@@ -51,38 +51,43 @@ const ProfileViewer = () => {
     sessionStorage.setItem('webIdSesion', webId as string);
     const w= sessionStorage.getItem('webIdSesion');
   }
-
   return (
     <>
     <form className={classes.container} noValidate autoComplete="on">
-    <Container fixed>
-      {session.info.webId ? (
-        <CombinedDataProvider
-          datasetUrl={session.info.webId}
-          thingUrl={session.info.webId}>
-          <Card className={classes.card}>
-          <CardHeader className={classes.header} title="User" />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                <Text property={FOAF.name.iri.value} />
-              </Typography>
-            </CardContent>
-            <CardActionArea style={{ justifyContent: "center", display: "flex" }}>
-            <GetAddressPod  webId = { session.info.webId }/>
-            </CardActionArea>
-          </Card>
-        </CombinedDataProvider>
-      ) : null}
-      <LogoutButton>
-        <Button style={{ marginTop: 20 }} variant="contained" color="primary" href="/FormLogIn">
-          Logout
-        </Button>
-      </LogoutButton>
-        <Button style={{ marginTop: 20 }}endIcon={<ShoppingCartIcon />}  variant="contained" color="secondary" href="/GastosEnvio" onClick={guardarWebId}>
-          Continuar con su compra 
-        </Button>
-
-    </Container>
+     {  sessionStorage.getItem('address') === "NEGATIVO" ? (
+                window.location.href = window.location.protocol + '//' + window.location.host + '/ErrorPod'
+              ): ([
+                <Container fixed>
+                 {session.info.webId ? (
+                   <CombinedDataProvider
+                     datasetUrl={session.info.webId}
+                     thingUrl={session.info.webId}>
+                     <Card className={classes.card}>
+                     <CardHeader className={classes.header} title="User" />
+                       <CardContent>
+                         <Typography gutterBottom variant="h5" component="h2">
+                           <Text property={FOAF.name.iri.value} />
+                         </Typography>
+                       </CardContent>
+                       <CardActionArea style={{ justifyContent: "center", display: "flex" }}>
+                       <GetAddressPod  webId = { session.info.webId }/>
+                       </CardActionArea>
+                     </Card>
+                   </CombinedDataProvider>
+                 ) : null}
+                 <LogoutButton>
+                   <Button style={{ marginTop: 20 }} variant="contained" color="primary" href="/FormLogIn">
+                     Logout
+                   </Button>
+                 </LogoutButton>
+                   <Button style={{ marginTop: 20 }}endIcon={<ShoppingCartIcon />}  variant="contained" color="secondary" href="/GastosEnvio" onClick={guardarWebId}>
+                     Continuar con su compra 
+                   </Button>
+           
+               </Container>
+                
+              ]
+              )}
     </form></>
   );
 }
