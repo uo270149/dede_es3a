@@ -55,7 +55,7 @@ const ProfileViewer = () => {
     <>
     <form className={classes.container} noValidate autoComplete="on">
      {  sessionStorage.getItem('address') === "NEGATIVO" ? (
-                 window.location.href = window.location.protocol + '//' + window.location.host + '/ErrorPod'
+                window.location.href = window.location.protocol + '//' + window.location.host + '/ErrorPod'
               ): ([
                 <Container fixed>
                  {session.info.webId ? (
@@ -88,7 +88,6 @@ const ProfileViewer = () => {
                 
               ]
               )}
-    
     </form></>
   );
 }
