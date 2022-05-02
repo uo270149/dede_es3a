@@ -38,7 +38,7 @@ function GetAddressPod( props: Props_POD): JSX.Element {
           sessionStorage.setItem('address', addre);
         }
       }
-      sessionStorage.removeItem('addres');
+      sessionStorage.removeItem('address');
       return x
     }
     useEffect(() => {
@@ -49,15 +49,16 @@ function GetAddressPod( props: Props_POD): JSX.Element {
     
 
     return (
-        
+       
         <Grid container>
           <Grid>
-
-            <Box component="p">Calle: {address[0]}</Box>
+          { compruebaAddres()==false ? (
+            <><Box component="p">Calle: {address[0]}</Box>
             <Box component="p">Localidad: {address[1]}</Box>
             <Box component="p">Codigo Postal: {address[2]}</Box>
-            <Box component="p">Región: {address[3]}</Box>
-            <Box component="p">Pais: {address[4]}</Box>
+            <Box component="p">Región: {address[3]}</Box><Box component="p">Pais: {address[4]}</Box>
+            </>
+            ): ([window.location.href = window.location.protocol + '//' + window.location.host + '/ErrorPod'])}
           </Grid>
         </Grid>
     );
