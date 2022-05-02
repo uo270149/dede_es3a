@@ -38,6 +38,7 @@ function GetAddressPod( props: Props_POD): JSX.Element {
           sessionStorage.setItem('address', addre);
         }
       }
+      sessionStorage.removeItem('addres');
       return x
     }
     useEffect(() => {
