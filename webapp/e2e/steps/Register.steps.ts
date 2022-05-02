@@ -1,8 +1,6 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
 
-const apiEndPoint= process.env.REACT_APP_URI|| 'http://localhost:3000'
-
 const feature = loadFeature('./features/Register.feature');
 
 let page: puppeteer.Page;
@@ -17,7 +15,7 @@ defineFeature(feature, test => {
     page = await browser.newPage();
 
     await page
-      .goto(apiEndPoint + "/Register", {
+      .goto("http://localhost:3000/Register", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
