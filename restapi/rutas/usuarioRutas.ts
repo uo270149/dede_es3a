@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express';
 import { Usuario, UsuarioDoc } from '../modelos/usuarioModelo';
 import "dotenv/config";
 
-
 type User = {
   username:string;
   password:string;
