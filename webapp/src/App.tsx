@@ -15,6 +15,7 @@ import GastosEnvio from './components/POD/GastosEnvio';
 import Nav from './components/Fragments/Nav';
 import Us from './components/Developers/Us';
 import ListRequests from './components/Requests/ListRequests';
+import ErrorPod from './components/Login/ErrorPod';
 
 
 let productos:Array<Product>= new Array<Product>();
@@ -36,6 +37,7 @@ function App(): JSX.Element {
         <Route  path="/GastosEnvio" element={<GastosEnvio/>}/>
         <Route  path="/ProfileViewer" element={<ProfileViewer/>}/>
         <Route  path="/ListRequests" element={<ListRequests/>}/>
+        <Route  path="/ErrorPod"  element={<ErrorPod/>}/>
         <Route  path="/Us" element={<Us/>}/>
         </Routes>
         <Footer/>

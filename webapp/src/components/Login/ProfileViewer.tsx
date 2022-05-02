@@ -51,26 +51,11 @@ const ProfileViewer = () => {
     sessionStorage.setItem('webIdSesion', webId as string);
     const w= sessionStorage.getItem('webIdSesion');
   }
-
   return (
     <>
     <form className={classes.container} noValidate autoComplete="on">
      {  sessionStorage.getItem('address') === "NEGATIVO" ? (
-                 <Container fixed>
-                   <Card className={classes.card}>
-            <CardHeader className={classes.header} title="ERROR" />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                " NO TODOS LOS DATOS DEL POD HAN SIDO PROPORCIONADO CAMBIELOS O USE OTRO POD"
-              </Typography>
-            </CardContent>
-
-            </Card>
-            <Button style={{ marginTop: 20 }} variant="contained" color="secondary" href="/FormLogin" onClick={guardarWebId}>
-              Aceptar
-              </Button>
-               </Container>
-                
+                 window.location.href = window.location.protocol + '//' + window.location.host + '/ErrorPod'
               ): ([
                 <Container fixed>
                  {session.info.webId ? (
