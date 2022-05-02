@@ -27,8 +27,8 @@ defineFeature(feature, test => {
     let password:string;
 
     given('Data from an existing user', () => {
-      username = "admin"
-      password = "admin"
+      username = "user1"
+      password = "1234"
     });
 
     when('I fill the data in the form', async () => {
