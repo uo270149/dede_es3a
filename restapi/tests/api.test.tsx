@@ -95,7 +95,7 @@ describe('pedidos', () => {
     
             expect(response.statusCode).toBe(200);
             
-            // admin tiene 3 pedidos
+            // admin tiene 4 pedidos
             expect(pedidos.length).toEqual(4);
         });
 });
