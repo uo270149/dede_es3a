@@ -13,7 +13,11 @@ import path from "path";
 const app = express()
 
 app.use(json())
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: (_: any, cb: (a: any, b: boolean) => void) =>
+        cb(null, true), 
+}));
 
 app.use(productoRouter)
 app.use(usuarioRouter)

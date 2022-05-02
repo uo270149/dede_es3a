@@ -22,7 +22,7 @@ const ListRequests = () => {
     <div>
     <List sx={{  marginLeft:'35%',
                 marginRight:'50%',
-                marginTop: '10%',
+                marginTop: '5%',
                 width: '200%', 
                 maxWidth: 500, 
                 bgcolor: 'background.paper' }}>

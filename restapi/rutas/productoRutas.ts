@@ -109,7 +109,6 @@ router.post('/products/add', async (req: Request, res: Response) => {
 })
 
 router.get('/producto/detalles/:referencia', async (req: Request, res: Response) => {
-  //formato de salida que espera el front-end
   type TypeProduct = {
     _objectId: ObjectId;
     id: String;
