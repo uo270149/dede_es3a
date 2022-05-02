@@ -28,7 +28,7 @@ defineFeature(feature, test => {
 
     given('Data from an existing user', () => {
       username = "user1"
-      password = "1234"
+      password = process.env.TESTPW1 as string
     });
 
     when('I fill the data in the form', async () => {
@@ -69,7 +69,7 @@ defineFeature(feature, test => {
   
       given('An unregistered user', () => {
         username = "newuser"
-        password = "newuser"
+        password = process.env.TESTPW2 as string
       });
   
       when('I fill the data in the form and press submit', async () => {
