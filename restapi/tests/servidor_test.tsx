@@ -5,7 +5,6 @@
 
  const { MongoMemoryServer } = require("mongodb-memory-server");
  const express = require('express');
- const cors = require('cors');
  const mongoose = require('mongoose');
  const api = require('../api');
  
@@ -32,8 +31,6 @@
  
      var app = express();
  
-     app.use(cors());
-     app.options("*", cors());
      app.use(express.json());
      app.use("/api", api);
  
