@@ -1,6 +1,5 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import puppeteer from "puppeteer";
-import { StringifyOptions } from 'querystring';
 
 const apiEndPoint= process.env.REACT_APP_URI|| 'http://localhost:3000'
 
@@ -18,7 +17,7 @@ defineFeature(feature, test => {
     page = await browser.newPage();
 
     await page
-      .goto(apiEndPoint + "/signup", {
+      .goto(apiEndPoint + "/Register", {
         waitUntil: "networkidle0",
       })
       .catch(() => {});
@@ -36,23 +35,24 @@ defineFeature(feature, test => {
 
     when('I fill the data in the form', async () => {
       await expect(page).toMatch('Registro')
-      
-      await expect(page).toFill('name', username);
-      await expect(page).toFill('password', password);
-      await expect(page).toFill('checkpassword', password);
+      await expect(page).toFillForm('form[name="registro"]', {
+        username: username,
+        password: password,
+        confirmpassword: password
+      })
 
       await expect(page).toClick('button', { text: 'Registrarse' })
     });
 
     then('Error', async () => {
-      await expect(page).toMatch('Credenciales invalidas')
+      await expect(page).toMatch('')
     });
   })
 
 
   test('Dont fill all the data in the form', ({given,when,then}) => {
 
-    given('Nothing', () => {
+    given('Nothing information', () => {
     });
 
     when('I dont fill the data in the form', async () => {
@@ -61,14 +61,33 @@ defineFeature(feature, test => {
     });
 
     then('Error', async () => {
-      await expect(page).toMatch('Credenciales invalidas')
+      await expect(page).toMatch('')
     });
   })
 
-  afterEach(async ()=>{
-    browser.close()
-  });
-
+  test('The user is not registered in the site', ({given,when,then}) => { 
+      let username:string;
+      let password:string;
+  
+      given('An unregistered user', () => {
+        username = "newuser"
+        password = "newuser"
+      });
+  
+      when('I fill the data in the form and press submit', async () => {
+        await expect(page).toMatch('Registro')
+        await expect(page).toFillForm('form[name="registro"]', {
+          username: username,
+          password: password,
+          confirmpassword: password
+        })
+        await expect(page).toClick('button', { text: 'Registrarse' })
+      });
+  
+      then('A confirmation message should be shown in the screen', async () => {
+        await expect(page).toMatch('')
+      });
+    })
 
   afterEach(async ()=>{
     browser.close()

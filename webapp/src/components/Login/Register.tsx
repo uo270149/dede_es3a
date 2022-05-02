@@ -6,10 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
-import Nav from '../Fragments/Nav';
 import { User } from '../../shared/shareddtypes';
 import { addUser, getUser } from '../../api/api';
-import { Alert, Snackbar } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
