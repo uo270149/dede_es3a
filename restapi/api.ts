@@ -1,7 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 import { check } from 'express-validator';
 import { ObjectId } from 'bson';
-//import mongoose from 'mongoose';
 import { Producto, ProductoDoc} from './modelos/productoModelo';
 import { Pedido, PedidoDoc } from './modelos/pedidoModelo';
 
@@ -12,8 +11,6 @@ interface User {
     email: string;
 }
 
-//This is not a restapi as it mantains state but it is here for
-//simplicity. A database should be used instead.
 let users: Array<User> = [];
 
 api.get(
@@ -38,7 +35,6 @@ api.post(
 );
 
 api.get('/products/list', async (req: Request, res: Response) => {
-    //formato de salida que espera el front-end
     type TypeProduct = {
       _objectId: ObjectId;
       id: String;
@@ -58,12 +54,11 @@ api.get('/products/list', async (req: Request, res: Response) => {
         salida.id = entrada.referencia;
         salida.nombre = entrada.marca + " " +entrada.modelo;
         salida.precio = entrada.precio;
-        //Recuperamos la imagen principal asociada a este producto
         if (entrada.fotos.length != 0){
           salida.imagen = entrada.fotos[0].ruta;
         }
         else{
-          salida.imagen = ""; //buscar una imagen por defecto si no hay principal
+          salida.imagen = "";
         }
         resultado.push(salida);
     }
@@ -71,7 +66,6 @@ api.get('/products/list', async (req: Request, res: Response) => {
   });
 
   api.get('/products/detalles/:referencia', async (req: Request, res: Response) => {
-    //formato de salida que espera el front-end
     type TypeProduct = {
       _objectId: ObjectId;
       id: String;
@@ -82,9 +76,7 @@ api.get('/products/list', async (req: Request, res: Response) => {
     }
   
     let resultado:TypeProduct[] = new Array<TypeProduct>();
-    //Parametro referencia
     const ref:string = req.params.referencia;
-    //Realizamos la busqueda por referencia
     const product = await Producto.findOne({referencia: ref})
     if(product){
       let entrada:ProductoDoc = product;
@@ -97,7 +89,7 @@ api.get('/products/list', async (req: Request, res: Response) => {
       if (entrada.fotos.length != 0)
         salida.imagen = entrada.fotos[0].ruta;
       else
-        salida.imagen = "" //buscar una imagen por defecto si no hay principal
+        salida.imagen = "" 
       resultado.push(salida)
       return res.status(200).send(resultado)
     } else{
@@ -107,7 +99,6 @@ api.get('/products/list', async (req: Request, res: Response) => {
   })
 
   api.get('/pedidos/list/:usuario', async (req: Request, res: Response) => {
-    //formato de salida que espera el front-end
     type TypeOrder = {
       _objectId: ObjectId;
       usuario: String;
@@ -116,9 +107,7 @@ api.get('/products/list', async (req: Request, res: Response) => {
     }
   
     let resultado:TypeOrder[] = new Array<TypeOrder>();
-    //Parametro usuario
     const user:string = req.params.usuario;
-    //Realizamos la busqueda por usuario
     const orders:PedidoDoc[] = await Pedido.find({usuario: user})
     
     for(var i=0; i< orders.length; i++) {
