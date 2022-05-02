@@ -10,6 +10,10 @@ A continuación se muestra una tabla [Table 7] en la que se irán recogiendo tod
 |===
 | Riesgo | Descripción | Prioridad
 | Diagramas del proyecto | Un postulado erróneo de éstos diagramas puede dar lugar a una construcción errónea del sistema derivando en cambios cuya dificultad probablemente sea proporcional al tiempo que se haya estado desarrollando el proyecto. | Alta
+| Abandono de dos miembros| No solo con la implicación que conlleva si no también con el código que hicieron, el cual contenía un montón de errores haciendo que fuese complicado su arreglo. | Alta
+| Conocimiento de SOLID | Una nueva tecnología con la que ninguno hemos trabajado y de la que no hay mucha información. | Media
+| Conocimiento de TypeScript | Ninguno de los miembros había realizado uso del lenguaje. | Media
+| Fechas límite | Tiempo para realizar las implementaciones limitado. | Baja
 |===
 
 .Lista de deudas técnicas
