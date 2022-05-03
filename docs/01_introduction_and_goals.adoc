@@ -6,8 +6,7 @@ El proyecto trata de una aplicación de compra y venta de objetos, llamada DeDe,
 
 Objetivos de Negocio: 
 
--A corto plazo: Realizar una documentación adecuada de manera que se cumplan las 
-expectativas y necesidades del proyecto.
+-A corto plazo:  Realizar una documentación adecuada de manera que se cumplan las expectativas y necesidades del proyecto.
 
 -A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos 
 de usabilidad para poder realizar compra/venta de playeros de una manera mas 
@@ -31,17 +30,15 @@ su nombre/descripción.
 -Dede_es3a dispondrá de un carrito en el que almacenar artículos y cuyo contenido podrá ser consultado por el 
 usuario.
 
--Dede_es3a dará al usuario la posibilidad de añadir elementos al carrito.
+-Se dará al usuario la posibilidad de tanto borrar como añadir elementos al carrito.
 
--Dede_es3a dará al usuario la posibilidad de borrar elementos del carrito.
-
--Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando sus credenciales no cincidan 
+-Permitirá el registro de usuarios mediante formulario siempre y cuando sus credenciales no cincidan 
 con las de otro usuario.
 
 -Dede_es3a permitirá el inicio de sesión de usuarios mediante formulario si las credenciales coinciden con la 
 BDD.
 
--Dede_es3a dispondrá de una lista de pedidos por usuario en la que se almacenarán sus correspondientes pedidos.
+-Se dispondrá de una lista de pedidos por usuario en la que se almacenarán sus correspondientes pedidos.
 
 -Para la realización de un pedido será necesario: un usuario al que asociarlo y especificar una dirección para 
 el envío.
