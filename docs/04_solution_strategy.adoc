@@ -6,7 +6,7 @@ Para el desarrollo de este proyecto viene impuesta como restricción la utilizac
 
 Para el Front-End se utilizará React, una librería desarrollada y mantenida por Facebook. El elemento más importante de React es el componente, que es en esencia una pieza de la interfaz de usuario. Al diseñar una aplicación con React, lo que estamos haciendo es crear componentes independientes y reusables que nos permiten crear interfaces de usuario más complejas.
 
-La utilización de MongoDB como base de datos nos supone ademá una ventaja ya que en la asignatura de Sistemas Distribuidos e Internet también se utilizará, por lo que podemos reutilizar los conocimientos que se adquirirán para el desarrollo de este proyecto.
+La utilización de MongoDB como base de datos nos supone además una ventaja ya que en la asignatura de Sistemas Distribuidos e Internet también se utilizará, por lo que podemos reutilizar los conocimientos que se adquirirán para el desarrollo de este proyecto.
 
 Node es un entorno de ejecución que permite la ejecución de un programa escrito en JavaScritp. Utiliza una arquitectura de E/S basada en eventos y sin bloqueos, lo que nos ayudará a que la aplicación sea escalable y rápida. 
 

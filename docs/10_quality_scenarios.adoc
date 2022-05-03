@@ -8,15 +8,50 @@ La calidad es la habilidad de un producto o servicio de cumplir las necesidades,
 
 En esta sección se muestra un diagrama de árbol de calidad para el sistema desarrollado. A medida que el proyecto vaya avanzando, se irá ampliando este diagrama hasta alcanzar las hojas, que serán los escenarios de calidad que describiremos en el siguiente apartado. Además, se incluirán enlaces en el árbol a los escenarios de la siguiente sección.
 
-image:DiagramaCalidad.png["DiagramaArbolCalidad"]
+[plantuml,"Calidad_diagrama",png]
+----
+@startuml
+left to right direction
+
+rectangle Calidad
+
+rectangle "Escalabilidad" as E
+rectangle "Interoperabilidad" as I
+rectangle "Seguridad" as S
+rectangle "Usabilidad" as U
+rectangle "Accesibilidad" as A
+
+rectangle "Despliegue en Heroku" as DH
+rectangle "Compatibilidad entre navegadores" as CN
+rectangle "Foro de la asignatura" as FR
+rectangle "Login" as LG
+rectangle "Privacidad de POD" as PD
+rectangle "Operaciones sencillas aisladas" as OP
+
+
+Calidad --> A
+Calidad --> E
+Calidad --> I
+Calidad --> S
+Calidad --> U
+
+A --> DH
+S --> LG
+S --> POD
+I --> FR
+E --> OP
+
+@enduml
+----
 
 === Escenarios de calidad
 .Escenarios de calidad
 [options="header",cols="1,2"]
 |===
 |Requerimiento|Descripción
-| Privacidad | La aplicación no accede a los datos del usuario sin permisos, solo los necesarios para algunas funciones concretas. 
-| Usabilidad| La aplicación tiene una interfaz y manejo intuitivos, de uso fácil.
-| Accesibilidad| Cualquier usuario, puede interactuar con la página sin problemas. Nuestro objetivo es seguir unas pautas de accesibilidad Web.
-| Disponibilidad| En cualquier momento que el usuario desee interactuar con la aplicación, podrá hacerlo y se ejecutará eficientemente.
+| Escalabilidad| Debido a la sencillez de las operaciones implementadas, en caso de incrementar funcionalidad con tallas y colores, no habría repercusión alguna en rendimiento de cara a realizar pedidos.
+| Seguridad| Para la realización de cualquier pedido, así como la consulta de información personal, el usuario deberá estar registrado (usuario y contraseña válidas) e iniciar sesión con las mismas. 
+| Usabilidad| La aplicación tiene una interfaz y manejo intuitivos, de fácil uso similar a otros sistemas conocidos como Adidas o Nike.
+| Accesibilidad| Cualquier usuario, puede interactuar con la página sin problemas. En cualquier momento el usuario puede acceder desde Heroku sin importar el navegador.
+| Interoperabilidad| De encontrarse con cualquier problema, el equipo de desarrollo dispone de un foro en el que preguntar/consultar sus dudas o las de otros equipos de trabajo.
 |===

@@ -15,7 +15,7 @@ Bloques de construcción contenidos::
 -  **Empresas de Mensajería**: Nuestro sistema se conectará con diferentes empresas de mensajería para poder calcular los costes de envío de los pedidos.
 
 Interfaces importantes::
--	Para conectar con las diferentes empresas de mensajería se utilizarán las APIS que suministren
+-	Para conectar con las diferentes empresas de mensajería se utilizarán las APIS que suministren estos servicios.
 
 
 
@@ -27,11 +27,11 @@ image:05_diagramaDetalleNivel1.png["Diagrama de detalle nivel 1"]
 Motivacion::
 Se muestra aquí el detalle de nuestra aplicación Dede.
 Bloques de construcción contenidos::
--  **Front-End**: Nuestra interfaz de usuario. Se utilizara React
--  **Back-End**: Aquí se implementará toda la lógica de negocio de la aplicación.
+-  **Front-End**: Nuestra interfaz de usuario. Se utilizara React.
+-  **Back-End**: Aquí se implementará toda la lógica de negocio de la aplicación relacionada con el acceso y gestión de los datos almacenados.
 
 Interfaces importantes::
--	Existirá una API que comunicará el Back-End y el Front-End
+-	Gracias a la API (api.ts), podremos conectar el Back-End y el Front-End
 
 
 === Nivel 3
@@ -46,7 +46,7 @@ Bloques de construcción contenidos::
 -  **Main**: En módulo principal del Back-End. Comunica el Front-End con los diferentes módulos que componen el Back-End
 -  **BBDD**: Se encarga de la comunicación con al base de datos.
 -  **Solid**: Interactuará con el Pod del usuario.
--  **Envíos**: Se conectará con las diferentes empresas de mensajería para calcular el importe de los envíos.
+-  **Envíos**: Se conectará con las diferentes empresas de mensajería para calcular el importe de los envíos (APIMapBox).
 
 Interfaces importantes::
 -	Para conectar con las diferentes empresas de mensajería se utilizarán las diferentes APIS que ofrezcan dichas empresas

@@ -28,3 +28,9 @@ Para crear la parte de "User Interface" usaremos React, una herramienta que nos 
 interfaces de usuario interactivas de forma sencilla diseñando vistas simples para cada estado
 en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
 que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.
+
+=== Utilizar Imgur como repositorio de imágenes remoto
+
+Para evitar que las imágenes que utilizamos en la aplicación dependan de proveedores externos a 
+nosotros, las almacenaremos en Imgur, repositorio online gratuito para todo tipo de contenido 
+audiovisual. De esta forma, sabremos que siempre tendremos disponibles estas imágenes.
