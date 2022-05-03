@@ -471,8 +471,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#section-runtime-view">6. Vista de Ejecución</a>
 <ul class="sectlevel2">
-<li><a href="#_proceso_de_compra">6.1. Proceso de compra</a></li>
-<li><a href="#_proceso_de_login">6.2. Proceso de Login</a></li>
+<li><a href="#_proceso_de_login">6.1. Proceso de Login</a></li>
+<li><a href="#_proceso_de_compra">6.2. Proceso de compra</a></li>
 <li><a href="#_cálculo_de_los_gastos_de_envío">6.3. Cálculo de los gastos de envío</a></li>
 <li><a href="#_proceso_de_envío">6.4. Proceso de envío</a></li>
 </ul>
@@ -495,6 +495,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_utilizar_mongodb">9.1. Utilizar MongoDb</a></li>
 <li><a href="#_utilizar_git_para_el_control_de_versiones">9.2. Utilizar Git para el control de versiones</a></li>
 <li><a href="#_utilizar_react_para_el_frontend">9.3. Utilizar React para el FrontEnd</a></li>
+<li><a href="#_utilizar_imgur_como_repositorio_de_imágenes_remoto">9.4. Utilizar Imgur como repositorio de imágenes remoto</a></li>
 </ul>
 </li>
 <li><a href="#section-quality-scenarios">10. Requerimientos de Calidad</a>
@@ -560,7 +561,7 @@ expectativas y necesidades del proyecto.</p>
 <div class="paragraph">
 <p>-A largo plazo: Poder realizar una aplicación de manera que cumpla todos los objetivos
 de usabilidad para poder realizar compra/venta de playeros de una manera mas
-cómoda,sencilla y accesible.</p>
+cómoda, sencilla y accesible.</p>
 </div>
 <div class="sect2">
 <h3 id="_vista_de_requerimientos">1.1. Vista de Requerimientos</h3>
@@ -591,13 +592,23 @@ usuario.</p>
 <p>-Dede_es3a dará al usuario la posibilidad de borrar elementos del carrito.</p>
 </div>
 <div class="paragraph">
-<p>-Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando el usuario no sea existente.</p>
+<p>-Dede_es3a permitirá el registro de usuarios mediante formulario siempre y cuando sus credenciales no cincidan
+con las de otro usuario.</p>
 </div>
 <div class="paragraph">
-<p>-Dede_es3a permitirá el registro de usuarios mediante formulario si las credenciales coinciden con la BDD.</p>
+<p>-Dede_es3a permitirá el inicio de sesión de usuarios mediante formulario si las credenciales coinciden con la
+BDD.</p>
 </div>
 <div class="paragraph">
-<p>-Dede_es3a dispondrá de una lista de pedidos por usuario en la que se almacenará los pedidos realizados por el usuario.</p>
+<p>-Dede_es3a dispondrá de una lista de pedidos por usuario en la que se almacenarán sus correspondientes pedidos.</p>
+</div>
+<div class="paragraph">
+<p>-Para la realización de un pedido será necesario: un usuario al que asociarlo y especificar una dirección para
+el envío.</p>
+</div>
+<div class="paragraph">
+<p>-Dede_es3a proporcionará al usuario una forma de calcular automáticamente el precio del pedido en función de
+la dirección de envío.</p>
 </div>
 </div>
 <div class="sect2">
@@ -668,10 +679,6 @@ usuario.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Administradores</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Realizar una administración cómoda y sin inconvenientes.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Equipo de desarrollo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Esperan poder obtener una aplicacíon correcta y usable.</p></td>
 </tr>
@@ -679,20 +686,30 @@ usuario.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cliente</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equipos de desarrollo paralelos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buscarán poder establecer interoperabilidad entre su sistema y el nuestro.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Administradores: se encargan de modificar precios, calcular inventarios, ver todos los pedidos realizados o
-realizar pedidos a proveedores</p>
+<p>Stakeholders primarios:</p>
 </div>
 <div class="paragraph">
-<p>Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
+<p>Equipo de desarrollo: que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
 todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para
 plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.</p>
 </div>
 <div class="paragraph">
-<p>Cliente: Quien interactuaría con la version final de la aplicacíon para la realización de compra
+<p>Cliente: quien interactuaría con la version final de la aplicacíon para la realización de compra
 de Objetos.</p>
+</div>
+<div class="paragraph">
+<p>Stakeholders secundarios:</p>
+</div>
+<div class="paragraph">
+<p>Equipos de desarrollo paralelos: en nuestro caso, tenemos una cercanía con otros grupos que están implementando sistemas similares
+al nuestro, lo cual, nos permite poder preguntar/pedir consejo en caso de considerarlo oportuno.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -766,6 +783,10 @@ el proceso del desarrollo.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Material ui</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Es una biblioteca de código abierto que implementa el lenguaje visual de «materiales» de Google en sus componentes React.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Heroku</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma necesaria para realizar el despliegue de nuestra aplicación en la nube.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -798,7 +819,7 @@ el proceso del desarrollo.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Equipo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El equipo esta formado por 5 personas con las que apenas hemos interactuado con anterioridad. Además de esto, 2 miembros del equipo abandonaron el proyecto.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El equipo estaba inicialmente formado por 5 personas con las que apenas hemos interactuado con anterioridad. Además de esto, 2 miembros del equipo abandonaron el proyecto.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Horarios</p></td>
@@ -807,6 +828,10 @@ el proceso del desarrollo.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Límite de tiempo</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cada entrega tiene una fecha de entrega bastante cercana a la anterior.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conceptos necesarios</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tal y como ha sido establecido en el plan de negocio, es imprescindible la utilización de React, SOLID y TypeScript para el desarrollo del sistema.</p></td>
 </tr>
 </tbody>
 </table>
@@ -831,16 +856,6 @@ el proceso del desarrollo.</p>
 </div>
 <div class="paragraph">
 <p>Usuarios finales de la aplicación. Son los clientes que van a realizar las compras.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Administrador</strong></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Usuario que va a poder gestionar la aplicación: dar de alta productos, actualizar los stocks, revisar los pedidos, etc.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -902,7 +917,7 @@ el proceso del desarrollo.</p>
 <p>Para el Front-End se utilizará React, una librería desarrollada y mantenida por Facebook. El elemento más importante de React es el componente, que es en esencia una pieza de la interfaz de usuario. Al diseñar una aplicación con React, lo que estamos haciendo es crear componentes independientes y reusables que nos permiten crear interfaces de usuario más complejas.</p>
 </div>
 <div class="paragraph">
-<p>La utilización de MongoDB como base de datos nos supone ademá una ventaja ya que en la asignatura de Sistemas Distribuidos e Internet también se utilizará, por lo que podemos reutilizar los conocimientos que se adquirirán para el desarrollo de este proyecto.</p>
+<p>La utilización de MongoDB como base de datos nos supone además una ventaja ya que en la asignatura de Sistemas Distribuidos e Internet también se utilizará, por lo que podemos reutilizar los conocimientos que se adquirirán para el desarrollo de este proyecto.</p>
 </div>
 <div class="paragraph">
 <p>Node es un entorno de ejecución que permite la ejecución de un programa escrito en JavaScritp. Utiliza una arquitectura de E/S basada en eventos y sin bloqueos, lo que nos ayudará a que la aplicación sea escalable y rápida.</p>
@@ -957,7 +972,7 @@ el proceso del desarrollo.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Para conectar con las diferentes empresas de mensajería se utilizarán las APIS que suministren</p>
+<p>Para conectar con las diferentes empresas de mensajería se utilizarán las APIS que suministren estos servicios.</p>
 </li>
 </ul>
 </div>
@@ -981,10 +996,10 @@ el proceso del desarrollo.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Front-End</strong>: Nuestra interfaz de usuario. Se utilizara React</p>
+<p><strong>Front-End</strong>: Nuestra interfaz de usuario. Se utilizara React.</p>
 </li>
 <li>
-<p><strong>Back-End</strong>: Aquí se implementará toda la lógica de negocio de la aplicación.</p>
+<p><strong>Back-End</strong>: Aquí se implementará toda la lógica de negocio de la aplicación relacionada con el acceso y gestión de los datos almacenados.</p>
 </li>
 </ul>
 </div>
@@ -994,7 +1009,7 @@ el proceso del desarrollo.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Existirá una API que comunicará el Back-End y el Front-End</p>
+<p>Gracias a la API (api.ts), podremos conectar el Back-End y el Front-End</p>
 </li>
 </ul>
 </div>
@@ -1027,7 +1042,7 @@ el proceso del desarrollo.</p>
 <p><strong>Solid</strong>: Interactuará con el Pod del usuario.</p>
 </li>
 <li>
-<p><strong>Envíos</strong>: Se conectará con las diferentes empresas de mensajería para calcular el importe de los envíos.</p>
+<p><strong>Envíos</strong>: Se conectará con las diferentes empresas de mensajería para calcular el importe de los envíos (APIMapBox).</p>
 </li>
 </ul>
 </div>
@@ -1055,24 +1070,28 @@ el proceso del desarrollo.</p>
 <h2 id="section-runtime-view">6. Vista de Ejecución</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_proceso_de_compra">6.1. Proceso de compra</h3>
-<div class="paragraph">
-<p>El primer escenario muestra el proceso de compra de un producto. Para ello,
-el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para que se añada al carrito de la compra.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/DiagramaCompra.png" alt="DiagramaCompra"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_proceso_de_login">6.2. Proceso de Login</h3>
+<h3 id="_proceso_de_login">6.1. Proceso de Login</h3>
 <div class="paragraph">
 <p>El segundo escenario muestra el proceso de "Login". Para ello,
 el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
 volverá a la pantalla de inicio con la sesión iniciada.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Login_diagrama.png" alt="Login diagrama" width="642" height="392">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proceso_de_compra">6.2. Proceso de compra</h3>
 <div class="paragraph">
-<p><span class="image"><img src="./images/DiagramaLogin.JPG" alt="LogIn"></span></p>
+<p>El primer escenario muestra el proceso de compra de un producto. Para ello,
+el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para que se añada al carrito de la compra.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Compra_diagrama.png" alt="Compra diagrama" width="508" height="374">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1277,6 +1296,14 @@ interfaces de usuario interactivas de forma sencilla diseñando vistas simples p
 en la que se encuentre la aplicación. Nos permite crear componentes encapsulados
 que manejen su propio estado, para convertirlos en interfaces de usuario más complejas.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_utilizar_imgur_como_repositorio_de_imágenes_remoto">9.4. Utilizar Imgur como repositorio de imágenes remoto</h3>
+<div class="paragraph">
+<p>Para evitar que las imágenes que utilizamos en la aplicación dependan de proveedores externos a
+nosotros, las almacenaremos en Imgur, repositorio online gratuito para todo tipo de contenido
+audiovisual. De esta forma, sabremos que siempre tendremos disponibles estas imágenes.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1393,20 +1420,20 @@ que manejen su propio estado, para convertirlos en interfaces de usuario más co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Deuda técnica</th>
-<th class="tableblock halign-left valign-top">Descripción</th>
-<th class="tableblock halign-left valign-top">Prioridad</th>
+<th class="tableblock halign-left valign-top">Investigación sobre el entorno de trabajo</th>
+<th class="tableblock halign-left valign-top">Una amplia búsqueda de información acerca de cómo trabajar con Typescript, Solid y React facilitará enormente el trabajo una vez iniciada la implementación ya que no será sobre territorio desconocido.</th>
+<th class="tableblock halign-left valign-top">Alta</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Investigación sobre el entorno de trabajo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Una amplia búsqueda de información acerca de cómo trabajar con Typescript, Solid y React facilitará enormente el trabajo una vez iniciada la implementación ya que no será sobre territorio desconocido.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sopesar las decisiones tomadas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es conveniente que todo lo que se decida con respecto a la arquitectura del proyecto sea en base a un razonamiento y no de forma aleatoria. Así evitaremos cambios de planes en el último momento que puedan llegar a afectar negativamente al proyecto.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Media</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sopesar las decisiones tomadas</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es conveniente que todo lo que se decida con respecto a la arquitectura del proyecto sea en base a un razonamiento y no de forma aleatoria. Así evitaremos cambios de planes en el último momento que puedan llegar a afectar negativamente al proyecto.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encriptado de contraseñas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Queda pendiente incrementar la seguridad de la aplicación almacenando las contraseñás encriptadas en base de datos.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Baja</p></td>
 </tr>
 </tbody>
@@ -1509,7 +1536,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-02 18:43:12 +0200
+Last updated 2022-03-30 03:24:38 +0200
 </div>
 </div>
 </body>
