@@ -12,10 +12,9 @@ image:DiagramaER.png["ER Diagram"]
 [options="header",cols="1,2"]
 |===
 |Name|Descripción
-| Shoes | Almacena los zapatos registrados en la tienda
-| User| Cliente el cuál accede a la aplicación y se registra para realizar compras.
-| Delivery| Recoge la información del pedido para realizar el reparto.
-| Shopping cart| Almacena todo los objetos que el cliente desea comprar.
+| Productos | Almacena los zapatos registrados en la tienda
+| Usuario| Cliente el cuál accede a la aplicación y se registra para realizar compras.
+| Pedidos| Recoge la información del pedido para realizar el reparto.
 |===
 
 === Interfaz de usuario
