@@ -8,7 +8,43 @@ La calidad es la habilidad de un producto o servicio de cumplir las necesidades,
 
 En esta sección se muestra un diagrama de árbol de calidad para el sistema desarrollado. A medida que el proyecto vaya avanzando, se irá ampliando este diagrama hasta alcanzar las hojas, que serán los escenarios de calidad que describiremos en el siguiente apartado. Además, se incluirán enlaces en el árbol a los escenarios de la siguiente sección.
 
-image:DiagramaCalidad.png["DiagramaArbolCalidad"]
+[plantuml,"Login_diagrama",png]
+----
+@startuml
+left to right direction
+
+skin rose
+
+rectangle Calidad
+
+rectangle "Escalabilidad" as E
+rectangle "Interoperabilidad" as I
+rectangle "Seguridad" as S
+rectangle "Usabilidad" as U
+rectangle "Accesibilidad" as A
+
+rectangle "Despliegue en Heroku" as DH
+rectangle "Compatibilidad entre navegadores" as CN
+rectangle "Foro de la asignatura" as FR
+rectangle "Login" as LG
+rectangle "Privacidad de POD" as PD
+rectangle "Operaciones sencillas aisladas" as OP
+
+
+Calidad --> A
+Calidad --> E
+Calidad --> I
+Calidad --> S
+Calidad --> U
+
+A --> DH
+S --> LG
+S --> POD
+I --> FR
+E --> OP
+
+@enduml
+----
 
 === Escenarios de calidad
 .Escenarios de calidad
