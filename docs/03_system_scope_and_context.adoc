@@ -8,10 +8,6 @@ image:03_diagramaContextoNegocio.png["Diagrama de contexto"]
 
 Usuarios finales de la aplicación. Son los clientes que van a realizar las compras.
 
-*   **Administrador**
-
-Usuario que va a poder gestionar la aplicación: dar de alta productos, actualizar los stocks, revisar los pedidos, etc.
-
 *	**DeDe**
 
 Nuestro sistema de venta online (Decentralized Delivery)

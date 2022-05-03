@@ -70,11 +70,19 @@ la dirección de envío.
 |Role/Name|Expectations 
 |Equipo de desarrollo|Esperan poder obtener una aplicacíon correcta y usable.
 |Cliente | Sus expectativas son poder realizar una compra en la aplicación de una manera sencilla y accesible.
+|Equipos de desarrollo paralelos| Buscarán poder establecer interoperabilidad entre su sistema y el nuestro.
 |===
 
-Equipo de desarrollo: Que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
+Stakeholders primarios:
+
+Equipo de desarrollo: que deben conocer la arquitectura de TypeScript, React y Solid.Deben trabajar de manera que se documente
 todo el código para facilitar el entendimiento por parte de los demás miembros del grupo. Deben realizar reuniones para 
 plantear las arquitecturas a usar. Por ejemplo: Para el desarrollo de Diagramas de secuencia.
 
-Cliente: Quien interactuaría con la version final de la aplicacíon para la realización de compra
+Cliente: quien interactuaría con la version final de la aplicacíon para la realización de compra
 de Objetos.
+
+Stakeholders secundarios:
+
+Equipos de desarrollo paralelos: en nuestro caso, tenemos una cercanía con otros grupos que están implementando sistemas similares
+al nuestro, lo cual, nos permite poder preguntar/pedir consejo en caso de considerarlo oportuno.
