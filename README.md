@@ -19,7 +19,7 @@
 * [Issues📒](https://github.com/Arquisoft/dede_es3a/issues)
 * [Despliegue🚀](https://dede-es3a.herokuapp.com/)
 * [Documentación📁](https://arquisoft.github.io/dede_es3a/)
-* [Presentación✒️](https://unioviedo-my.sharepoint.com/:p:/g/personal/uo277876_uniovi_es/EWsto0tN_7tMietDUvVY3RcB2h_CwInmnN3OMGiFu_h73A?e=m1BYcN)
+* [Presentación✒️](https://unioviedo-my.sharepoint.com/:b:/g/personal/uo277876_uniovi_es/EZwlNv8F1VhCiLZvekhmL9ABkrQjdluMQV9VVHr3GvOeDg?e=iNPCmf)
 * [Demo🎬](https://www.youtube.com/watch?v=XUwgiOEJYYk)
 
 *****************************************************************
