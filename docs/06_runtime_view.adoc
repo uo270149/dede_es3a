@@ -55,7 +55,6 @@ una vez finalizado el proceso de compra.
 [plantuml,"Envio_diagrama",png]
 ----
 @startuml
-skin rose
 
 participant Shoes
 activate Shoes

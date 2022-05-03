@@ -13,8 +13,6 @@ En esta sección se muestra un diagrama de árbol de calidad para el sistema des
 @startuml
 left to right direction
 
-skin rose
-
 rectangle Calidad
 
 rectangle "Escalabilidad" as E
