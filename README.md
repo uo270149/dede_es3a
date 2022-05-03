@@ -14,10 +14,10 @@
 </h1>
 
 ¡Aquí os dejamos algunos accesos rápidos!
-* [Wiki📚] (https://github.com/Arquisoft/dede_es3a/wiki)
-* [Decisiones arquitectónicas👷] (https://github.com/Arquisoft/dede_es3a/wiki/%F0%9F%91%B7Decisiones-arquitect%C3%B3nicas-%F0%9F%91%B7)
-* [Issues📒] (https://github.com/Arquisoft/dede_es3a/issues)
-* [Despliegue🚀] (https://dede-es3a.herokuapp.com/)
+* [Wiki📚](https://github.com/Arquisoft/dede_es3a/wiki)
+* [Decisiones arquitectónicas👷](https://github.com/Arquisoft/dede_es3a/wiki/%F0%9F%91%B7Decisiones-arquitect%C3%B3nicas-%F0%9F%91%B7)
+* [Issues📒](https://github.com/Arquisoft/dede_es3a/issues)
+* [Despliegue🚀](https://dede-es3a.herokuapp.com/)
 
 *****************************************************************
 <p float="left">
