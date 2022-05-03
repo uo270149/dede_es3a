@@ -4,6 +4,22 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_es3a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_es3a)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_es3a/branch/main/graph/badge.svg?token=VN4XG9NTRO)](https://codecov.io/gh/Arquisoft/dede_es3a)
 
+*****************************************************************
+<p align="center">
+  <img alt="logo" src="./docs/images/logo.png" width="200">
+</p>
+
+<h1 align="center">
+    👟Tu tienda de zapatos de confianza👟
+</h1>
+
+¡Aquí os dejamos algunos accesos rápidos!
+* [Wiki📚](https://github.com/Arquisoft/dede_es3a/wiki)
+* [Decisiones arquitectónicas👷](https://github.com/Arquisoft/dede_es3a/wiki/%F0%9F%91%B7Decisiones-arquitect%C3%B3nicas-%F0%9F%91%B7)
+* [Issues📒](https://github.com/Arquisoft/dede_es3a/issues)
+* [Despliegue🚀](https://dede-es3a.herokuapp.com/)
+
+*****************************************************************
 <p float="left">
 <img src="https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg" height="100">
 <img src="https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png" height="100">
