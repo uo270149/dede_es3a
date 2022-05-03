@@ -4,6 +4,16 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_es3a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_es3a)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_es3a/branch/main/graph/badge.svg?token=VN4XG9NTRO)](https://codecov.io/gh/Arquisoft/dede_es3a)
 
+*****************************************************************
+<p align="center">
+  <img alt="logo" src="https://drive.google.com/file/d/1ZtpGhgcJwtiR1dVxW523Q9pljMtOByX1/view?usp=sharing" width="200">
+</p>
+
+<h1 align="center">
+    Dede_es3a
+</h1>
+
+*****************************************************************
 <p float="left">
 <img src="https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg" height="100">
 <img src="https://miro.medium.com/max/1200/0*RbmfNyhuBb8G3LWh.png" height="100">
