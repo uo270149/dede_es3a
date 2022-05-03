@@ -20,6 +20,9 @@ A continuación se muestra una tabla [Table 7] en la que se irán recogiendo tod
 [options="header",cols="1,2,3"]
 |===
 | Deuda técnica | Descripción | Prioridad
-| Investigación sobre el entorno de trabajo | Una amplia búsqueda de información acerca de cómo trabajar con Typescript, Solid y React facilitará enormente el trabajo una vez iniciada la implementación ya que no será sobre territorio desconocido. | Media
-| Sopesar las decisiones tomadas | Es conveniente que todo lo que se decida con respecto a la arquitectura del proyecto sea en base a un razonamiento y no de forma aleatoria. Así evitaremos cambios de planes en el último momento que puedan llegar a afectar negativamente al proyecto. | Baja
+| Investigación sobre el entorno de trabajo | Una amplia búsqueda de información acerca de cómo trabajar con Typescript, Solid y React facilitará enormente el trabajo una vez iniciada la implementación ya que no será sobre territorio desconocido. | Alta
+| Sopesar las decisiones tomadas | Es conveniente que todo lo que se decida con respecto a la arquitectura del proyecto sea en base a un razonamiento y no de forma aleatoria. Así evitaremos cambios de planes en el último momento que puedan llegar a afectar negativamente al proyecto. | Media
+| Encriptado de contraseñas | Queda pendiente incrementar la seguridad de la aplicación almacenando las contraseñás encriptadas en base de datos. | Baja
+| Tallas y colores de productos | No hemos podido darle soporte a la gestión de tallas y colores de cara a los productos por falta de tiempo. No obstante, se mantendrá su visualización en la vista detalles a modo estético para que ésta no quede muy simplificada. | Baja
+| Rol de administrador | Para poder centrar nuestro tiempo en pulir otros campos como los tests y arreglo de bugs, queda pendiente implementar un rol de administrador desde el que gestionar Usuarios, Productos, etc. | Baja
 |===
