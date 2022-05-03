@@ -55,11 +55,11 @@ la dirección de envío.
 [options="header",cols="1,2,1,1"]
 |===
 |Meta de Calidad|Motivación|Prioridad del ED| Prioridad del Cliente
-|Privacidad |El objetivo es el tratamiento de la información privada de una manera descentralizada asegurando la privacidad del cliente|Alta|Alta
+|Seguridad |El objetivo es el tratamiento de la información privada de una manera descentralizada asegurando la privacidad y seguridad del cliente|Alta|Alta
 |Usabilidad|Todos los usuarios deben poder utilizarlo, tengan conocimientos previos sobre la aplicación o no|Alta|Alta
-|Eficiencia |Realizar una compra debe ser sencilla para un usuario, haciendo que los tiempos de respuesta y de carga sean mas reducidos|Alta|Alta
-|Testabilidad|Los componentes principales deben de poder ser testeados y arreglados con facilidad|Alta|Baja
-|Modificabilidad|La arquitectura debe ser fácil de modificar, agregando nuevas características o cambiando las existentes|Media|Media
+|Escalabilidad |Realizar una compra y cualquier otra operación realizable en la aplicación debe ser sencilla para un usuario, haciendo que los tiempos de respuesta y de carga sean mas reducidos|Alta|Alta
+|Accesibilidad|La aplicación debe ser accesible en todo momento sin importar el navegador que esté utilizando el usaurio|Media|Alta
+|Interoperabilidad|El equipo de desarrollo debe tener siempre presente el foro de la asignatura mediante el cual poder estar al corriente de cualquier problema que le pueda surgir al resto de grupos o preguntar ellos cualquier duda que tengan|Media|Media
 |===
 
 === Partes interesadas (Stakeholders)
