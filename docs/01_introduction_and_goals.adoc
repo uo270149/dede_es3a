@@ -62,7 +62,6 @@ la dirección de envío.
 |Modificabilidad|La arquitectura debe ser fácil de modificar, agregando nuevas características o cambiando las existentes|Media|Media
 |===
 
-
 === Partes interesadas (Stakeholders)
 .Stakeholders
 [options="header",cols="1,2"]
