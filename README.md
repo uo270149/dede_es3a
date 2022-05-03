@@ -6,12 +6,18 @@
 
 *****************************************************************
 <p align="center">
-  <img alt="logo" src="https://drive.google.com/file/d/1ZtpGhgcJwtiR1dVxW523Q9pljMtOByX1/view?usp=sharing" width="200">
+  <img alt="logo" src="./docs/images/logo.png" width="200">
 </p>
 
 <h1 align="center">
-    Dede_es3a
+    Tu tienda de zapatos de confianza
 </h1>
+
+¡Aquí os dejamos algunos accesos rápidos!
+* [Wiki] https://github.com/Arquisoft/dede_es3a/wiki
+* [Decisiones arquitectónicas] https://github.com/Arquisoft/dede_es3a/wiki/%F0%9F%91%B7Decisiones-arquitect%C3%B3nicas-%F0%9F%91%B7
+* [Issues] https://github.com/Arquisoft/dede_es3a/issues
+* [Despliegue] https://dede-es3a.herokuapp.com/
 
 *****************************************************************
 <p float="left">
