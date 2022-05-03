@@ -18,6 +18,9 @@
 * [Decisiones arquitectónicas👷](https://github.com/Arquisoft/dede_es3a/wiki/%F0%9F%91%B7Decisiones-arquitect%C3%B3nicas-%F0%9F%91%B7)
 * [Issues📒](https://github.com/Arquisoft/dede_es3a/issues)
 * [Despliegue🚀](https://dede-es3a.herokuapp.com/)
+* [Documentación📁](https://arquisoft.github.io/dede_es3a/)
+* [Presentación✒️](https://unioviedo-my.sharepoint.com/:p:/g/personal/uo277876_uniovi_es/EWsto0tN_7tMietDUvVY3RcB2h_CwInmnN3OMGiFu_h73A?e=rPfU4f)
+* [Demo🎬](https://www.youtube.com/watch?v=71hr--Bqfi8)
 
 *****************************************************************
 <p float="left">
@@ -27,12 +30,12 @@
 </p>
 
 Este proyecto es un ejemplo basico de un sitio web utilizando **React** con **Typescript** y un endpoint usando **NodeJS** con **express**
-## Miembros del equipo
+## Miembros del equipo 😁
 >* Andrea Auñón Antúnez - uo277876@uniovi.es
 >* Javier Lopez de Juan - uo271447@uniovi.es
 >* Alejandro Del Gallego Moro - uo271411@uniovi.es
 
-## Guia de inicio rápido
+## Guia de inicio rápido 📓
 
 <mark>Si tienes instalados node.js y npm, asegurate de actualizarlos antes de intentar construir las imagenes</mark>
 
@@ -65,7 +68,7 @@ npm start
 
 Deberias ser capaz de acceder a la aplicación en [http://localhost:3000](http://localhost:3000).
 
-## Mas información
+## Mas información ✏️
 Encontrarás más información sobre el repositorio en los otros archivos README:
 - Documentación: https://github.com/Arquisoft/dede_es3a/tree/master/docs
 - Webapp: https://github.com/Arquisoft/dede_es3a/tree/master/webapp
