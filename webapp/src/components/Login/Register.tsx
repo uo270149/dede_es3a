@@ -50,8 +50,8 @@ const Register = () => {
         if(add){
           const item = {"username":userName,"password":password};
           // Almacenamos el usuario en sesión
-          sessionStorage.setItem('user',JSON.stringify(item));
-          alert("Usuario añadido");
+          sessionStorage.setItem('user', item.username);
+          alert('Usuario registrado.');
           window.location.href = window.location.protocol + '//' + window.location.host + '/'
         }
         else{
@@ -65,7 +65,6 @@ const Register = () => {
     else{
       alert("Las contraseñas no coinciden");
     }    
-    window.location.reload();
   }
   return (
     <>

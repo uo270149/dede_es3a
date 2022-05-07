@@ -1,5 +1,4 @@
 import { ObjectId } from 'bson';
-import { Double } from 'mongodb';
 
 export type User = {
   username:string;
