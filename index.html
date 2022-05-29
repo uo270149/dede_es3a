@@ -1072,9 +1072,23 @@ el proceso del desarrollo.</p>
 el usuario debe introducir los datos en el formulario, esos datos serán verificados y si son correctos
 volverá a la pantalla de inicio con la sesión iniciada.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="./images/Login_diagrama.png" alt="Login diagrama" width="642" height="392">
+<pre>@startuml
+actor Usuario
+entity DeDe
+entity inrupt.net
+Usuario-&gt; DeDe: Petición de autenticación
+DeDe-&gt; inrupt.net: Comprobación de credenciales
+alt usuario existe
+
+    inrupt.net -&gt; DeDe:Devuelve al usuario
+    DeDe-&gt;Usuario:Redirección a página principal con usuario identificado
+
+else usuario no existe
+    inrupt.net -&gt; DeDe: Mensaje de error
+end
+@enduml</pre>
 </div>
 </div>
 </div>
@@ -1084,9 +1098,19 @@ volverá a la pantalla de inicio con la sesión iniciada.</p>
 <p>El primer escenario muestra el proceso de compra de un producto. Para ello,
 el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente para que se añada al carrito de la compra.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="./images/Compra_diagrama.png" alt="Compra diagrama" width="508" height="374">
+<pre>@startuml
+actor Usuario
+entity DeDe
+database MONGODB
+Usuario-&gt; DeDe: Añadir productos al carrito
+DeDe-&gt; Usuario: Pedir datos necesarios para compra
+Usuario-&gt; DeDe:Introducción datos necesarios
+DeDe-&gt; MONGODB: Comprobación datos
+MONGODB-&gt; DeDe:  Devuelve información necesaria
+DeDe-&gt; Usuario: Notificación de la compra
+@endtuml</pre>
 </div>
 </div>
 </div>
@@ -1105,9 +1129,31 @@ el usuario debe conectarse con su cuenta y seleccionar la talla correspondiente 
 <p>El último diagrama se corresponde con el proceso de envío al usuario del pedido desde la aplicación. Para ello, debe realizar el pedido
 una vez finalizado el proceso de compra.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="./images/Envio_diagrama.png" alt="Envio diagrama" width="340" height="287">
+<pre>@startuml
+
+participant Shoes
+activate Shoes
+Shoes -&gt; BBDD: addOrder()
+activate BBDD
+BBDD --&gt; Shoes: order created
+deactivate BBDD
+
+Shoes -&gt; Deliver: order()
+activate Deliver
+
+Deliver -&gt; User: notify()
+activate User
+
+Deliver --&gt; User: items sent
+deactivate User
+
+Deliver --&gt; Shoes: items sent
+deactivate Deliver
+deactivate Shoes
+
+@enduml</pre>
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1313,9 +1359,40 @@ audiovisual. De esta forma, sabremos que siempre tendremos disponibles estas im�
 <div class="paragraph">
 <p>En esta sección se muestra un diagrama de árbol de calidad para el sistema desarrollado. A medida que el proyecto vaya avanzando, se irá ampliando este diagrama hasta alcanzar las hojas, que serán los escenarios de calidad que describiremos en el siguiente apartado. Además, se incluirán enlaces en el árbol a los escenarios de la siguiente sección.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="./images/Calidad_diagrama.png" alt="Calidad diagrama" width="716" height="369">
+<pre>@startuml
+left to right direction
+
+rectangle Calidad
+
+rectangle "Escalabilidad" as E
+rectangle "Interoperabilidad" as I
+rectangle "Seguridad" as S
+rectangle "Usabilidad" as U
+rectangle "Accesibilidad" as A
+
+rectangle "Despliegue en Heroku" as DH
+rectangle "Compatibilidad entre navegadores" as CN
+rectangle "Foro de la asignatura" as FR
+rectangle "Login" as LG
+rectangle "Privacidad de POD" as PD
+rectangle "Operaciones sencillas aisladas" as OP
+
+
+Calidad --&gt; A
+Calidad --&gt; E
+Calidad --&gt; I
+Calidad --&gt; S
+Calidad --&gt; U
+
+A --&gt; DH
+S --&gt; LG
+S --&gt; POD
+I --&gt; FR
+E --&gt; OP
+
+@enduml</pre>
 </div>
 </div>
 </div>
@@ -1551,7 +1628,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-03 22:37:41 +0200
+Last updated 2022-05-25 20:06:49 +0200
 </div>
 </div>
 </body>
